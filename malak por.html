@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malak Emad | Personal Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/ce04bd97e3.js" crossorigin="anonymous"></script>
+  <style>
+    /* Global Styles */
+    :root {
+      --white: #ffffff;
+      --pastel-purple: #d8b4fe;
+      --pastel-blue: #a5b4fc;
+      --pastel-yellow: #fef08a;
+      --dark-purple: #7e22ce;
+      --text-color: #333333;
+      --light-gray: #f5f5f5;
+      --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--white);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Navigation Bar */
+    #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    #navbar ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem 0;
+    }
+    
+    #navbar ul li {
+      margin: 0 1.5rem;
+      position: relative;
+    }
+    
+    #navbar ul li a {
+      padding: 0.5rem 0;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    #navbar ul li a:hover {
+      color: var(--dark-purple);
+    }
+    
+    #navbar ul li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--pastel-purple);
+      transition: width 0.3s ease;
+    }
+    
+    #navbar ul li:hover::after {
+      width: 100%;
+    }
+    
+    /* Sections */
+    section {
+      padding: 6rem 2rem;
+      min-height: 100vh;
+      scroll-margin-top: 60px;
+    }
+    
+    section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: var(--dark-purple);
+      position: relative;
+    }
+    
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, var(--pastel-purple), var(--pastel-blue));
+      border-radius: 2px;
+    }
+    
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Hero Section */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      text-align: center;
+    }
+    
+   
+    
+    #hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+    
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* About Me */
+    #about {
+      background-color: var(--white);
+    }
+    
+    #about .section-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    
+    #about p {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    #about strong {
+      color: var(--dark-purple);
+      font-weight: 600;
+    }
+    
+    #about img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid var(--pastel-yellow);
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+    }
+    
+    #about img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Experience & Projects */
+    #experience, #projects {
+      background-color: var(--light-gray);
+    }
+    
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .card h3 {
+      color: var(--dark-purple);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .card h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--pastel-blue);
+    }
+    
+    .card p {
+      margin-top: 1rem;
+      color: var(--text-color);
+    }
+    
+    .card-date {
+      display: inline-block;
+      background: var(--pastel-yellow);
+      color: var(--text-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    
+    /* Skills & Hobbies */
+    #skills, #hobbies {
+      background-color: var(--white);
+    }
+    
+    #skills ul, #hobbies ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      list-style: none;
+    }
+    
+    #skills li, #hobbies li {
+      background-color: var(--light-gray);
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    #skills li:hover, #hobbies li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    #skills i, #hobbies i {
+      color: var(--dark-purple);
+    }
+    
+    /* Contact */
+    #contact {
+      background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
+      color: var(--white);
+      text-align: center;
+    }
+    
+    #contact h2 {
+      color: var(--white);
+    }
+    
+    #contact h2::after {
+      background: var(--white);
+    }
+    
+    #contact ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-top: 2rem;
+    }
+    
+    #contact li {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    #contact li:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+    
+    #contact i {
+      margin-right: 0.5rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      #navbar ul {
+        flex-wrap: wrap;
+        padding: 0.5rem 0;
+      }
+      
+      #navbar ul li {
+        margin: 0.5rem 1rem;
+      }
+      
+      #about .section-container {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      
+      #about img {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 1.5rem;
+      }
+      
+      section {
+        padding: 4rem 1rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+      
+      #contact ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+    
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--pastel-purple), var(--pastel-blue));
+      z-index: 1001;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator"></div>
+
+  <!-- Navigation Bar -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <img src="D:\My portfolio\My Portfolio image svg.svg" alt="Malak Emad Hero Image">
+    
+  </section>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="section-container fade-in">
+      <p>
+        STEM enthusiast, social media strategist, and community leader with experience in content creation,
+        marketing, and project management. Skilled in event organization, team leadership, and audience
+        engagement. Passionate about education, sustainability, and innovation, with a track record of driving
+        impactful initiatives.
+      </p>
+    <div class="section-container fade-in"></div>
+      <img src="D:\Dear Future Luminary\photo_2025-02-10_19-17-06.jpg" alt="Malak Emad Photo">
+    </div>
+  </section>
+
+  <!-- Experience -->
+<section id="experience">
+    <h2>Experience</h2>
+    <div class="section-container">
+      <div class="cards-container fade-in">
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">Dec 2022 – Current</span>
+            <h3>Researcher — The New York Academy of Sciences & FGS</h3>
+            <p>Conducted scientific research addressing real-world challenges through the Junior Academy. Developed critical thinking, problem-solving, and presentation skills through mentorship and teamwork.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">May 2023 – Sep 2023</span>
+            <h3>Head of Social Media — Resala STEM & MAS MUN</h3>
+            <p>Led social media strategies, conducted training sessions, and managed digital content to increase engagement and maintain consistent branding for STEM and MUN communities.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">Jan 2024 – Current</span>
+            <h3>Personal Teaching Assistant — Mr. Mahmoud ElKholy (Mathematics Educator)</h3>
+            <p>Prepared educational content, moderated discussions, and managed social media accounts to enhance engagement, outreach, and the overall learning experience.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">Jul 2024</span>
+            <h3>Entrepreneur Trainee — BUILD in a Box by ALA</h3>
+            <p>Participated in design thinking workshops, developed community solutions, and enhanced entrepreneurial and leadership skills through collaborative sessions.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">Jan 2023 – Jun 2024</span>
+            <h3>Programming Intern — Kode with Klossy & Girls Who Code</h3>
+            <p>Developed web applications and level designs using HTML, CSS, and JavaScript. Collaborated on improving user experiences and contributed to inclusive, empowering tech projects.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">May 2023 – Jul 2023</span>
+            <h3>Event Organizer — TEDxEtTagammo</h3>
+            <p>Coordinated logistics, managed speaker relations, promoted events, and contributed to creating impactful TEDx experiences within the community.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">Apr 2024 – May 2024</span>
+            <h3>Political Delegator — Soliya Global Circles</h3>
+            <p>Engaged in intercultural political debates, promoting cultural dialogue while building skills in negotiation, communication, and critical thinking.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">May 2023 – Sep 2023</span>
+            <h3>Scholar — AFS Intercultural Programs</h3>
+            <p>Immersed in cross-cultural learning, foreign languages, and global discussions to enhance global citizenship and intercultural understanding.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">August 2024 - September 2024</span>
+            <h3>Facilitator — Entrepreneurship Summer Camp</h3>
+            <p>Guided a team in developing business solutions addressing African challenges. Delegated tasks, organized research, and helped secure first place in the competition.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">February 2025 - Current</span>
+            <h3>Founder — Dear Future Luminary</h3>
+            <p>Founded an initiative to guide high school students toward scholarships, personal growth, and leadership by offering curated opportunities, mentorship, and self-development resources.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">June 2023 - August 2023</span>
+            <h3>Front-End Developer — Star Girls Africa</h3>
+            <p>Developed an online book review platform to promote literacy and community engagement among young girls by creating interactive, user-friendly web pages.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">February 2024 - Current</span>
+            <h3>Social Media Manager — Mr. Mahmoud ElKholy Learning Center</h3>
+            <p>Designed and implemented social media strategies to increase the center’s online visibility, enrollment, and student-parent engagement.</p>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date"> April 2024 - Current</span>
+            <h3>Assistant for Mathematics Teacher — Freelance</h3>
+            <p>Created social media content, interactive quizzes, and managed Facebook pages to enhance a Mathematics tutor’s online presence and student interaction.</p>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="section-container">
+      <div class="cards-container fade-in">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">2023</span>
+            <h3>Optimizing Crop Growth: Temperature-Based Control</h3>
+            <p>Designed a sensor-based automated irrigation system to optimize crop growth and conserve water. This project received a Certificate of Excellence from AFS for its innovation and environmental impact.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">2022</span>
+            <h3>Front-End Developer — Star Girls Africa</h3>
+            <p>Developed an online book review website during the Star Girls Africa summer program, showcasing beginner front-end development skills using HTML, CSS, and JavaScript.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">2022</span>
+            <h3>Climate Change Research Paper — Star Girls Africa</h3>
+            <p>Conducted in-depth research on climate change causes, impacts, and solutions, contributing to global awareness efforts within the program community.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">2021 - Present</span>
+            <h3>Personal Brand — 'Luminary Codes'</h3>
+            <p>Founded 'Luminary Codes,' a Telegram channel and upcoming website offering curated opportunities, scholarship guidance, and growth resources for high school students in Egypt and Africa.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-content">
+            <span class="card-date">Ongoing</span>
+            <h3>'Dear Future Luminary' Portfolio Website</h3>
+            <p>Currently developing a comprehensive personal and professional portfolio website coded entirely by myself using HTML, CSS, and JavaScript, aimed at supporting my scholarship applications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="fade-in">
+      <li><i class="fas fa-users"></i> Leadership</li>
+      <li><i class="fas fa-people-arrows"></i> Teamwork</li>
+      <li><i class="fas fa-random"></i> Adaptability</li>
+      <li><i class="fas fa-lightbulb"></i> Problem-Solving</li>
+      <li><i class="fas fa-clock"></i> Time Management</li>
+      <li><i class="fas fa-tasks"></i> Project Management</li>
+      <li><i class="fas fa-chalkboard-teacher"></i> Coaching & Mentoring</li>
+      <li><i class="fas fa-comments"></i> Effective Communication</li>
+    </ul>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <ul class="fade-in">
+      <li><i class="fas fa-flask"></i> Chemistry</li>
+      <li><i class="fas fa-chalkboard-teacher"></i> Tutoring & Mentoring</li>
+      <li><i class="fas fa-star"></i> Astronomy & Stargazing</li>
+      <li><i class="fas fa-music"></i> Listening to Music</li>
+      <li><i class="fas fa-spa"></i> Yoga & Mindfulness</li>
+      <li><i class="fas fa-tshirt"></i> Fashion Styling</li>
+      <li><i class="fas fa-car"></i> Cars & Automotive Culture</li>
+      <li><i class="fas fa-heart"></i> Hip-Hop & Latin Dancing</li>
+      <li><i class="fas fa-globe-americas"></i> Exploring Cultures</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>You can reach me through:</p>
+    <ul class="fade-in">
+      <li><i class="fas fa-envelope"></i> <a href="mailto:malakemad7777777@gmail.com">malakemad@gmail.com</a></li>
+      <li><i class="fab fa-instagram"></i> <a href="https://instagram.com/loka_luminary" target="_blank">@loka_luminary</a></li>
+      <li><i class="fab fa-telegram"></i> <a href="https://t.me/loka_luminaryy" target="_blank">@loka_luminaryy</a></li>
+    </ul>
+  </section>
+
+  <script>
+    // Scroll Indicator
+    window.addEventListener('scroll', function() {
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPosition = window.scrollY;
+      const scrollPercentage = (scrollPosition / scrollHeight) * 100;
+      scrollIndicator.style.width = scrollPercentage + '%';
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Navbar background change on scroll
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+    });
+
+    // Intersection Observer for fade-in animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(element => {
+      element.style.opacity = 0;
+      element.style.transform = 'translateY(20px)';
+      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(element);
+    });
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.getElementById('navbar');
+      const menuToggle = document.createElement('div');
+      menuToggle.className = 'menu-toggle';
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      menuToggle.style.display = 'none';
+      document.body.appendChild(menuToggle);
+      
+      // Toggle menu on click
+      menuToggle.addEventListener('click', function() {
+        navbar.classList.toggle('active');
+      });
+      
+      // Check screen size and toggle menu button visibility
+      function checkScreenSize() {
+        if (window.innerWidth <= 768) {
+          menuToggle.style.display = 'block';
+          navbar.classList.remove('active');
+        } else {
+          menuToggle.style.display = 'none';
+          navbar.classList.add('active');
+        }
+      }
+      
+      // Initial check
+      checkScreenSize();
+      
+      // Check on resize
+      window.addEventListener('resize', checkScreenSize);
+    });
+
+
+    // Initial check
+    checkScreenSize();
+    
+    // Check on resize
+    window.addEventListener('resize', checkScreenSize);
+  </script>
+</body>
+</html>
