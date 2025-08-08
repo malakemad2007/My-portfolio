@@ -2,707 +2,2967 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Malak Emad | Portfolio</title>
+  <title>Malak Emad | Personal Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="STEM Specialist & Community Leader | Portfolio of Malak Emad">
+  <meta name="description" content="Malak Emad's portfolio showcasing engineering projects, STEM achievements, and leadership experiences.">
+  <meta name="keywords" content="Malak Emad, engineering portfolio, STEM, scholarships, web development">
+  <meta name="author" content="Malak Emad">
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/ce04bd97e3.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --white: #ffffff;
-      --pastel-purple: #d8b4fe;
-      --pastel-blue: #a5b4fc;
-      --pastel-yellow: #fef08a;
-      --dark-purple: #7e22ce;
-      --text-color: #333333;
-      --light-gray: #f5f5f5;
-      --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      --transition-default: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
+/* ========== CSS Variables ========== */
+/* ========== CSS Variables ========== */
+:root {
+  --primary-color: #5b21b6; /* Deep purple for professionalism */
+  --primary-light: #7c3aed; /* Lighter purple for highlights */
+  --secondary-color: #ddd6fe; /* Soft purple for backgrounds */
+  --accent-color: #eab308; /* Golden yellow for accents */
+  --accent-light: #fef08a; /* Lighter golden yellow for hover */
+  --accent-light-gold: #f9e6a2; /* Light golden yellow for achievements and popup */
+  --accent-lightest-gold: #fff7cc; /* Lightest gold for hover */
+  --sky-blue: #7dd3fc; /* Bright blue for decorations */
+  --pastel-blue: #e0f2fe; /* Light blue for subtle backgrounds */
+  --background-light: #f8fafc; /* Clean white background */
+  --background-dark: #1e293b; /* Dark for footer */
+  --text-light: #ffffff;
+  --text-dark: #1e293b;
+  --text-secondary: #475569;
 
-    body {
-      background-color: var(--white);
-      color: var(--text-color);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --leading-tight: 1.3;
+  --leading-relaxed: 1.6; /* Slightly tighter for better readability */
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: var(--transition-default);
-    }
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 12px rgba(123, 97, 255, 0.3);
 
-    /* Navigation */
-    #navbar {
+  --radius-sm: 8px; /* Slightly larger for smoother corners */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease-out; /* Smoother animation */
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem; /* Reduced for tighter sections */
+}
+
+/* ========== Base Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  line-height: var(--leading-relaxed);
+  overflow-x: hidden;
+  padding-top: 80px;
+  font-size: var(--text-base);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+.container {
+  width: min(1280px, 90%); /* Slightly tighter container */
+  margin-inline: auto;
+}
+
+section {
+  padding: var(--space-2xl) 0;
+  scroll-margin-top: 80px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  color: var(--primary-color);
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 80px; /* Slightly wider for emphasis */
+  height: 4px;
+  background: var(--accent-color);
+  margin: var(--space-sm) auto 0;
+  border-radius: 2px;
+  transition: width var(--transition-normal);
+}
+
+h2:hover::after {
+  width: 100px; /* Subtle animation on hover */
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 700px; /* Slightly smaller for focus */
+  margin: 0 auto var(--space-lg);
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.8rem 1.8rem; /* Slightly larger padding */
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase; /* Adds professionalism */
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: var(--shadow-md);
+}
+
+.btn-accent {
+  background: var(--accent-color);
+  color: var(--text-dark);
+}
+
+.btn-accent:hover {
+  background: var(--accent-light);
+  transform: translateY(-3px);
+}
+
+/* ========== Navigation ========== */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95); /* Slightly more transparent */
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.8rem; /* Slightly larger for prominence */
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-md); /* More spacing for clarity */
+  margin: 0;
+}
+
+#navbar ul li a {
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  color: var(--text-dark);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+#navbar ul li a:hover,
+#navbar ul li a.active {
+  color: var(--primary-light);
+  background: var(--secondary-color);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.05); /* Subtle scale effect */
+}
+
+#navbar ul li a i {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  transition: color var(--transition-fast);
+}
+
+#navbar ul li a:hover i {
+  color: var(--primary-light);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: transform var(--transition-fast);
+}
+
+.menu-toggle:hover {
+  transform: rotate(90deg); /* Fun interaction */
+}
+
+/* ========== Hero Section ========== */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--pastel-blue) 100%); /* Smoother gradient */
+  padding-top: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px; /* Slightly wider for balance */
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+  font-weight: 800;
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+}
+
+.hero-highlight {
+  color: var(--primary-light);
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 65%, var(--accent-light) 65%);
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.hero-image {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  z-index: 1;
+  transition: transform var(--transition-slow);
+}
+
+.hero-image:hover {
+  transform: translateY(-50%) scale(1.02); /* Subtle zoom */
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-decoration {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  opacity: 0.15;
+  top: -100px;
+  right: -100px;
+  z-index: 0;
+}
+
+/* ========== About Section ========== */
+#about {
+  background: var(--pastel-blue);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  background: var(--background-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--primary-light);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.about-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.about-image:hover img {
+  transform: scale(1.08); /* Slightly reduced for subtlety */
+}
+
+.about-content {
+  padding: var(--space-md);
+  background: var(--pastel-blue);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.about-content h3 {
+  font-size: 1.9rem;
+  margin-bottom: var(--space-sm);
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: var(--space-xs);
+}
+
+.about-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-light);
+}
+
+.about-text p {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-sm);
+  color: var(--text-dark);
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.contact-info-item:hover {
+  background: var(--secondary-color);
+  transform: translateX(5px); /* Subtle slide effect */
+}
+
+.contact-info-item i {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.about-decoration {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  opacity: 0.12;
+  bottom: -120px;
+  left: -120px;
+  z-index: 1;
+}
+
+/* ========== Experience Section ========== */
+#experience {
+  background: linear-gradient(to bottom, var(--background-light) 0%, var(--secondary-color) 100%);
+}
+
+.experience-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.tab-btn {
+  padding: 0.7rem 1.5rem;
+  background: var(--background-light);
+  color: var(--text-dark);
+  border: 1px solid var(--primary-light);
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+  background: var(--primary-light);
+  color: var(--text-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly wider cards */
+  gap: var(--space-md);
+}
+
+.experience-item {
+  background: var(--background-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.experience-item:hover {
+  transform: translateY(-6px); /* More pronounced lift */
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Slightly thicker */
+  background: var(--primary-color);
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+}
+
+.experience-item:hover::before {
+  transform: translateX(0);
+}
+
+.experience-category {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--text-light);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.5px;
+}
+
+.experience-title {
+  font-size: var(--text-lg);
+  color: var(--primary-color);
+  margin-bottom: var(--space-xs);
+}
+
+.experience-date {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.experience-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--primary-color);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: auto;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.experience-learn-more:hover {
+  color: var(--primary-light);
+  transform: translateX(5px); /* Subtle slide */
+}
+
+.load-more-container {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.load-more-btn {
+  padding: 0.8rem 2.2rem;
+  font-size: var(--text-sm);
+  background: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* ========== Projects Section ========== */
+#projects {
+  background: linear-gradient(to bottom, var(--secondary-color) 0%, var(--background-light) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Larger cards */
+  gap: var(--space-md);
+}
+
+.project-card {
+  background: var(--background-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: 1px solid var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+  background: var(--secondary-color);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary-color);
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+}
+
+.project-card:hover::before {
+  transform: translateX(0);
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.project-title {
+  font-size: var(--text-xl);
+  color: var(--primary-color);
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.project-title i {
+  font-size: 1.2rem;
+  color: var(--primary-light);
+}
+
+.project-date {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.project-description {
+  font-size: var(--text-sm);
+  color: var(--text-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.project-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--primary-color);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-learn-more:hover {
+  color: var(--primary-light);
+  transform: translateX(5px);
+}
+
+.project-decoration {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
+  opacity: 0.1;
+  top: 50px;
+  right: -100px;
+  z-index: 0;
+}
+
+/* ========== Achievements Section ========== */
+#achievements {
+  background: linear-gradient(to bottom, var(--background-light) 0%, var(--secondary-color) 100%);
+  position: relative;
+}
+
+.achievements-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-md);
+}
+
+.achievement-item {
+  background: var(--background-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--secondary-color);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.achievement-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.achievement-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary-color);
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+}
+
+.achievement-item:hover::before {
+  transform: translateX(0);
+}
+
+.achievement-icon {
+  font-size: 2rem; /* Slightly larger for impact */
+  color: var(--accent-light-gold);
+  margin-bottom: var(--space-sm);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.achievement-icon:hover {
+  color: var(--accent-lightest-gold);
+  transform: scale(1.1); /* Subtle zoom */
+}
+
+.achievement-title {
+  font-size: var(--text-lg);
+  color: var(--primary-color);
+  margin-bottom: var(--space-xs);
+}
+
+.achievement-date {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.achievement-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--primary-color);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: var(--space-xs);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.achievement-learn-more:hover {
+  color: var(--primary-light);
+  transform: translateX(5px);
+}
+
+/* ========== More About Me ========== */
+.more-about-me-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger cards */
+  gap: var(--space-md);
+}
+
+.more-about-me-card {
+  background: var(--background-light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: var(--text-lg);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  border: 1px solid var(--primary-light);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.more-about-me-card:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+.more-about-me-card i {
+  color: var(--primary-color);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-sm);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.more-about-me-card:hover i {
+  color: var(--primary-light);
+  transform: rotate(10deg); /* Playful rotation */
+}
+
+/* ========== Contact ========== */
+.contact-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  max-width: 600px;
+  margin: var(--space-lg) auto;
+  overflow-x: auto;
+  padding: var(--space-xs);
+}
+
+.contact-item {
+  background: var(--secondary-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  flex: 0 0 auto;
+}
+
+.contact-item:hover {
+  background: var(--primary-light);
+  transform: scale(1.15);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-item i {
+  font-size: var(--text-base);
+  color: var(--text-dark);
+}
+
+.contact-form {
+  max-width: 600px; /* Slightly wider form */
+  margin: var(--space-lg) auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: var(--space-md);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  resize: none;
+  transition: all var(--transition-fast);
+  background: var(--background-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(123, 97, 255, 0.3); /* Stronger glow */
+  outline: none;
+}
+
+.contact-form .btn {
+  align-self: center;
+  padding: 0.8rem 2.5rem;
+}
+
+.contact-cta {
+  text-align: center;
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-lg);
+  color: var(--text-dark);
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+    /* ========== Enhanced Popup Styling ========== */
+    .global-popup-overlay {
       position: fixed;
       top: 0;
-      width: 100%;
-      background-color: var(--white);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      transition: var(--transition-default);
-    }
-
-    #navbar ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 1.2rem 0;
-      margin: 0;
-    }
-
-    #navbar ul li {
-      margin: 0 1.5rem;
-      position: relative;
-    }
-
-    #navbar ul li a {
-      padding: 0.5rem 0;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    #navbar ul li a:hover {
-      color: var(--dark-purple);
-    }
-
-    #navbar ul li::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
       left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--pastel-purple);
-      transition: var(--transition-default);
-    }
-
-    #navbar ul li:hover::after {
-      width: 100%;
-    }
-
-    /* Sections */
-    section {
-      padding: 5rem 1.5rem;
-      scroll-margin-top: 60px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      font-size: 2.4rem;
-      color: var(--dark-purple);
-      position: relative;
-      font-weight: 600;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(to right, var(--pastel-purple), var(--pastel-blue));
-      border-radius: 2px;
-    }
-
-    .section-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Hero Section */
-    #hero {
-      position: relative;
+      width: 100vw;
       height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(3px);
+      z-index: 3000;
       display: flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-normal);
     }
 
-    #hero img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
+    .global-popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .hero-content {
+    .global-popup-content {
+      background: var(--background-light);
+      color: var(--text-dark);
+      padding: 0;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--primary-light);
+      max-width: 90%;
+      width: 650px;
+      max-height: 85vh;
+      overflow-y: auto;
       position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 1.5rem;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-md);
     }
 
-    .hero-content h1 {
-      font-size: 3.2rem;
-      margin-bottom: 1.2rem;
-      color: var(--white);
-      line-height: 1.2;
+    .global-popup-overlay.active .global-popup-content {
+      transform: translateY(0);
+      opacity: 1;
     }
 
-    .hero-content p {
-      font-size: 1.4rem;
-      margin-bottom: 2rem;
-      color: var(--white);
-      opacity: 0.95;
+    .global-popup-content::-webkit-scrollbar {
+      width: 8px;
     }
 
-    /* About Section */
-    #about .section-container {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 3rem;
-      align-items: center;
+    .global-popup-content::-webkit-scrollbar-track {
+      background: var(--pastel-blue);
+      border-radius: var(--radius-sm);
     }
 
-    #about p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
+    .global-popup-content::-webkit-scrollbar-thumb {
+      background: var(--accent-color);
+      border-radius: var(--radius-sm);
     }
 
-    #about img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
+    .global-popup-content::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-color);
+    }
+
+    .global-popup-header {
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-color) 100%);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      position: relative;
+    }
+
+    .global-popup-content h3 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: var(--text-light);
+      text-align: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .global-popup-close {
+      position: absolute;
+      top: var(--space-sm);
+      right: var(--space-sm);
+      cursor: pointer;
+      font-size: var(--text-sm);
+      color: var(--text-light);
+      background: rgba(0, 0, 0, 0.2);
       border-radius: 50%;
-      border: 5px solid var(--pastel-yellow);
-      box-shadow: var(--card-shadow);
-      transition: var(--transition-default);
-    }
-
-    /* Cards Layout */
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: var(--transition-default);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    }
-
-    .card-content {
-      padding: 1.5rem;
-    }
-
-    .card-date {
-      background: var(--pastel-yellow);
-      color: var(--text-color);
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      display: inline-block;
-      font-weight: 500;
-    }
-
-    .card h3 {
-      color: var(--dark-purple);
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .card p {
-      color: var(--text-color);
-      line-height: 1.7;
-    }
-
-    /* Skills & Hobbies */
-    .grid-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      list-style: none;
-      padding: 1rem;
-    }
-
-    .grid-list li {
-      background-color: var(--white);
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      transition: var(--transition-default);
-      box-shadow: var(--card-shadow);
-      font-weight: 500;
+      justify-content: center;
+      transition: all var(--transition-normal);
     }
 
-    .grid-list li:hover {
-      transform: translateY(-3px);
+    .global-popup-close:hover {
+      background: var(--accent-color);
+      color: var(--text-dark);
     }
 
-    .grid-list i {
-      color: var(--dark-purple);
+    .global-popup-body {
+      padding: var(--space-lg);
+    }
+
+    .global-popup-content p {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      line-height: var(--leading-relaxed);
+    }
+
+    .global-popup-content p i {
+      color: var(--primary-color);
       font-size: 1.2rem;
     }
 
-    /* Contact Section */
-    #contact {
-      background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-purple));
-      text-align: center;
-      padding: 4rem 1.5rem;
-    }
-
-    #contact .section-title {
-      color: var(--white);
-      margin-bottom: 2rem;
-    }
-
-    .contact-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      max-width: 800px;
-      margin: 0 auto;
+    .global-popup-content ul {
       list-style: none;
       padding: 0;
+      margin-bottom: var(--space-md);
     }
 
-    .contact-list li {
-      background-color: rgba(255, 255, 255, 0.15);
-      padding: 1rem;
-      border-radius: 10px;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: var(--transition-default);
-    }
-
-    .contact-list li:hover {
-      background-color: rgba(255, 255, 255, 0.25);
-    }
-
-    .contact-list a {
+    .global-popup-content ul li {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-sm);
+      position: relative;
+      padding-left: 1.8rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: var(--white);
+      gap: var(--space-xs);
     }
 
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      #about .section-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-      }
-
-      #about img {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 768px) {
-      section {
-        padding: 4rem 1rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-
-      #navbar ul {
-        flex-direction: column;
-        padding: 1rem 0;
-        display: none;
-      }
-
-      #navbar.active ul {
-        display: flex;
-      }
-
-      #navbar ul li {
-        margin: 0.5rem 0;
-        text-align: center;
-      }
-
-      .cards-container {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-    }
-
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Scroll Indicator */
-    .scroll-indicator {
-      position: fixed;
-      top: 0;
+    .global-popup-content ul li::before {
+      content: '\f058';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
       left: 0;
-      height: 4px;
-      background: linear-gradient(to right, var(--pastel-purple), var(--pastel-blue));
-      z-index: 1001;
-      transition: width 0.3s ease;
+      color: var(--accent-color);
+      font-size: 1.2rem;
     }
+
+    .global-popup-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-top: var(--space-md);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--secondary-color);
+    }
+
+    .global-popup-tag {
+      background: var(--pastel-blue);
+      color: var(--text-dark);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      transition: all var(--transition-normal);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .global-popup-tag:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .global-popup-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+      padding: var(--space-sm);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-normal);
+    }
+
+    .global-popup-item:hover {
+      background: var(--pastel-blue);
+    }
+
+    .global-popup-item i {
+      color: var(--primary-color);
+      font-size: var(--text-lg);
+      margin-top: var(--space-xs);
+    }
+
+    .global-popup-item-content strong {
+      font-size: var(--text-base);
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .global-popup-item-content p {
+      font-size: var(--text-sm);
+    }
+
+    .star-rating {
+      display: flex;
+      gap: var(--space-xs);
+      margin: var(--space-xs) 0;
+    }
+
+    .star-rating i {
+      font-size: var(--text-sm);
+      color: var(--secondary-color);
+    }
+
+    .star-rating .filled {
+      color: var(--accent-color);
+    }
+
+/* ========== Footer ========== */
+.footer {
+  background: var(--background-dark);
+  color: var(--text-light);
+  padding: var(--space-2xl) 0;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.footer-text {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.footer-link {
+  font-size: var(--text-sm);
+  color: var(--text-light);
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--primary-light);
+}
+
+.copyright {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 1024px) {
+  .hero-content {
+    max-width: 600px;
+  }
+
+  .hero-image {
+    width: 45%;
+    right: 2%;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .experience-grid,
+  .projects-grid,
+  .achievements-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  #navbar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--background-light);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  #navbar.active ul {
+    display: flex;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .hero-image {
+    display: none; /* Hide image on smaller screens */
+  }
+
+  .about-container {
+    padding: var(--space-md);
+  }
+
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+
+  .global-popup-content {
+    width: 95%;
+    max-height: 82vh;
+  }
+
+  .global-popup-body {
+    padding: var(--space-md);
+  }
+
+  .global-popup-content h3 {
+    font-size: var(--text-lg);
+  }
+
+  .global-popup-content p,
+  .global-popup-content ul li,
+  .global-popup-item-content strong {
+    font-size: var(--text-sm);
+  }
+
+  .global-popup-item-content p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .experience-grid,
+  .projects-grid,
+  .achievements-container {
+    grid-template-columns: 1fr;
+  }
+
+  .more-about-me-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .global-popup-content {
+    width: 98%;
+    max-height: 85vh;
+  }
+
+  .global-popup-header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .global-popup-close {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .global-popup-content h3 {
+    font-size: var(--text-base);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+    
   </style>
 </head>
 <body>
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator"></div>
-
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav id="navbar">
+    <div class="navbar-brand">Malak Emad</div>
+    <div class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></div>
     <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#hobbies">Hobbies</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#hero" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
+      <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+      <li><a href="#achievements" class="nav-link"><i class="fas fa-trophy"></i> Achievements</a></li>
+      <li><a href="#more-about-me" class="nav-link"><i class="fas fa-info-circle"></i> More</a></li>
+      <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
-  <section id="hero">
-    <img src="My Portfolio image svg.svg" alt="Background">
-    
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Malak Emad</h1>
+        <p class="hero-subtitle">STEM Innovator | Social Impact Leader | <span class="hero-highlight">Global Change Maker</span></p>
+        <p>A dedicated STEM enthusiast, social media strategist, and community leader with expertise in content creation, project management, and team leadership.</p>
+        <div class="hero-cta">
+          <a href="#experience" class="btn">View Experiences</a>
+          <a href="#contact" class="btn btn-accent">Contact Me</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="C:\Users\DELL_MCC\Downloads\Untitled design (1).svg" alt="Malak Emad">
+    </div>
+    <div class="hero-decoration"></div>
   </section>
 
   <!-- About Section -->
   <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="section-container">
-      <div class="fade-in">
-        <p>STEM enthusiast, social media strategist, and community leader with experience in content creation, marketing, and project management. Skilled in event organization, team leadership, and audience engagement. Passionate about education, sustainability, and innovation, with a track record of driving impactful initiatives.</p>
+    <div class="container">
+      <h2>About Me</h2>
+      <p class="section-subtitle">Get to know my background, skills, and what drives me to make a difference</p>
+      
+      <div class="about-container">
+        <div class="about-image">
+          <img src="D:\Others\Formal-pic.jpeg" alt="Malak Emad">
+        </div>
+        
+        <div class="about-content">
+          <h3>Hello, I'm Malak</h3>
+          <div class="about-text">
+            <p>A dedicated STEM enthusiast, social media strategist, and community leader with expertise in content creation, project management, and team leadership.</p>
+            <p>Proficient in driving impactful initiatives focused on education, sustainability, and technological innovation.</p>
+          </div>
+          
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <i class="fas fa-envelope"></i>
+              <span>malakemad7777777@gmail.com</span>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-phone"></i>
+              <span>+20 109 087 9843</span>
+            </div>
+            <div class="contact-info-item">
+              <i class="fab fa-linkedin"></i>
+              <span>linkedin.com/in/malak-savvy-t</span>
+            </div>
+            <div class="contact-info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Cairo, Egypt</span>
+            </div>
+          </div>
+          
+          <p class="tagline">"Empowering the next generation of innovators and leaders"</p>
+        </div>
       </div>
-      <img src="photo_2025-02-10_19-17-06.jpg" alt="Malak Emad" class="fade-in">
     </div>
+    <div class="about-decoration"></div>
   </section>
 
   <!-- Experience Section -->
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="section-container">
-      <div class="cards-container">
-        <!-- Experience Cards -->
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Feb 2025 – Current</span>
-            <h3>Founder — Dear Future Luminary</h3>
-            <p>Founded a platform guiding students towards scholarships and growth opportunities through curated resources, mentorship, and leadership development.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">May 2023 – Sep 2023</span>
-            <h3>Head of Social Media — MAS MUN</h3>
-            <p>Led social media strategy, designed posts, and boosted conference awareness to enhance engagement and visibility.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Apr 2024 – May 2024</span>
-            <h3>Facilitator — Soliya Global Circles</h3>
-            <p>Guided international dialogue circles fostering cross-cultural understanding, negotiation, and communication skills.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">May 2023 – Jul 2023</span>
-            <h3>Event Organizer — TEDxEtTagammo</h3>
-            <p>Coordinated talks and events focused on youth empowerment and creative leadership, managing logistics and promotions.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Apr 2024</span>
-            <h3>Participant — Stanford Code in Place</h3>
-            <p>Completed Python fundamentals through Stanford’s global CS course, enhancing programming and problem-solving skills.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Oct 2023</span>
-            <h3>Attendee — NASA Space Apps Cairo Bootcamp</h3>
-            <p>Collaborated on earth science solutions during a hackathon, applying teamwork and critical thinking to real-world challenges.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Jun 2023 – Aug 2023</span>
-            <h3>Participant — 1000 Girls, 1000 Futures</h3>
-            <p>Mentored by international STEM leaders on science, leadership, and equality, fostering personal and professional growth.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Jun 2024</span>
-            <h3>Gold Medal Winner — Climate Science Olympiad</h3>
-            <p>Earned a gold medal by tackling global climate challenges through innovative solutions and scientific analysis.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Aug 2024 – Sep 2024</span>
-            <h3>Facilitator — Entrepreneurship Summer Camp</h3>
-            <p>Guided a team in problem-solving, delegated tasks, and led them to win first place in a competitive business challenge.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Feb 2024 – Current</span>
-            <h3>Assistant (Freelancer) — Mathematics Tutor</h3>
-            <p>Created engaging content and managed social media to enhance student interaction and learning experiences.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Feb 2024 – Current</span>
-            <h3>Social Media Manager — Mr. Mahmoud ElKholy Learning Center</h3>
-            <p>Developed strategies and promotional designs to increase online visibility and student-parent engagement.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Jun 2023 – Aug 2023</span>
-            <h3>Front-End Developer — Star Girls Africa</h3>
-            <p>Built a book review website empowering African girls in tech, focusing on user-friendly design and functionality.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Feb 2024 – Current</span>
-            <h3>Social Media Supervisor — Mr. Mahmoud ElKholy (Mathematics)</h3>
-            <p>Grew online visibility and engagement through targeted campaigns and creative content strategies.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">May 2023 – Sep 2023</span>
-            <h3>Head of Social Media — Resala STEM</h3>
-            <p>Led campaigns and ran online STEM engagement workshops to promote education and community involvement.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Mar 2024</span>
-            <h3>Participant — Microsoft Student Ambassadors Learn</h3>
-            <p>Completed tech workshops to enhance problem-solving skills and gain insights into modern technologies.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Jul 2024</span>
-            <h3>Participant — BUILD-IN-A-BOX</h3>
-            <p>Explored business fundamentals and entrepreneurship leadership through interactive workshops and projects.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Jun 2023 – Aug 2023</span>
-            <h3>Participant — Girls Who Code</h3>
-            <p>Gained hands-on web development experience and developed leadership skills in a tech-focused environment.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">Jan 2023 – Jun 2024</span>
-            <h3>Programming Intern — Kode with Klossy</h3>
-            <p>Developed front-end projects using HTML, CSS, and JavaScript, tackling real-world problems with innovative tech solutions.</p>
-          </div>
-        </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">May 2023 – Sep 2023</span>
-            <h3>Scholar — AFS Global STEM Academies</h3>
-            <p>Focused on sustainability, STEM, and intercultural collaboration to develop global citizenship and technical skills.</p>
-          </div>
-        </div>
-      </div>
+<section id="experience">
+  <div class="container">
+    <h2>My Experience</h2>
+    <p class="section-subtitle">Professional journey and leadership roles</p>
+    
+    <div class="experience-tabs">
+      <button class="tab-btn active" data-filter="all">All</button>
+      <button class="tab-btn" data-filter="leadership">Leadership</button>
+      <button class="tab-btn" data-filter="stem">STEM</button>
+      <button class="tab-btn" data-filter="tech">Tech</button>
+      <button class="tab-btn" data-filter="global-impact">Global Impact</button>
     </div>
-  </section>
+    
+    <div class="experience-grid">
+      
+      <!-- Founder | Dear Future Luminary -->
+      <div class="experience-item" data-category="leadership stem global-impact">
+        <span class="experience-category">Leadership & STEM</span>
+        <h3 class="experience-title">Founder | Dear Future Luminary</h3>
+        <span class="experience-date">Jan 2025 – Present</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- AFS Global STEM Academies -->
+      <div class="experience-item" data-category="stem global-impact">
+        <span class="experience-category">Global Impact</span>
+        <h3 class="experience-title">Scholar | AFS Global STEM Academies</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- BUILD in a Box -->
+      <div class="experience-item" data-category="leadership global-impact">
+        <span class="experience-category">Entrepreneurship</span>
+        <h3 class="experience-title">Scholar | BUILD in a Box</h3>
+        <span class="experience-date">Summer 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Kode With Klossy -->
+      <div class="experience-item" data-category="tech stem">
+        <span class="experience-category">Tech</span>
+        <h3 class="experience-title">Scholar | Kode With Klossy</h3>
+        <span class="experience-date">Summer 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Personal Assistant -->
+      <div class="experience-item" data-category="leadership tech">
+        <span class="experience-category">Education Support</span>
+        <h3 class="experience-title">Personal Assistant | Private Math Tutor</h3>
+        <span class="experience-date">Aug 2024 – Present</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Stanford Code in Place -->
+      <div class="experience-item" data-category="tech stem">
+        <span class="experience-category">Tech</span>
+        <h3 class="experience-title">Participant | Stanford Code in Place</h3>
+        <span class="experience-date">Apr 2024 – Jun 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Girls At ALA -->
+      <div class="experience-item" data-category="leadership global-impact">
+        <span class="experience-category">Leadership</span>
+        <h3 class="experience-title">Facilitator | Girls At ALA</h3>
+        <span class="experience-date">Summer 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Microsoft Student Ambassadors -->
+      <div class="experience-item" data-category="tech global-impact">
+        <span class="experience-category">Tech</span>
+        <h3 class="experience-title">Participant | Microsoft Student Ambassadors</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- The Experiment Digital -->
+      <div class="experience-item" data-category="global-impact leadership">
+        <span class="experience-category">Global Impact</span>
+        <h3 class="experience-title">Participant | The Experiment Digital</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Junior Academy -->
+      <div class="experience-item" data-category="stem global-impact">
+        <span class="experience-category">Research</span>
+        <h3 class="experience-title">Researcher | Junior Academy – NYAS</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Resala STEM -->
+      <div class="experience-item" data-category="leadership stem">
+        <span class="experience-category">Leadership</span>
+        <h3 class="experience-title">Head of Social Media | Resala STEM</h3>
+        <span class="experience-date">2024 – Present</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Soliya Global Circles -->
+      <div class="experience-item" data-category="global-impact leadership">
+        <span class="experience-category">Global Dialogue</span>
+        <h3 class="experience-title">Facilitator | Soliya Global Circles</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- TEDxEtTagammo -->
+      <div class="experience-item" data-category="leadership">
+        <span class="experience-category">Events</span>
+        <h3 class="experience-title">Event Organizer | TEDxEtTagammo</h3>
+        <span class="experience-date">Mar 2024 – Jul 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- AlMonqeth Academy -->
+      <div class="experience-item" data-category="leadership tech">
+        <span class="experience-category">Social Media</span>
+        <h3 class="experience-title">Social Media Manager | AlMonqeth Academy</h3>
+        <span class="experience-date">Aug 2024 – Present</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Star Girls Africa -->
+      <div class="experience-item" data-category="stem global-impact">
+        <span class="experience-category">Research</span>
+        <h3 class="experience-title">Researcher | Star Girls Africa Program</h3>
+        <span class="experience-date">Summer 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- X-Culture -->
+      <div class="experience-item" data-category="global-impact">
+        <span class="experience-category">Business & Global Projects</span>
+        <h3 class="experience-title">Participant | X-Culture Global Project</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- 1000 Girls, 1000 Futures -->
+      <div class="experience-item" data-category="stem leadership">
+        <span class="experience-category">STEM Mentorship</span>
+        <h3 class="experience-title">Participant | 1000 Girls, 1000 Futures</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- Girls Who Code -->
+      <div class="experience-item" data-category="tech stem">
+        <span class="experience-category">Tech & Coding</span>
+        <h3 class="experience-title">Scholar | Girls Who Code</h3>
+        <span class="experience-date">Summer 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- All Girls Code -->
+      <div class="experience-item" data-category="tech stem">
+        <span class="experience-category">STEM Coding</span>
+        <h3 class="experience-title">Scholar | All Girls Code Program</h3>
+        <span class="experience-date">Summer 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- NASA Space Apps -->
+      <div class="experience-item" data-category="stem tech">
+        <span class="experience-category">STEM & Space Tech</span>
+        <h3 class="experience-title">Participant | NASA Space Apps Cairo</h3>
+        <span class="experience-date">Oct 2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- LCOY Egypt -->
+      <div class="experience-item" data-category="global-impact">
+        <span class="experience-category">Climate Advocacy</span>
+        <h3 class="experience-title">Participant | LCOY Egypt</h3>
+        <span class="experience-date">2023</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- IYC Advocates -->
+      <div class="experience-item" data-category="global-impact">
+        <span class="experience-category">Climate Action</span>
+        <h3 class="experience-title">Participant | IYC Advocates Program</h3>
+        <span class="experience-date">2023</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- International Youth Conference -->
+      <div class="experience-item" data-category="leadership global-impact">
+        <span class="experience-category">Leadership & Policy</span>
+        <h3 class="experience-title">Participant | International Youth Conference</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- GDSC -->
+      <div class="experience-item" data-category="tech">
+        <span class="experience-category">Tech Community</span>
+        <h3 class="experience-title">Participant | Google Developer Student Clubs</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- STEAM Fest -->
+      <div class="experience-item" data-category="stem">
+        <span class="experience-category">STEM Creativity</span>
+        <h3 class="experience-title">Participant | STEAM Fest Online</h3>
+        <span class="experience-date">2024</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+      <!-- MAS MUN -->
+      <div class="experience-item" data-category="leadership global-impact">
+        <span class="experience-category">Social Media Leadership</span>
+        <h3 class="experience-title">Head of Social Media | MAS MUN</h3>
+        <span class="experience-date">Feb 2025 – Present</span>
+        <span class="experience-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+      </div>
+
+    </div>
+    
+    <div class="load-more-container">
+      <button class="btn btn-accent load-more-btn">Load More</button>
+    </div>
+  </div>
+</section>
+
 
   <!-- Projects Section -->
   <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="section-container">
-      <div class="cards-container">
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">2023</span>
-            <h3>Optimizing Crop Growth: Temperature-Based Control</h3>
-            <p>Designed a sensor-based automated irrigation system to optimize crop growth and conserve water. This project received a Certificate of Excellence from AFS for its innovation and environmental impact.</p>
+    <div class="container">
+      <h2>My Projects</h2>
+      <p class="section-subtitle">Innovative solutions and creative work</p>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Optimizing Crop Growth: Temperature-Based Control</h3>
+            <span class="project-date">2023 | Individual Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">2022</span>
-            <h3>Front-End Developer — Star Girls Africa</h3>
-            <p>Developed an online book review website during the Star Girls Africa summer program, showcasing beginner front-end development skills using HTML, CSS, and JavaScript.</p>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <span class="project-date">May 2025 | Independent Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">2022</span>
-            <h3>Climate Change Research Paper — Star Girls Africa</h3>
-            <p>Conducted in-depth research on climate change causes, impacts, and solutions, contributing to global awareness efforts within the program community.</p>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Book Review Website</h3>
+            <span class="project-date">2022 | Individual Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
           </div>
         </div>
-        <div class="card fade-in">
-          <div class="card-content">
-            <span class="card-date">April 2025</span>
-            <h3>'My'Portfolio Website</h3>
-            <p>Currently developing a comprehensive personal and professional portfolio website coded entirely by myself using HTML, CSS, and JavaScript, aimed at supporting my scholarship applications.</p>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Climate Change Research Paper</h3>
+            <span class="project-date">2022 – 2024 | Star Girls Africa</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
           </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Kode with Klossy Final Project: Interactive Web App</h3>
+            <span class="project-date">Summer 2024 | Team Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Girls Who Code Capstone Project</h3>
+            <span class="project-date">Summer 2024 | Team Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Entrepreneurship Summer Camp Business Prototype</h3>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">Junior Academy Research Project (NYAS)</h3>
+            <span class="project-date">2024 | Global Team Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">X-Culture Global Business Challenge</h3>
+            <span class="project-date">2024 | Team Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">AFS Global STEM Capstone Project</h3>
+            <span class="project-date">2024 | Team Project</span>
+            <span class="project-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="project-decoration"></div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <div class="container">
+      <h2>Achievements</h2>
+      <p class="section-subtitle">Recognitions and awards for my work</p>
+      
+      <div class="achievements-container">
+        <div class="achievement-item">
+          <div class="achievement-icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3 class="achievement-title">Gold Medal Winner – Climate Science Olympiad</h3>
+          <span class="achievement-date">2024 | International</span>
+          <span class="achievement-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3 class="achievement-title">Best Scientific Team Award – Egyptian Students' Union</h3>
+          <span class="achievement-date">2023–2024 | Egypt</span>
+          <span class="achievement-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3 class="achievement-title">First Place Winner – Entrepreneurship Summer Camp</h3>
+          <span class="achievement-date">2024 | Remote</span>
+          <span class="achievement-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h3 class="achievement-title">Pre-Final Competitor – Behind The Universe LLC Challenge</h3>
+          <span class="achievement-date">2023 | International</span>
+          <span class="achievement-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
+        </div>
+        <div class="achievement-item">
+          <div class="achievement-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3 class="achievement-title">Mathematics Competitor – International Youth Math Challenge</h3>
+          <span class="achievement-date">2023–2024 | Global</span>
+          <span class="achievement-learn-more">Learn More <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="section-container">
-      <ul class="grid-list fade-in">
-        <li><i class="fas fa-users"></i> Leadership</li>
-        <li><i class="fas fa-people-arrows"></i> Teamwork</li>
-        <li><i class="fas fa-random"></i> Adaptability</li>
-        <li><i class="fas fa-lightbulb"></i> Problem-Solving</li>
-        <li><i class="fas fa-clock"></i> Time Management</li>
-        <li><i class="fas fa-tasks"></i> Project Management</li>
-        <li><i class="fas fa-chalkboard-teacher"></i> Coaching & Mentoring</li>
-        <li><i class="fas fa-comments"></i> Effective Communication</li>
-      </ul>
+  <!-- More About Me -->
+  <section id="more-about-me">
+    <h2>More About Me</h2>
+    <div class="container">
+      <div class="more-about-me-container">
+        <div class="more-about-me-card" data-category="skills">
+          <i class="fas fa-lightbulb"></i>
+          Skills
+        </div>
+        <div class="more-about-me-card" data-category="hobbies">
+          <i class="fas fa-heart"></i>
+          Hobbies
+        </div>
+        <div class="more-about-me-card" data-category="languages">
+          <i class="fas fa-language"></i>
+          Languages
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Hobbies Section -->
-  <section id="hobbies">
-    <h2 class="section-title">Hobbies</h2>
-    <div class="section-container">
-      <ul class="grid-list fade-in">
-        <li><i class="fas fa-flask"></i> Chemistry</li>
-        <li><i class="fas fa-chalkboard-teacher"></i> Tutoring & Mentoring</li>
-        <li><i class="fas fa-star"></i> Astronomy & Stargazing</li>
-        <li><i class="fas fa-music"></i> Listening to Music</li>
-        <li><i class="fas fa-spa"></i> Yoga & Mindfulness</li>
-        <li><i class="fas fa-tshirt"></i> Fashion Styling</li>
-        <li><i class="fas fa-car"></i> Cars & Automotive Culture</li>
-        <li><i class="fas fa-heart"></i> Hip-Hop & Latin Dancing</li>
-        <li><i class="fas fa-globe-americas"></i> Exploring Cultures</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="section-container">
-      <ul class="contact-list fade-in">
-        <li><a href="mailto:malakemad7777777@gmail.com" target="_blank"><i class="fas fa-envelope"></i> Email</a></li>
-        <li><a href="https://wa.me/201090879843" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
-        <li><a href="https://www.facebook.com/profile.php?id=100088385822088" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-        <li><a href="https://www.instagram.com/loka_luminary/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-        <li><a href="https://www.linkedin.com/in/malak-savvyt-t/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
-        <li><a href="https://t.me/loka_luminaryy" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
-      </ul>
+    <h2>Contact Me</h2>
+    <div class="container">
+      <p class="contact-cta">Let’s connect and create something amazing!</p>
+      <div class="contact-container">
+        <a href="mailto:malakemad7777777@gmail.com" class="contact-item" aria-label="Email Malak Emad"><i class="fas fa-envelope"></i></a>
+        <a href="https://wa.me/201090879843" target="_blank" class="contact-item" aria-label="WhatsApp Malak Emad"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100088385822088" target="_blank" class="contact-item" aria-label="Malak Emad's Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/loka_luminary/" target="_blank" class="contact-item" aria-label="Malak Emad's Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/malak-savvy-t/" target="_blank" class="contact-item" aria-label="Malak Emad's LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://t.me/loka_luminaryy" target="_blank" class="contact-item" aria-label="Malak Emad's Telegram"><i class="fab fa-telegram"></i></a>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/xkgrgppk" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
+        <input type="email" name="email" placeholder="Your Email" required aria-label="Your email">
+        <textarea name="message" rows="4" placeholder="Your Message" required aria-label="Your message"></textarea>
+        <button type="submit" class="btn btn-primary" aria-label="Send message">Send Message</button>
+      </form>
     </div>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Malak Emad</div>
+        <p class="footer-text">STEM Enthusiast | Social Media Strategist | Community Leader</p>
+        <div class="footer-links">
+          <a href="#hero" class="footer-link">Home</a>
+          <a href="#about" class="footer-link">About</a>
+          <a href="#experience" class="footer-link">Experience</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+        <p class="copyright">© 2025 Malak Emad. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Popup Overlay -->
+  <div class="global-popup-overlay">
+    <div class="global-popup-content">
+      <div class="global-popup-header">
+        <h3 id="global-popup-title"></h3>
+        <span class="global-popup-close"><i class="fas fa-times"></i></span>
+      </div>
+      <div class="global-popup-body">
+        <div id="global-popup-details"></div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Scroll Progress
-    window.addEventListener('scroll', () => {
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPosition = window.scrollY;
-      scrollIndicator.style.width = `${(scrollPosition / scrollHeight) * 100}%`;
+    // Mobile Navigation Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.getElementById('navbar');
+    
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
     });
 
-    // Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      navbar.style.boxShadow = window.scrollY > 50 ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none';
-    });
-
-    // Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    // Navigation Active State
+    const navLinks = document.querySelectorAll('.nav-link');
+    function setActiveLink() {
+      const scrollPosition = window.scrollY + 100;
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section.offsetTop <= scrollPosition && section.offsetTop + section.offsetHeight > scrollPosition) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
         }
       });
-    }, { threshold: 0.1 });
+    }
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink();
 
-    // Mobile Menu
-    document.addEventListener('DOMContentLoaded', () => {
-      const navbar = document.getElementById('navbar');
-      const menuToggle = document.createElement('div');
-      menuToggle.className = 'menu-toggle';
-      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      menuToggle.style.display = 'none';
-      document.body.appendChild(menuToggle);
-
-      menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-      });
-
-      const checkScreenSize = () => {
-        menuToggle.style.display = window.innerWidth <= 768 ? 'block' : 'none';
-        if (window.innerWidth > 768) navbar.classList.add('active');
-      };
-
-      checkScreenSize();
-      window.addEventListener('resize', checkScreenSize);
+    // Sticky Navigation Background
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
     });
+
+    // Smooth Scrolling for Navigation Links
+    navLinks.forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          if (navbar.classList.contains('active')) {
+            navbar.classList.remove('active');
+          }
+        }
+      });
+    });
+
+// Experience Tab Filtering
+const tabButtons = document.querySelectorAll('.tab-btn');
+const experienceItems = document.querySelectorAll('.experience-item');
+const loadMoreBtn = document.querySelector('.load-more-btn');
+let visibleItemsCount = 6;
+
+function filterItems(filter) {
+  let visibleCount = 0;
+  let totalMatchingItems = 0; // Track total items for the current filter
+  experienceItems.forEach(item => {
+    const categories = item.getAttribute('data-category').split(' ');
+    if (filter === 'all' || categories.includes(filter)) {
+      totalMatchingItems++; // Count items matching the filter
+      if (visibleCount < visibleItemsCount) {
+        item.style.display = 'block';
+        item.style.opacity = '0';
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.3s ease';
+          item.style.opacity = '1';
+        }, 10);
+        visibleCount++;
+      } else {
+        item.style.display = 'none';
+      }
+    } else {
+      item.style.transition = 'opacity 0.3s ease';
+      item.style.opacity = '0';
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 300);
+    }
+  });
+  // Show "Load More" if there are more items to display
+  loadMoreBtn.style.display = visibleItemsCount < totalMatchingItems ? 'block' : 'none';
+}
+
+// Tab button click handlers
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    visibleItemsCount = 6; // Reset visible items count
+    filterItems(button.getAttribute('data-filter'));
+  });
+});
+
+// Load More button handler
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener('click', () => {
+    visibleItemsCount += 6;
+    const activeButton = document.querySelector('.tab-btn.active');
+    const currentFilter = activeButton ? activeButton.getAttribute('data-filter') : 'all';
+    filterItems(currentFilter);
+  });
+} else {
+  console.error('Load More button not found in the DOM');
+}
+
+    // Popup Functionality
+    const globalPopup = document.querySelector('.global-popup-overlay');
+    const globalPopupTitle = document.getElementById('global-popup-title');
+    const globalPopupDetails = document.getElementById('global-popup-details');
+    const globalPopupClose = document.querySelector('.global-popup-close');
+    const moreAboutMeCards = document.querySelectorAll('.more-about-me-card');
+    const projectItems = document.querySelectorAll('.project-card');
+    const achievementItems = document.querySelectorAll('.achievement-item');
+const popupContent = {
+ skills: {
+  title: 'Professional Skills',
+  details: `
+    <div class="global-popup-item">
+      <i class="fas fa-code"></i>
+      <div class="global-popup-item-content">
+        <strong>Web Development</strong>
+        <p>Front-end development with HTML, CSS, and JavaScript; building responsive and visually appealing websites from scratch.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-laptop-code"></i>
+      <div class="global-popup-item-content">
+        <strong>Programming</strong>
+        <p>Proficient in Python, beginner in JavaScript and C++; experienced with problem-solving algorithms and UI/UX design principles.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-project-diagram"></i>
+      <div class="global-popup-item-content">
+        <strong>Leadership & Project Management</strong>
+        <p>Led diverse teams across global programs, organized high-impact events, and managed projects from ideation to delivery.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-bullhorn"></i>
+      <div class="global-popup-item-content">
+        <strong>Social Media Management</strong>
+        <p>Developed branding strategies, created engaging content, and ran campaigns for educational initiatives and organizations.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-paint-brush"></i>
+      <div class="global-popup-item-content">
+        <strong>Graphic Design & Branding</strong>
+        <p>Designed professional visuals, crafted brand identities, and adapted content for multi-platform impact.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-lightbulb"></i>
+      <div class="global-popup-item-content">
+        <strong>Problem Solving & Critical Thinking</strong>
+        <p>Excelled in STEM challenges, climate competitions, and strategic planning with analytical decision-making skills.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-globe-africa"></i>
+      <div class="global-popup-item-content">
+        <strong>Global Collaboration</strong>
+        <p>Worked in international research teams, cross-cultural collaborations, and virtual exchange programs.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-chalkboard-teacher"></i>
+      <div class="global-popup-item-content">
+        <strong>Training & Mentorship</strong>
+        <p>Created and led training sessions on STEM, summer programs, sustainability, and personal development for youth.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-rocket"></i>
+      <div class="global-popup-item-content">
+        <strong>Entrepreneurship & Innovation</strong>
+        <p>Facilitated entrepreneurship bootcamps, developed solutions for African challenges, and pitched innovative ideas.</p>
+      </div>
+    </div>
+  `
+},
+hobbies: {
+  title: 'Hobbies & Interests',
+  details: `
+    <div class="global-popup-item">
+      <i class="fas fa-robot"></i>
+      <div class="global-popup-item-content">
+        <strong>STEM Exploration</strong>
+        <p>Building tech projects, experimenting with hardware, and diving into programming challenges.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-star"></i>
+      <div class="global-popup-item-content">
+        <strong>Astronomy</strong>
+        <p>Following space missions, attending NASA-related events, and exploring the cosmos.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-leaf"></i>
+      <div class="global-popup-item-content">
+        <strong>Environmental Advocacy</strong>
+        <p>Passionate about climate change awareness, sustainability campaigns, and eco-friendly solutions.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-users"></i>
+      <div class="global-popup-item-content">
+        <strong>Community Leadership</strong>
+        <p>Mentoring peers, organizing events, and empowering youth through initiatives like Dear Future Luminary.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-palette"></i>
+      <div class="global-popup-item-content">
+        <strong>Creative Design</strong>
+        <p>Exploring design trends, creating digital art, and developing unique brand aesthetics.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-car"></i>
+      <div class="global-popup-item-content">
+        <strong>Cars & Automotive Knowledge</strong>
+        <p>Learning everything about car engineering, models, and innovations in the automotive industry.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-puzzle-piece"></i>
+      <div class="global-popup-item-content">
+        <strong>Puzzle Solving & Cryptography</strong>
+        <p>Enjoying logic puzzles, codebreaking challenges, and critical thinking games.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-yoga"></i>
+      <div class="global-popup-item-content">
+        <strong>Yoga & Mindfulness</strong>
+        <p>Practicing yoga for mental clarity, balance, and focus.</p>
+      </div>
+    </div>
+    <div class="global-popup-item">
+      <i class="fas fa-globe"></i>
+      <div class="global-popup-item-content">
+        <strong>Travel & Cultural Exchange</strong>
+        <p>Meeting people from different backgrounds, learning languages, and exploring new cultures.</p>
+      </div>
+    </div>
+  `
+
+  },
+  languages: {
+    title: 'Languages',
+    details: `
+      <div class="global-popup-item">
+        <i class="fas fa-globe"></i>
+        <div class="global-popup-item-content">
+          <strong>Arabic</strong>
+          <p>Native proficiency.</p>
+          <div class="star-rating">
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+          </div>
+        </div>
+      </div>
+      <div class="global-popup-item">
+        <i class="fas fa-globe"></i>
+        <div class="global-popup-item-content">
+          <strong>English</strong>
+          <p>Proficient in written and spoken English.</p>
+          <div class="star-rating">
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="global-popup-item">
+        <i class="fas fa-globe"></i>
+        <div class="global-popup-item-content">
+          <strong>Spanish</strong>
+          <p>Beginner level.</p>
+          <div class="star-rating">
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      <div class="global-popup-item">
+        <i class="fas fa-globe"></i>
+        <div class="global-popup-item-content">
+          <strong>German</strong>
+          <p>Beginner level.</p>
+          <div class="star-rating">
+            <i class="fas fa-star filled"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    `
+  }
+    };
+
+    const experiencePopupContent = {
+      'Founder | Dear Future Luminary': {
+        title: 'Founder | Dear Future Luminary',
+        details: `
+          <p><i class="fas fa-user-tie"></i> <strong>Role:</strong> Founder and Lead Strategist</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Jan 2025 – Present</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Founded an initiative to guide students toward scholarships, STEM opportunities, and personal growth. Developed branding, curated resources, and led global outreach efforts.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Reached over 1,000 students with scholarship resources.</li>
+            <li>Designed engaging social media campaigns.</li>
+            <li>Delivered 10+ workshops on leadership and STEM.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Leadership</span>
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Content Creation</span>
+          </div>
+        `
+      },
+      'Scholar | AFS Global STEM Academies': {
+        title: 'Scholar | AFS Global STEM Academies',
+        details: `
+          <p><i class="fas fa-user-graduate"></i> <strong>Role:</strong> Scholar</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Completed a capstone project addressing environmental challenges through innovative STEM solutions.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed a sustainable environmental project.</li>
+            <li>Collaborated with global peers on STEM initiatives.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Global Citizenship</span>
+          </div>
+        `
+      },
+      'Scholar | AFS Global STEM Academies': {
+        title: 'Scholar | AFS Global STEM Academies',
+        details: `
+          <p><i class="fas fa-user-graduate"></i> <strong>Role:</strong> Scholar</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Completed a capstone project addressing environmental challenges through innovative STEM solutions.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed a sustainable environmental project.</li>
+            <li>Collaborated with global peers on STEM initiatives.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Global Citizenship</span>
+          </div>
+        `
+      },
+      'Scholar | BUILD in a Box': {
+        title: 'Scholar | BUILD in a Box',
+        details: `
+          <p><i class="fas fa-user-graduate"></i> <strong>Role:</strong> Scholar</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Summer 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Participated in an entrepreneurship program, developing business strategies and pitching innovative ideas.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Created a viable business plan.</li>
+            <li>Enhanced pitching and leadership skills.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Entrepreneurship</span>
+            <span class="global-popup-tag">Leadership</span>
+          </div>
+        `
+      },
+      'Scholar | Kode With Klossy': {
+        title: 'Scholar | Kode With Klossy',
+        details: `
+          <p><i class="fas fa-user-graduate"></i> <strong>Role:</strong> Scholar</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Summer 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Learned advanced web development techniques and built a front-end web application.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed an interactive web app.</li>
+            <li>Gained proficiency in HTML, CSS, and JavaScript.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Web Development</span>
+            <span class="global-popup-tag">Coding</span>
+          </div>
+        `
+      },
+      'Personal Assistant | Private Math Tutor': {
+        title: 'Personal Assistant | Private Math Tutor',
+        details: `
+          <p><i class="fas fa-user-tie"></i> <strong>Role:</strong> Personal Assistant & Tutor</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Aug 2024 – Present</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Provided personalized math tutoring and administrative support to students.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Improved student performance in mathematics.</li>
+            <li>Streamlined scheduling and resource management.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Tutoring</span>
+            <span class="global-popup-tag">Education</span>
+          </div>
+        `
+      },
+      'Participant | Stanford Code in Place': {
+        title: 'Participant | Stanford Code in Place',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Apr 2024 – Jun 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Completed an introductory programming course focused on Python.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Mastered Python programming fundamentals.</li>
+            <li>Built a small-scale Python project.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Python</span>
+            <span class="global-popup-tag">Coding</span>
+          </div>
+        `
+      },
+      'Facilitator | Girls At ALA': {
+        title: 'Facilitator | Girls At ALA',
+        details: `
+          <p><i class="fas fa-user-tie"></i> <strong>Role:</strong> Facilitator</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Summer 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Led workshops to empower young women in leadership and STEM.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Facilitated sessions for 50+ participants.</li>
+            <li>Developed leadership training materials.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Leadership</span>
+            <span class="global-popup-tag">STEM</span>
+          </div>
+        `
+      },
+      'Participant | Microsoft Student Ambassadors': {
+        title: 'Participant | Microsoft Student Ambassadors',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Engaged in tech community events and learned Microsoft technologies.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Hosted a tech workshop for peers.</li>
+            <li>Gained skills in cloud computing.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Tech</span>
+            <span class="global-popup-tag">Community Engagement</span>
+          </div>
+        `
+      },
+      'Participant | The Experiment Digital': {
+        title: 'Participant | The Experiment Digital',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Engaged in cross-cultural digital exchange programs.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed global communication skills.</li>
+            <li>Contributed to cultural dialogue initiatives.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Global Impact</span>
+            <span class="global-popup-tag">Cultural Exchange</span>
+          </div>
+        `
+      },
+      'Researcher | Junior Academy – NYAS': {
+        title: 'Researcher | Junior Academy – NYAS',
+        details: `
+          <p><i class="fas fa-flask"></i> <strong>Role:</strong> Researcher</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Conducted research on innovative STEM solutions for global challenges.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Contributed to a global STEM project.</li>
+            <li>Presented findings to international peers.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Research</span>
+          </div>
+        `
+      },
+      'Head of Social Media | Resala STEM': {
+        title: 'Head of Social Media | Resala STEM',
+        details: `
+          <p><i class="fas fa-bullhorn"></i> <strong>Role:</strong> Head of Social Media</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024 – Present</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Led social media campaigns to promote STEM education initiatives.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Increased engagement by 40%.</li>
+            <li>Developed STEM-focused content strategies.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Social Media</span>
+            <span class="global-popup-tag">Leadership</span>
+          </div>
+        `
+      },
+      'Facilitator | Soliya Global Circles': {
+        title: 'Facilitator | Soliya Global Circles',
+        details: `
+          <p><i class="fas fa-user-tie"></i> <strong>Role:</strong> Facilitator</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Facilitated virtual dialogues to promote global understanding.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Led discussions with diverse global participants.</li>
+            <li>Enhanced cross-cultural communication skills.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Global Dialogue</span>
+            <span class="global-popup-tag">Facilitation</span>
+          </div>
+        `
+      },
+      'Event Organizer | TEDxEtTagammo': {
+        title: 'Event Organizer | TEDxEtTagammo',
+        details: `
+          <p><i class="fas fa-calendar-check"></i> <strong>Role:</strong> Event Organizer</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Mar 2024 – Jul 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Cairo, Egypt</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Coordinated logistics, speaker outreach, and promotional campaigns for a TEDx event focused on innovation and community impact.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Successfully organized an event attended by 200+ participants.</li>
+            <li>Managed a team of 10 volunteers for seamless execution.</li>
+            <li>Boosted social media reach by 30% through targeted campaigns.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Event Management</span>
+            <span class="global-popup-tag">Leadership</span>
+            <span class="global-popup-tag">Social Media</span>
+          </div>
+        `
+      },
+      'Social Media Manager | AlMonqeth Academy': {
+        title: 'Social Media Manager | AlMonqeth Academy',
+        details: `
+          <p><i class="fas fa-bullhorn"></i> <strong>Role:</strong> Social Media Manager</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Aug 2024 – Present</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Developed and executed social media strategies to promote educational content and engage audiences.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Increased follower count by 25% in three months.</li>
+            <li>Created engaging content for STEM-focused campaigns.</li>
+            <li>Implemented analytics to optimize post performance.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Social Media</span>
+            <span class="global-popup-tag">Content Creation</span>
+            <span class="global-popup-tag">Digital Marketing</span>
+          </div>
+        `
+      },
+      'Researcher | Star Girls Africa Program': {
+        title: 'Researcher | Star Girls Africa Program',
+        details: `
+          <p><i class="fas fa-flask"></i> <strong>Role:</strong> Researcher</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Summer 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Conducted research on STEM applications for sustainable development in African communities.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Contributed to a published research report.</li>
+            <li>Collaborated with a team of 15 international researchers.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Research</span>
+            <span class="global-popup-tag">Sustainability</span>
+          </div>
+        `
+      },
+      'Participant | X-Culture Global Project': {
+        title: 'Participant | X-Culture Global Project',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Worked on international business challenges with a global team, focusing on market analysis and strategy.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed a market entry strategy for a multinational company.</li>
+            <li>Enhanced cross-cultural collaboration skills.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Business Strategy</span>
+            <span class="global-popup-tag">Global Collaboration</span>
+          </div>
+        `
+      },
+      'Participant | 1000 Girls, 1000 Futures': {
+        title: 'Participant | 1000 Girls, 1000 Futures',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Engaged in mentorship and STEM workshops to empower young women in technology.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Completed advanced STEM training modules.</li>
+            <li>Built a professional network with global mentors.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Mentorship</span>
+            <span class="global-popup-tag">Women in Tech</span>
+          </div>
+        `
+      },
+      'Scholar | Girls Who Code': {
+        title: 'Scholar | Girls Who Code',
+        details: `
+          <p><i class="fas fa-user-graduate"></i> <strong>Role:</strong> Scholar</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Summer 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Participated in a coding bootcamp to develop software projects and learn industry-standard tools.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Built a Python-based application.</li>
+            <li>Gained proficiency in collaborative coding environments.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Coding</span>
+            <span class="global-popup-tag">Software Development</span>
+          </div>
+        `
+      },
+      'Scholar | All Girls Code Program': {
+        title: 'Scholar | All Girls Code Program',
+        details: `
+          <p><i class="fas fa-user-graduate"></i> <strong>Role:</strong> Scholar</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Summer 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Learned advanced coding techniques and developed mobile app prototypes.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Created a functional mobile app prototype.</li>
+            <li>Mastered app development frameworks.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Mobile Development</span>
+            <span class="global-popup-tag">Coding</span>
+          </div>
+        `
+      },
+      'Participant | NASA Space Apps Cairo': {
+        title: 'Participant | NASA Space Apps Cairo',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Oct 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Cairo, Egypt</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Collaborated on innovative solutions for space-related challenges during a hackathon.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed a prototype for a space technology solution.</li>
+            <li>Presented to a panel of NASA judges.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Space Tech</span>
+            <span class="global-popup-tag">Hackathon</span>
+            <span class="global-popup-tag">STEM</span>
+          </div>
+        `
+      },
+      'Participant | LCOY Egypt': {
+        title: 'Participant | LCOY Egypt',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2023</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Cairo, Egypt</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Engaged in discussions and workshops on climate change solutions and youth advocacy.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Contributed to a youth-led climate action plan.</li>
+            <li>Networked with environmental leaders.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Climate Advocacy</span>
+            <span class="global-popup-tag">Sustainability</span>
+          </div>
+        `
+      },
+      'Participant | IYC Advocates Program': {
+        title: 'Participant | IYC Advocates Program',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2023</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Advocated for climate action through policy discussions and community initiatives.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed a community-based climate project.</li>
+            <li>Gained skills in policy advocacy.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Climate Action</span>
+            <span class="global-popup-tag">Advocacy</span>
+          </div>
+        `
+      },
+      'Participant | International Youth Conference': {
+        title: 'Participant | International Youth Conference',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Engaged in global discussions on youth leadership and policy development.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Contributed to policy recommendations.</li>
+            <li>Built a global network of youth leaders.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Leadership</span>
+            <span class="global-popup-tag">Policy</span>
+          </div>
+        `
+      },
+      'Participant | Google Developer Student Clubs': {
+        title: 'Participant | Google Developer Student Clubs',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Participated in tech workshops and collaborative coding projects.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Developed a web-based project using Google tools.</li>
+            <li>Enhanced technical collaboration skills.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Tech</span>
+            <span class="global-popup-tag">Web Development</span>
+          </div>
+        `
+      },
+      'Participant | STEAM Fest Online': {
+        title: 'Participant | STEAM Fest Online',
+        details: `
+          <p><i class="fas fa-user"></i> <strong>Role:</strong> Participant</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> 2024</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Engaged in creative STEM challenges and showcased innovative projects.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Presented a creative STEM project.</li>
+            <li>Received feedback from industry experts.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM</span>
+            <span class="global-popup-tag">Creativity</span>
+          </div>
+        `
+      },
+      'Head of Social Media | MAS MUN': {
+        title: 'Head of Social Media | MAS MUN',
+        details: `
+          <p><i class="fas fa-bullhorn"></i> <strong>Role:</strong> Head of Social Media</p>
+          <p><i class="fas fa-calendar"></i> <strong>Duration:</strong> Feb 2025 – Present</p>
+          <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Led social media campaigns for a Model United Nations event, focusing on youth engagement.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Achievements:</strong></p>
+          <ul>
+            <li>Increased event visibility by 35%.</li>
+            <li>Coordinated a team of content creators.</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Social Media</span>
+            <span class="global-popup-tag">Leadership</span>
+            <span class="global-popup-tag">Event Promotion</span>
+          </div>
+        `
+      }
+    };
+
+    const achievementPopupContent = {
+      'Gold Medal Winner – Climate Science Olympiad': {
+        title: 'Gold Medal Winner – Climate Science Olympiad',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date & Location:</strong> 2024 | International</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Achieved Gold Medal for proposing innovative climate change solutions through data-driven analysis.</p>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Sustainability</span>
+            <span class="global-popup-tag">Policy Solutions</span>
+            <span class="global-popup-tag">Critical Thinking</span>
+          </div>
+        `
+      },
+      'Best Scientific Team Award – Egyptian Students\' Union': {
+        title: 'Best Scientific Team Award – Egyptian Students\' Union',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date & Location:</strong> 2023–2024 | Egypt</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Recognized as the best scientific team for leadership, collaboration, and innovative project work.</p>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM Leadership</span>
+            <span class="global-popup-tag">Teamwork</span>
+          </div>
+        `
+      },
+      'First Place Winner – Entrepreneurship Summer Camp': {
+        title: 'First Place Winner – Entrepreneurship Summer Camp',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date & Location:</strong> 2024 | Remote</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Led team to first place by designing and pitching a business solution addressing African market challenges.</p>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Entrepreneurship</span>
+            <span class="global-popup-tag">Innovation</span>
+            <span class="global-popup-tag">Public Speaking</span>
+          </div>
+        `
+      },
+      'Pre-Final Competitor – Behind The Universe LLC Challenge': {
+        title: 'Pre-Final Competitor – Behind The Universe LLC Challenge',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date & Location:</strong> 2023 | International</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Competed in a high-level STEM-based innovation competition, advancing to the semi-final stage.</p>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM Projects</span>
+            <span class="global-popup-tag">Problem Solving</span>
+          </div>
+        `
+      },
+      'Mathematics Competitor – International Youth Math Challenge': {
+        title: 'Mathematics Competitor – International Youth Math Challenge',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date & Location:</strong> 2023–2024 | Global</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Qualified in the international round of the IYMC through advanced problem-solving skills.</p>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Analytical Thinking</span>
+            <span class="global-popup-tag">Mathematics</span>
+          </div>
+        `
+      }
+    };
+
+    const projectPopupContent = {
+      'Optimizing Crop Growth: Temperature-Based Control': {
+        title: 'Optimizing Crop Growth: Temperature-Based Control',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> 2023 | Individual Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Designed a system using temperature and soil humidity sensors to automate watering for crops, reducing water waste. Integrated hardware with software logic for environmental sustainability.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>IoT</li>
+            <li>Sensors</li>
+            <li>Problem Solving</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">IoT</span>
+            <span class="global-popup-tag">Sensors</span>
+            <span class="global-popup-tag">Problem Solving</span>
+          </div>
+        `
+      },
+      'Personal Portfolio Website': {
+        title: 'Personal Portfolio Website',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> May 2025 | Independent Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Designed and developed a personal website to showcase experience, leadership roles, and projects. Implemented responsive design and clean UI using modern web technologies.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>UI/UX</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">HTML</span>
+            <span class="global-popup-tag">CSS</span>
+            <span class="global-popup-tag">JavaScript</span>
+            <span class="global-popup-tag">UI/UX</span>
+          </div>
+        `
+      },
+      'Book Review Website': {
+        title: 'Book Review Website',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> 2022 | Individual Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Created an interactive website for users to submit and browse book reviews. Applied core web development principles with dynamic elements for user experience.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">HTML</span>
+            <span class="global-popup-tag">CSS</span>
+            <span class="global-popup-tag">JavaScript</span>
+          </div>
+        `
+      },
+      'Climate Change Research Paper': {
+        title: 'Climate Change Research Paper',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> 2022 – 2024 | Star Girls Africa</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Authored a research paper proposing solutions for climate change mitigation and adaptation. Conducted in-depth analysis of global environmental policies.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>Research</li>
+            <li>Policy Analysis</li>
+            <li>Sustainability</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Research</span>
+            <span class="global-popup-tag">Policy Analysis</span>
+            <span class="global-popup-tag">Sustainability</span>
+          </div>
+        `
+      },
+      'Kode with Klossy Final Project: Interactive Web App': {
+        title: 'Kode with Klossy Final Project: Interactive Web App',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> Summer 2024 | Team Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Built a responsive front-end web application using HTML, CSS, and JavaScript. Applied UI/UX principles for real-world problem-solving.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>Web Development</li>
+            <li>Team Collaboration</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Web Development</span>
+            <span class="global-popup-tag">Team Collaboration</span>
+          </div>
+        `
+      },
+      'Girls Who Code Capstone Project': {
+        title: 'Girls Who Code Capstone Project',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> Summer 2024 | Team Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Developed a web-based tool addressing community challenges through technology. Collaborated with peers to implement real-world coding practices.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>Coding</li>
+            <li>Agile Workflow</li>
+            <li>Problem Solving</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Coding</span>
+            <span class="global-popup-tag">Agile Workflow</span>
+            <span class="global-popup-tag">Problem Solving</span>
+          </div>
+        `
+      },
+      'Entrepreneurship Summer Camp Business Prototype': {
+        title: 'Entrepreneurship Summer Camp Business Prototype',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> Summer 2024 | Team Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Designed a business solution to solve a key African market challenge. Delivered a full pitch including financials, branding, and MVP prototype.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>Business Strategy</li>
+            <li>Product Design</li>
+            <li>Pitching</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Business Strategy</span>
+            <span class="global-popup-tag">Product Design</span>
+            <span class="global-popup-tag">Pitching</span>
+          </div>
+        `
+      },
+      'Junior Academy Research Project (NYAS)': {
+        title: 'Junior Academy Research Project (NYAS)',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> 2024 | Global Team Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Collaborated with international students to develop an innovative STEM solution for a sustainability problem.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>STEM Research</li>
+            <li>Global Collaboration</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">STEM Research</span>
+            <span class="global-popup-tag">Global Collaboration</span>
+          </div>
+        `
+      },
+      'X-Culture Global Business Challenge': {
+        title: 'X-Culture Global Business Challenge',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> 2024 | Team Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Worked with an international team to develop an entry strategy for a real company’s global market expansion.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>Business Analysis</li>
+            <li>Cross-Cultural Communication</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Business Analysis</span>
+            <span class="global-popup-tag">Cross-Cultural Communication</span>
+          </div>
+        `
+      },
+      'AFS Global STEM Capstone Project': {
+        title: 'AFS Global STEM Capstone Project',
+        details: `
+          <p><i class="fas fa-calendar"></i> <strong>Date:</strong> 2024 | Team Project</p>
+          <p><i class="fas fa-info-circle"></i> <strong>Description:</strong> Designed a sustainability-focused solution to reduce plastic waste in local communities.</p>
+          <p><i class="fas fa-trophy"></i> <strong>Key Skills:</strong></p>
+          <ul>
+            <li>Sustainability</li>
+            <li>Innovation</li>
+            <li>Project Management</li>
+          </ul>
+          <div class="global-popup-tags">
+            <span class="global-popup-tag">Sustainability</span>
+            <span class="global-popup-tag">Innovation</span>
+            <span class="global-popup-tag">Project Management</span>
+          </div>
+        `
+      }
+    };
+
+    // Popup Event Listeners
+    experienceItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const title = item.querySelector('.experience-title').textContent;
+        if (experiencePopupContent[title]) {
+          globalPopupTitle.textContent = experiencePopupContent[title].title;
+          globalPopupDetails.innerHTML = experiencePopupContent[title].details;
+          globalPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    achievementItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const title = item.querySelector('.achievement-title').textContent;
+        if (achievementPopupContent[title]) {
+          globalPopupTitle.textContent = achievementPopupContent[title].title;
+          globalPopupDetails.innerHTML = achievementPopupContent[title].details;
+          globalPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    projectItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const title = item.querySelector('.project-title').textContent;
+        if (projectPopupContent[title]) {
+          globalPopupTitle.textContent = projectPopupContent[title].title;
+          globalPopupDetails.innerHTML = projectPopupContent[title].details;
+          globalPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    moreAboutMeCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const category = card.getAttribute('data-category');
+        if (popupContent[category]) {
+          globalPopupTitle.textContent = popupContent[category].title;
+          globalPopupDetails.innerHTML = popupContent[category].details;
+          globalPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    globalPopupClose.addEventListener('click', () => {
+      globalPopup.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    globalPopup.addEventListener('click', (e) => {
+      if (e.target === globalPopup) {
+        globalPopup.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Initialize default tab
+    filterItems('all');
   </script>
 </body>
 </html>
+
 
