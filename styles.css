@@ -1,9 +1,9 @@
-/* ========== CSS Variables ========== */
+/* ========== CSS Variables - DFL Color Palette ========== */
 :root {
-  --primary-purple: #abbeea;
-  --accent-blue: #a1c6d6;
+  --primary-purple: #a488f4;
+  --accent-yellow: #facc15;
   --dark-blue: #1e3a8a;
-  --light-gray: #f8fafc;
+  --light-gray: #f2f3f5;
   --white: #ffffff;
   
   --font-heading: 'Montserrat', sans-serif;
@@ -17,7 +17,7 @@
   --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
 /* ========== Base Styles ========== */
@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .navbar.scrolled .navbar-container {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: var(--shadow-md);
 }
@@ -321,7 +321,7 @@ h1, h2, h3, h4, h5 {
   color: var(--white);
 }
 
-/* ========== Experience Section ========== */
+/* ========== Experience Section - Pro Elite ========== */
 .experience {
   background: var(--light-gray);
 }
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5 {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
 }
 
@@ -365,10 +365,22 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   border: 1px solid rgba(0,0,0,0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.exp-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-purple), var(--accent-yellow));
 }
 
 .exp-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -377,11 +389,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .exp-date {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--primary-purple);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .exp-card h3 {
@@ -391,13 +403,16 @@ h1, h2, h3, h4, h5 {
 }
 
 .exp-org {
-  font-weight: 600;
+  font-weight: 700;
   color: #64748b;
+  font-size: 0.95rem;
 }
 
 .exp-desc {
   color: #475569;
   margin-bottom: 25px;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .exp-skills {
@@ -408,13 +423,14 @@ h1, h2, h3, h4, h5 {
 
 .exp-skills span {
   background: var(--light-gray);
-  padding: 4px 12px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
   font-size: 0.75rem;
   font-weight: 600;
+  color: var(--dark-blue);
 }
 
-/* ========== Projects Section ========== */
+/* ========== Projects Section - Pro Elite ========== */
 .projects {
   background: var(--white);
 }
@@ -430,20 +446,22 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-lg);
 }
 
 .project-img {
-  height: 200px;
-  background: var(--primary-purple);
+  height: 220px;
+  background: linear-gradient(135deg, var(--primary-purple), var(--accent-yellow));
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--white);
-  font-size: 3rem;
+  font-size: 3.5rem;
 }
 
 .project-body {
@@ -452,6 +470,14 @@ h1, h2, h3, h4, h5 {
 
 .project-body h3 {
   margin-bottom: 15px;
+  color: var(--dark-blue);
+  font-size: 1.3rem;
+}
+
+.project-body p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .project-skills-list {
@@ -459,30 +485,39 @@ h1, h2, h3, h4, h5 {
   font-size: 0.85rem;
   color: var(--primary-purple);
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-/* ========== Footer ========== */
+/* ========== Footer - Legacy ========== */
 .footer {
-  background: var(--dark-blue);
+  background: linear-gradient(135deg, #a488f4 0%, #8a6ef1 50%, #7b5fde 100%);
   color: var(--white);
   padding: 80px 0 30px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 60px;
   margin-bottom: 60px;
 }
 
 .footer-info h4 {
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-weight: 800;
+}
+
+.footer-info p {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
 }
 
 .footer-nav-links {
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .nav-col {
@@ -492,13 +527,14 @@ h1, h2, h3, h4, h5 {
 }
 
 .nav-col a {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.8);
   text-decoration: none;
   transition: var(--transition);
+  font-weight: 500;
 }
 
 .nav-col a:hover {
-  color: var(--white);
+  color: var(--accent-yellow);
 }
 
 .social-icons {
@@ -510,7 +546,7 @@ h1, h2, h3, h4, h5 {
 .social-icon {
   width: 45px;
   height: 45px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.15);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -518,15 +554,19 @@ h1, h2, h3, h4, h5 {
   color: var(--white);
   text-decoration: none;
   transition: var(--transition);
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .social-icon:hover {
-  background: var(--primary-purple);
+  background: var(--accent-yellow);
+  color: var(--dark-blue);
   transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(250, 204, 21, 0.3);
 }
 
 .footer-contact h3 {
   margin-bottom: 25px;
+  font-weight: 800;
 }
 
 .contact-box form {
@@ -536,18 +576,39 @@ h1, h2, h3, h4, h5 {
 }
 
 .contact-box input, .contact-box textarea {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
   padding: 12px 20px;
   border-radius: var(--radius-md);
   color: var(--white);
   outline: none;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.contact-box input::placeholder, .contact-box textarea::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.contact-box input:focus, .contact-box textarea:focus {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1);
 }
 
 .btn-yellow {
-  background: var(--primary-purple);
-  color: var(--white);
+  background: var(--accent-yellow);
+  color: var(--dark-blue);
   font-weight: 700;
+  padding: 12px 30px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.btn-yellow:hover {
+  background: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(250, 204, 21, 0.3);
 }
 
 .footer-bottom {
@@ -555,13 +616,21 @@ h1, h2, h3, h4, h5 {
   border-top: 1px solid rgba(255,255,255,0.1);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 0.9rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.7);
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .dev-link {
   color: var(--white);
   text-decoration: none;
+  transition: var(--transition);
+}
+
+.dev-link:hover {
+  color: var(--accent-yellow);
 }
 
 /* ========== Scroll Reveal ========== */
@@ -576,6 +645,39 @@ h1, h2, h3, h4, h5 {
   transform: translateY(0);
 }
 
+/* ========== Popup ========== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background: var(--primary-purple);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  color: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.popup-content h3 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+.popup-content p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* ========== Responsive ========== */
 @media (max-width: 992px) {
   .hero-container, .about-grid {
     flex-direction: column;
@@ -603,5 +705,10 @@ h1, h2, h3, h4, h5 {
   
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
   }
 }
