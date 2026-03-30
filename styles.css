@@ -157,7 +157,7 @@ h1, h2, h3, h4, h5 {
 
 /* ========== Hero Section ========== */
 .hero {
-  background: linear-gradient(180deg, #a1c6d6 0%, #a1c6d6 20%, #abbeea 40%, #abbeea 100%);
+  background: linear-gradient(180deg, #ab8eea 0%, #ab8eea 20%, #8a1cd6 40%, #8a1cd6 100%);
   border-top-left-radius: 60px;
   border-top-right-radius: 60px;
   margin-top: 20px;
