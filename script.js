@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ========== Sticky Navigation (Command Center) ==========
+  // ========== Sticky Navigation ==========
   const navbar = document.getElementById('navbar');
   
   window.addEventListener('scroll', () => {
@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.classList.remove('scrolled');
     }
-    
-    // Scroll reveal logic
     reveal();
   });
 
@@ -25,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ========== Experience Tab Filtering ==========
   const tabBtns = document.querySelectorAll('.tab-btn');
-  const experienceItems = document.querySelectorAll('.exp-item');
+  const experienceCards = document.querySelectorAll('.exp-card');
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -34,18 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = btn.getAttribute('data-filter');
 
-      experienceItems.forEach(item => {
-        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-          item.style.display = 'block';
-          item.style.animation = 'fadeIn 0.5s ease forwards';
+      experienceCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeIn 0.5s ease forwards';
         } else {
-          item.style.display = 'none';
+          card.style.display = 'none';
         }
       });
     });
   });
 
-  // ========== Smooth Scrolling for Navigation Links ==========
+  // ========== Smooth Scrolling ==========
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -63,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ========== Contact Form Submission & Success Popup ==========
+  // ========== Contact Form & Success Popup ==========
   const contactForm = document.getElementById('contact-form');
   const successPopup = document.getElementById('success-popup');
   const closePopup = document.getElementById('close-popup');
@@ -84,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ========== Scroll Reveal Animation ==========
   function reveal() {
-    const reveals = document.querySelectorAll('section, .reveal');
+    const reveals = document.querySelectorAll('.reveal');
     for (let i = 0; i < reveals.length; i++) {
       const windowHeight = window.innerHeight;
       const elementTop = reveals[i].getBoundingClientRect().top;
