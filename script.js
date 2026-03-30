@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       navbar.classList.remove('scrolled');
     }
+    
+    // Scroll reveal logic
+    reveal();
   });
 
   // ========== Mobile Menu Toggle ==========
@@ -46,10 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
       if (target) {
         window.scrollTo({
-          top: target.offsetTop - 100,
+          top: target.offsetTop,
           behavior: 'smooth'
         });
         if (navLinks.classList.contains('active')) {
@@ -78,108 +82,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ========== Testimonials Logic ==========
-  const testimonialsContainer = document.getElementById('testimonials-container');
-  const testimonialModal = document.getElementById('testimonial-modal');
-  const openModalBtn = document.getElementById('open-testimonial-modal');
-  const closeModalBtn = document.querySelector('.close-modal');
-  const testimonialForm = document.getElementById('testimonial-form');
-  const stars = document.querySelectorAll('.stars i');
-  const ratingInput = document.getElementById('rating-value');
-
-  // Initial Testimonials
-  const initialTestimonials = [
-    {
-      name: "Sarah Johnson",
-      relation: "Peer at STEM Academy",
-      rating: 5,
-      opinion: "Malak is an incredible leader. Her dedication to STEM and community impact is truly inspiring!",
-      pic: "https://i.pravatar.cc/150?u=sarah"
-    },
-    {
-      name: "Ahmed Ali",
-      relation: "Mentor at Resala STEM",
-      rating: 5,
-      opinion: "Working with Malak was a pleasure. She has a unique ability to simplify complex problems and lead teams effectively.",
-      pic: "https://i.pravatar.cc/150?u=ahmed"
-    }
-  ];
-
-  function renderTestimonials(tests) {
-    testimonialsContainer.innerHTML = '';
-    tests.forEach(test => {
-      const card = document.createElement('div');
-      card.className = 'testimonial-card';
-      
-      let starsHtml = '';
-      for (let i = 0; i < 5; i++) {
-        starsHtml += `<i class="fas fa-star ${i < test.rating ? 'active' : ''}"></i>`;
+  // ========== Scroll Reveal Animation ==========
+  function reveal() {
+    const reveals = document.querySelectorAll('section, .reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add('active');
+      } else {
+        reveals[i].classList.remove('active');
       }
-
-      card.innerHTML = `
-        <div class="test-stars">${starsHtml}</div>
-        <p class="test-opinion">"${test.opinion}"</p>
-        <div class="test-user">
-          <img src="${test.pic || 'https://i.pravatar.cc/150?u=default'}" alt="${test.name}" class="test-img">
-          <div class="test-info">
-            <h4>${test.name}</h4>
-            <span>${test.relation}</span>
-          </div>
-        </div>
-      `;
-      testimonialsContainer.appendChild(card);
-    });
-  }
-
-  renderTestimonials(initialTestimonials);
-
-  // Modal Handling
-  if (openModalBtn) {
-    openModalBtn.onclick = () => testimonialModal.style.display = 'block';
-  }
-  if (closeModalBtn) {
-    closeModalBtn.onclick = () => testimonialModal.style.display = 'none';
-  }
-  window.onclick = (event) => {
-    if (event.target == testimonialModal) {
-      testimonialModal.style.display = 'none';
     }
-  };
-
-  // Star Rating Handling
-  stars.forEach(star => {
-    star.onclick = () => {
-      const val = star.getAttribute('data-value');
-      ratingInput.value = val;
-      stars.forEach(s => {
-        if (s.getAttribute('data-value') <= val) {
-          s.classList.add('active');
-        } else {
-          s.classList.remove('active');
-        }
-      });
-    };
-  });
-
-  // Form Submission
-  if (testimonialForm) {
-    testimonialForm.onsubmit = (e) => {
-      e.preventDefault();
-      const newTest = {
-        name: document.getElementById('test-name').value,
-        relation: document.getElementById('test-relation').value,
-        rating: parseInt(ratingInput.value),
-        opinion: document.getElementById('test-opinion').value,
-        pic: document.getElementById('test-pic').value
-      };
-      
-      initialTestimonials.unshift(newTest);
-      renderTestimonials(initialTestimonials);
-      testimonialModal.style.display = 'none';
-      testimonialForm.reset();
-      // Reset stars
-      stars.forEach(s => s.classList.remove('active'));
-      stars[4].classList.add('active'); // Default back to 5
-    };
   }
+
+  // Initial call
+  reveal();
 });
