@@ -157,15 +157,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("a[href^=\'#\']").forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth",
-      });
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
     });
   });
 
-  // ========== Contact Form Functionality ==========
+  // ========== Contact Form & Popup Functionality ==========
   const contactForm = document.getElementById("contact-form");
-  const formStatus = document.getElementById("form-status");
+  const successPopup = document.getElementById("success-popup");
+  const closePopup = document.getElementById("close-popup");
 
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
@@ -176,15 +180,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Simulate form submission
       setTimeout(() => {
-        formStatus.textContent = "Message sent! Malak will be in touch soon.";
-        formStatus.style.color = "var(--dark-blue)";
+        // Show success popup
+        successPopup.style.display = "flex";
+        
+        // Reset button and form
         btn.textContent = "Send Message";
         btn.disabled = false;
         contactForm.reset();
-        setTimeout(() => (formStatus.textContent = ""), 5000);
       }, 1500);
     });
   }
+
+  if (closePopup) {
+    closePopup.addEventListener("click", () => {
+      successPopup.style.display = "none";
+    });
+  }
+
+  // Close popup when clicking outside content
+  window.addEventListener("click", (e) => {
+    if (e.target === successPopup) {
+      successPopup.style.display = "none";
+    }
+  });
 
   // ========== Scroll Reveal Animation ==========
   const reveal = () => {
