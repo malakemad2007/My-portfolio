@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malak Emad | Personal Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Malak Emad's portfolio showcasing engineering projects, STEM achievements, and leadership experiences.">
+  <meta name="author" content="Malak Emad">
+  <link rel="icon" href="dear.future.luminary.logo.svg" type="image/png">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/ce04bd97e3.js" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation Bar (Command Center) -->
+  <nav id="navbar" class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">Malak Emad</div>
+      <div class="menu-toggle" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-gradient-bg"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">My<br>Portfolio</h1>
+        <p class="hero-subtitle">Showcasing my journey in STEM, innovation, and social impact</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">Explore My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="personal-pic.png" alt="Malak Emad">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-text-content">
+          <h2>Hello, I'm Malak</h2>
+          <p class="about-description">A dedicated STEM enthusiast, social media strategist, and community leader with expertise in content creation, project management, and team leadership. Proficient in driving impactful initiatives focused on education, sustainability, and technological innovation.</p>
+          <div class="about-buttons">
+            <a href="mailto:malak.elsalmawi@gmail.com" class="btn btn-about"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://www.youtube.com/@malak_luminary" target="_blank" class="btn btn-about"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://www.linkedin.com/in/loka-luminary/" target="_blank" class="btn btn-about"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience-tabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="leadership">Leadership</button>
+        <button class="tab-btn" data-filter="tech">Tech & Dev</button>
+        <button class="tab-btn" data-filter="research">Research</button>
+        <button class="tab-btn" data-filter="social">Social Impact</button>
+        <button class="tab-btn" data-filter="business">Business</button>
+      </div>
+      
+      <div class="experience-timeline">
+        <!-- Leadership -->
+        <div class="exp-item" data-category="leadership">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Founder & Program Director</h3>
+              <span class="exp-date">May 2024 – Present</span>
+            </div>
+            <p class="exp-org">Dear Future Luminary</p>
+            <p class="exp-desc">Founded and currently lead a youth-driven initiative focused on democratizing access to scholarships, global programs, and high-impact opportunities for high school students.</p>
+            <div class="exp-skills">
+              <span>Program Development</span><span>Strategic Planning</span><span>Public Speaking</span><span>Mentorship</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" data-category="leadership">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Head of Social Media</h3>
+              <span class="exp-date">2025 – Present</span>
+            </div>
+            <p class="exp-org">MAS MUN</p>
+            <p class="exp-desc">Leading digital strategy and brand positioning for a Model United Nations organization. Managing content pipelines and engagement strategy.</p>
+            <div class="exp-skills">
+              <span>Branding</span><span>Content Strategy</span><span>Digital Marketing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech -->
+        <div class="exp-item" data-category="tech">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Front-End Developer & Researcher</h3>
+              <span class="exp-date">Feb 2024 – Apr 2024</span>
+            </div>
+            <p class="exp-org">Star Girls Africa (SGA)</p>
+            <p class="exp-desc">Developed a responsive web-based book review platform, focusing on usability and user-centered design.</p>
+            <div class="exp-skills">
+              <span>HTML</span><span>CSS</span><span>UI/UX Thinking</span><span>Research Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research -->
+        <div class="exp-item" data-category="research">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Researcher</h3>
+              <span class="exp-date">2024</span>
+            </div>
+            <p class="exp-org">Junior Academy – New York Academy of Sciences</p>
+            <p class="exp-desc">Conducted collaborative research within international teams addressing global challenges.</p>
+            <div class="exp-skills">
+              <span>Research</span><span>Critical Thinking</span><span>Collaboration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div class="exp-item" data-category="social">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Head of Social Media & Training Facilitator</h3>
+              <span class="exp-date">2023 – 2024</span>
+            </div>
+            <p class="exp-org">Resala STEM</p>
+            <p class="exp-desc">Led social media strategy and designed training sessions on teamwork for student members.</p>
+            <div class="exp-skills">
+              <span>Training</span><span>Communication</span><span>Social Media Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business -->
+        <div class="exp-item" data-category="business">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Social Media Manager & Graphic Designer</h3>
+              <span class="exp-date">2024 – Present</span>
+            </div>
+            <p class="exp-org">AlMonqeth Academy</p>
+            <p class="exp-desc">Managing full digital presence and producing branded visual content for a multi-subject educational center.</p>
+            <div class="exp-skills">
+              <span>Social Media Management</span><span>Graphic Design</span><span>Branding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-list">
+        <!-- Project 1 -->
+        <div class="project-row">
+          <div class="project-info">
+            <h3>Smart Agriculture System – Temperature-Based Irrigation Control</h3>
+            <p>Designed and developed a sensor-based system to monitor environmental conditions and automate irrigation processes.</p>
+            <p>Integrated temperature and soil humidity data to optimize water usage and improve efficiency.</p>
+            <p>Focused on sustainability by reducing water waste and enhancing agricultural productivity.</p>
+            <div class="project-skills-list">
+              <strong>Skills:</strong> Problem Solving, Systems Thinking, Environmental Engineering
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-row">
+          <div class="project-info">
+            <h3>Book Review Web Platform</h3>
+            <p>Developed a responsive web application enabling users to share and explore book reviews.</p>
+            <p>Focused on user experience, accessibility, and structured content display.</p>
+            <p>Implemented front-end development principles to create a functional and scalable interface.</p>
+            <div class="project-skills-list">
+              <strong>Skills:</strong> HTML, CSS, UI Design
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-row">
+          <div class="project-info">
+            <h3>Climate Change Research Paper</h3>
+            <p>Authored a comprehensive research paper analyzing climate challenges and proposing actionable solutions.</p>
+            <p>Integrated data-driven insights with environmental analysis.</p>
+            <p>Focused on translating complex issues into clear, structured arguments.</p>
+            <div class="project-skills-list">
+              <strong>Skills:</strong> Research, Writing, Critical Thinking
+            </div>
+          </div>
+        </div>
+        <!-- Project 4 -->
+        <div class="project-row">
+          <div class="project-info">
+            <h3>Training & Educational Workshops (3 Sessions)</h3>
+            <p>Designed and delivered workshops on: Student activities and leadership pathways, Summer programs and global opportunities, Sustainability and environmental awareness.</p>
+            <p>Focused on simplifying complex systems and enabling students to take actionable steps toward growth.</p>
+            <div class="project-skills-list">
+              <strong>Skills:</strong> Public Speaking, Training Design, Communication
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (The Legacy) -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-grid">
+        <div class="footer-info">
+          <h4>Malak Emad</h4>
+          <p>STEM Enthusiast | Social Media Strategist | Community Leader</p>
+          <div class="footer-nav-links">
+            <div class="nav-col">
+              <a href="#hero">Home</a>
+              <a href="#about">About</a>
+            </div>
+            <div class="nav-col">
+              <a href="#experience">Experience</a>
+              <a href="#projects">Projects</a>
+            </div>
+          </div>
+          <div class="social-icons">
+            <a href="https://instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@malak_luminary" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:malak.elsalmawi@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div id="contact" class="footer-contact">
+          <div class="contact-box">
+            <h3>Get In Touch</h3>
+            <form id="contact-form">
+              <input type="text" placeholder="Malak Emad" required>
+              <input type="email" placeholder="malak.elsalmawi@gmail.com" required>
+              <textarea placeholder="Your Message" rows="3" required></textarea>
+              <button type="submit" class="btn btn-yellow">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <p>&copy; 2026 Malak Emad. All rights reserved.</p>
+        <p>Developed By <a href="https://www.linkedin.com/in/loka-luminary/" target="_blank" class="dev-link">Malak Emad</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Success Popup -->
+  <div id="success-popup" class="popup-overlay">
+    <div class="popup-content">
+      <h3>Message Sent!</h3>
+      <p>Thank you so much! 💜</p>
+      <p>Your message just landed safely in my inbox.</p>
+      <p>I'll reply as soon as I can (usually within 24–48 hours)!</p>
+      <button id="close-popup" class="btn btn-primary">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
