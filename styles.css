@@ -36,6 +36,9 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
@@ -46,6 +49,10 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-weight: 700;
+}
+
+main {
+  flex: 1;
 }
 
 /* ========== Navigation Bar ========== */
@@ -83,7 +90,8 @@ h1, h2, h3, h4, h5 {
   max-width: 90%;
 }
 
-.navbar-brand {
+.navbar-brand a {
+  text-decoration: none;
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
@@ -91,14 +99,14 @@ h1, h2, h3, h4, h5 {
   transition: var(--transition);
 }
 
-.navbar.scrolled .navbar-brand {
+.navbar.scrolled .navbar-brand a {
   color: var(--primary);
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 25px;
+  gap: 20px;
 }
 
 .nav-link {
@@ -106,18 +114,19 @@ h1, h2, h3, h4, h5 {
   color: var(--dark);
   font-weight: 600;
   transition: var(--transition);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   position: relative;
+  padding: 5px 0;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
   color: var(--primary);
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
@@ -125,7 +134,7 @@ h1, h2, h3, h4, h5 {
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after, .nav-link.active::after {
   width: 100%;
 }
 
@@ -138,24 +147,15 @@ h1, h2, h3, h4, h5 {
 
 /* ========== Page Sections ========== */
 .page-section {
-  min-height: 100vh;
+  padding: 120px 0 80px 0;
+  position: relative;
+}
+
+/* ========== Hero Section (Home Page) ========== */
+.hero-section {
+  min-height: calc(100vh - 40px);
   display: flex;
   align-items: center;
-  padding: 120px 0 100px 0;
-  position: relative;
-  scroll-snap-align: start;
-}
-
-.page-section:nth-child(even) {
-  background-color: #ffffff;
-}
-
-.page-section:nth-child(odd) {
-  background-color: var(--bg-light);
-}
-
-/* ========== Hero Section ========== */
-.hero-section {
   padding-top: 100px;
   padding-bottom: 60px;
   margin-bottom: 40px;
@@ -183,7 +183,6 @@ h1, h2, h3, h4, h5 {
 
 .hero-content {
   flex: 1.2;
-  animation: slideInLeft 1s ease-out;
 }
 
 .hero-title {
@@ -197,8 +196,6 @@ h1, h2, h3, h4, h5 {
   font-size: 1.3rem;
   color: #555;
   margin-bottom: 15px;
-  animation: fadeIn 1s ease-out 0.3s forwards;
-  opacity: 0;
 }
 
 .hero-description {
@@ -207,44 +204,12 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 40px;
   max-width: 550px;
   line-height: 1.8;
-  animation: fadeIn 1s ease-out 0.4s forwards;
-  opacity: 0;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
 }
 
 .hero-cta {
   display: flex;
   gap: 20px;
-  animation: slideInUp 1s ease-out 0.5s forwards;
-  opacity: 0;
   flex-wrap: wrap;
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .btn {
@@ -284,18 +249,6 @@ h1, h2, h3, h4, h5 {
   flex: 1;
   display: flex;
   justify-content: center;
-  animation: slideInRight 1s ease-out;
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .hero-image img {
@@ -307,8 +260,7 @@ h1, h2, h3, h4, h5 {
 /* ========== Section Headers ========== */
 .section-header {
   text-align: center;
-  margin-bottom: 80px;
-  animation: fadeInUp 0.8s ease-out forwards;
+  margin-bottom: 60px;
 }
 
 .section-title {
@@ -324,18 +276,7 @@ h1, h2, h3, h4, h5 {
   margin: 0 auto;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ========== About Section ========== */
+/* ========== About Section Content ========== */
 .about-intro {
   text-align: center;
   max-width: 900px;
@@ -354,10 +295,6 @@ h1, h2, h3, h4, h5 {
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 40px;
   margin-bottom: 60px;
-}
-
-.about-block {
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .block-title {
@@ -386,7 +323,7 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-lg);
 }
 
-/* ========== Experience Section ========== */
+/* ========== Experience Section Content ========== */
 .experience-tabs {
   display: flex;
   justify-content: center;
@@ -407,8 +344,7 @@ h1, h2, h3, h4, h5 {
   font-size: 0.9rem;
 }
 
-.tab-btn:hover,
-.tab-btn.active {
+.tab-btn:hover, .tab-btn.active {
   background-color: var(--primary);
   color: #ffffff;
 }
@@ -416,13 +352,14 @@ h1, h2, h3, h4, h5 {
 .experience-timeline {
   position: relative;
   padding: 20px 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .experience-timeline::before {
   content: '';
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 20px;
   width: 3px;
   height: 100%;
   background: linear-gradient(to bottom, var(--primary), var(--accent));
@@ -430,27 +367,14 @@ h1, h2, h3, h4, h5 {
 
 .exp-item {
   margin-bottom: 50px;
-  display: flex;
-  align-items: center;
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.exp-item:nth-child(odd) {
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-right: 52%;
-}
-
-.exp-item:nth-child(even) {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  padding-left: 52%;
+  padding-left: 60px;
+  position: relative;
 }
 
 .exp-dot {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 12px;
+  top: 5px;
   width: 18px;
   height: 18px;
   background-color: var(--accent);
@@ -465,7 +389,6 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  width: 100%;
 }
 
 .exp-content:hover {
@@ -520,7 +443,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
 }
 
-/* ========== Projects Section ========== */
+/* ========== Projects Section Content ========== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -534,7 +457,6 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   border-left: 5px solid var(--accent);
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .project-card:hover {
@@ -599,7 +521,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
 }
 
-/* ========== Programs Section ========== */
+/* ========== Programs Section Content ========== */
 .programs-intro {
   text-align: center;
   max-width: 800px;
@@ -622,7 +544,6 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(167, 139, 250, 0.2);
   transition: var(--transition);
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .program-card:hover {
@@ -653,7 +574,7 @@ h1, h2, h3, h4, h5 {
   line-height: 1.8;
 }
 
-/* ========== Impact Section ========== */
+/* ========== Impact Section Content ========== */
 .impact-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -663,7 +584,6 @@ h1, h2, h3, h4, h5 {
 
 .impact-stat {
   text-align: center;
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .stat-number {
@@ -689,11 +609,6 @@ h1, h2, h3, h4, h5 {
 .impact-narrative h3 {
   font-size: 1.6rem;
   margin-bottom: 20px;
-  margin-top: 0;
-}
-
-.impact-narrative h3:not(:first-child) {
-  margin-top: 30px;
 }
 
 .impact-narrative p {
@@ -702,15 +617,11 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 15px;
 }
 
-/* ========== Skills Section ========== */
+/* ========== Skills Section Content ========== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 50px;
-}
-
-.skill-category {
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .category-title {
@@ -750,10 +661,11 @@ h1, h2, h3, h4, h5 {
   height: 100%;
   background: linear-gradient(90deg, var(--primary), var(--accent));
   border-radius: 3px;
+  width: 0;
   transition: width 1s ease-out;
 }
 
-/* ========== Achievements Section ========== */
+/* ========== Achievements Section Content ========== */
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -767,8 +679,6 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   border-top: 4px solid var(--accent);
-  animation: fadeInUp 0.8s ease-out forwards;
-  position: relative;
 }
 
 .achievement-card:hover {
@@ -799,16 +709,12 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
 }
 
-/* ========== Contact Section ========== */
+/* ========== Contact Section Content ========== */
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-}
-
-.contact-form-wrapper {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .contact-form {
@@ -817,13 +723,7 @@ h1, h2, h3, h4, h5 {
   gap: 20px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-form input,
-.contact-form textarea {
+.contact-form input, .contact-form textarea {
   padding: 15px 20px;
   border: 2px solid var(--primary);
   border-radius: var(--radius-md);
@@ -834,15 +734,10 @@ h1, h2, h3, h4, h5 {
   color: var(--dark);
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form input:focus, .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
-}
-
-.contact-info {
-  animation: fadeInUp 0.8s ease-out 0.4s forwards;
 }
 
 .contact-info h3 {
@@ -875,7 +770,6 @@ h1, h2, h3, h4, h5 {
 }
 
 .contact-link i {
-  font-size: 1.3rem;
   color: var(--primary);
 }
 
@@ -914,10 +808,7 @@ h1, h2, h3, h4, h5 {
   background-color: var(--dark);
   color: #ffffff;
   padding: 40px 0;
-}
-
-.footer-content {
-  width: 100%;
+  margin-top: auto;
 }
 
 .footer-top {
@@ -932,7 +823,6 @@ h1, h2, h3, h4, h5 {
 
 .footer-top p {
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 20px;
 }
 
 .footer-bottom {
@@ -946,20 +836,10 @@ h1, h2, h3, h4, h5 {
   gap: 20px;
 }
 
-.footer-bottom p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
-}
-
 .dev-link {
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
-  transition: var(--transition);
-}
-
-.dev-link:hover {
-  color: var(--accent);
 }
 
 /* ========== Popup ========== */
@@ -981,33 +861,11 @@ h1, h2, h3, h4, h5 {
   padding: 50px;
   border-radius: var(--radius-lg);
   text-align: center;
-  box-shadow: var(--shadow-lg);
   max-width: 500px;
-  animation: slideInUp 0.5s ease-out;
-}
-
-.popup-content h3 {
-  font-size: 1.8rem;
-  color: var(--dark);
-  margin-bottom: 20px;
-}
-
-.popup-content p {
-  color: #555;
-  margin-bottom: 15px;
-  line-height: 1.7;
-}
-
-.popup-content .btn {
-  margin-top: 20px;
 }
 
 /* ========== Mobile Responsive ========== */
 @media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 20px;
-  }
-
   .nav-links {
     position: fixed;
     top: 80px;
@@ -1039,17 +897,8 @@ h1, h2, h3, h4, h5 {
     font-size: clamp(2.5rem, 8vw, 4rem);
   }
 
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .hero-description {
-    font-size: 1rem;
-  }
-
   .hero-cta {
     flex-direction: column;
-    width: 100%;
   }
 
   .btn {
@@ -1057,331 +906,19 @@ h1, h2, h3, h4, h5 {
     text-align: center;
   }
 
-  .hero-image {
-    width: 100%;
-  }
-
-  .page-section {
-    padding: 80px 0 60px 0;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .section-subtitle {
-    font-size: 1.05rem;
-  }
-
-  .section-header {
-    margin-bottom: 50px;
-  }
-
-  .about-sections {
+  .contact-content {
     grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .about-quote {
-    padding: 40px 20px;
-    font-size: 1.3rem;
   }
 
   .experience-timeline::before {
-    left: 0;
+    left: 15px;
   }
 
   .exp-item {
-    flex-direction: column !important;
-    padding: 0 !important;
-    padding-left: 40px;
-    margin-bottom: 40px;
+    padding-left: 45px;
   }
 
   .exp-dot {
-    left: 0;
-  }
-
-  .exp-content {
-    width: 100%;
-  }
-
-  .exp-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .exp-date {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .programs-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .programs-statement {
-    padding: 40px 20px;
-  }
-
-  .impact-content {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .impact-narrative {
-    padding: 40px 20px;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .achievements-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .contact-form {
-    gap: 15px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 12px 15px;
-    font-size: 1rem;
-  }
-
-  .contact-info h3 {
-    font-size: 1.5rem;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-  }
-
-  .popup-content {
-    padding: 30px 20px;
-    margin: 20px;
-  }
-
-  .popup-content h3 {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    width: 95%;
-  }
-
-  .navbar-brand {
-    font-size: 1.3rem;
-  }
-
-  .nav-links {
-    gap: 15px;
-    padding: 20px 15px;
-  }
-
-  .nav-link {
-    font-size: 0.9rem;
-  }
-
-  .page-section {
-    padding: 60px 0 50px 0;
-  }
-
-  .hero-section {
-    padding-top: 80px;
-  }
-
-  .hero-title {
-    font-size: clamp(2rem, 7vw, 3rem);
-    margin-bottom: 15px;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 12px;
-  }
-
-  .hero-description {
-    font-size: 0.95rem;
-    margin-bottom: 30px;
-  }
-
-  .hero-cta {
-    gap: 12px;
-  }
-
-  .btn {
-    padding: 12px 25px;
-    font-size: 0.9rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .about-sections {
-    gap: 25px;
-  }
-
-  .block-title {
-    font-size: 1.2rem;
-  }
-
-  .about-quote {
-    padding: 30px 15px;
-    font-size: 1.1rem;
-  }
-
-  .experience-tabs {
-    gap: 8px;
-  }
-
-  .tab-btn {
-    padding: 10px 16px;
-    font-size: 0.8rem;
-  }
-
-  .exp-content {
-    padding: 20px;
-  }
-
-  .exp-header h3 {
-    font-size: 1.1rem;
-  }
-
-  .exp-date {
-    font-size: 0.8rem;
-  }
-
-  .exp-skills {
-    gap: 8px;
-  }
-
-  .exp-skills span {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-  }
-
-  .project-card {
-    padding: 25px 20px;
-  }
-
-  .project-header h3 {
-    font-size: 1.1rem;
-  }
-
-  .project-status {
-    font-size: 0.75rem;
-  }
-
-  .project-desc {
-    font-size: 0.95rem;
-  }
-
-  .program-card {
-    padding: 25px 20px;
-  }
-
-  .program-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .programs-statement {
-    padding: 30px 15px;
-    font-size: 1rem;
-  }
-
-  .impact-content {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
-  }
-
-  .stat-label {
-    font-size: 1rem;
-  }
-
-  .impact-narrative {
-    padding: 30px 15px;
-  }
-
-  .impact-narrative h3 {
-    font-size: 1.3rem;
-  }
-
-  .skill-category {
-    gap: 20px;
-  }
-
-  .category-title {
-    font-size: 1.2rem;
-  }
-
-  .achievement-card {
-    padding: 25px 20px;
-  }
-
-  .achievement-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .contact-links {
-    gap: 12px;
-  }
-
-  .contact-link {
-    gap: 12px;
-    font-size: 0.95rem;
-  }
-
-  .social-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-  }
-
-  .footer-top h4 {
-    font-size: 1.3rem;
-  }
-
-  .footer-bottom p {
-    font-size: 0.9rem;
-  }
-}
-
-/* ========== Animations ========== */
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+    left: 7px;
   }
 }
