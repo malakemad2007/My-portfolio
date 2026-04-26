@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ========== Sticky Navigation (Command Center) ==========
+  // ========== Sticky Navigation ==========
   const navbar = document.getElementById('navbar');
   
   window.addEventListener('scroll', () => {
@@ -19,6 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinks.classList.toggle('active');
     });
   }
+
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+  });
 
   // ========== Experience Tab Filtering ==========
   const tabBtns = document.querySelectorAll('.tab-btn');
@@ -102,7 +111,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.exp-item, .project-row').forEach(el => {
+  document.querySelectorAll('.exp-item, .project-card, .program-card, .dear-future-card').forEach(el => {
     observer.observe(el);
+  });
+
+  // ========== Active Navigation Link Highlighting ==========
+  const sections = document.querySelectorAll('section[id]');
+  const navLinkElements = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinkElements.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) {
+        link.classList.add('active');
+      }
+    });
   });
 });
