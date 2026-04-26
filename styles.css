@@ -46,19 +46,6 @@ body {
 section {
   padding: 100px 0;
   position: relative;
-  opacity: 0;
-  animation: fadeInSection 0.8s ease-out forwards;
-}
-
-@keyframes fadeInSection {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 h1, h2, h3, h4, h5 {
@@ -72,7 +59,6 @@ h1, h2, h3, h4, h5 {
   color: var(--dark);
   text-align: center;
   position: relative;
-  animation: slideInDown 0.8s ease-out;
 }
 
 .section-title::after {
@@ -85,25 +71,6 @@ h1, h2, h3, h4, h5 {
   height: 4px;
   background: var(--accent);
   border-radius: 2px;
-  animation: expandWidth 0.8s ease-out 0.3s forwards;
-  width: 0;
-}
-
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes expandWidth {
-  to {
-    width: 80px;
-  }
 }
 
 /* ========== Navigation Bar ========== */
@@ -145,22 +112,12 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: slideInLeft 0.8s ease-out;
+  color: var(--dark);
+  transition: var(--transition);
 }
 
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.navbar.scrolled .navbar-brand {
+  color: var(--primary);
 }
 
 .nav-links {
@@ -292,6 +249,17 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .btn {
   padding: 14px 35px;
   border-radius: var(--radius-xl);
@@ -332,12 +300,6 @@ h1, h2, h3, h4, h5 {
   animation: slideInRight 1s ease-out;
 }
 
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -349,17 +311,33 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* ========== About Section ========== */
 .about {
   background-color: var(--bg-light);
-  animation: fadeInSection 0.8s ease-out;
 }
 
 .about-opening {
   text-align: center;
   margin-bottom: 80px;
-  animation: fadeIn 1s ease-out 0.2s forwards;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
   opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .about-main-title {
@@ -383,7 +361,7 @@ h1, h2, h3, h4, h5 {
 
 .about-section {
   margin-bottom: 80px;
-  animation: slideInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
 }
 
@@ -546,7 +524,7 @@ h1, h2, h3, h4, h5 {
 
 .trait {
   padding: 20px;
-  background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
+  background: var(--primary);
   border-radius: var(--radius-md);
   transition: var(--transition);
 }
@@ -565,7 +543,6 @@ h1, h2, h3, h4, h5 {
 /* ========== Experience Section ========== */
 .experience {
   background-color: var(--bg-light);
-  animation: fadeInSection 0.8s ease-out;
 }
 
 .experience-tabs {
@@ -574,7 +551,7 @@ h1, h2, h3, h4, h5 {
   gap: 15px;
   margin-bottom: 60px;
   flex-wrap: wrap;
-  animation: slideInUp 0.8s ease-out 0.3s forwards;
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
   opacity: 0;
 }
 
@@ -616,7 +593,7 @@ h1, h2, h3, h4, h5 {
   position: relative;
   padding-left: 60px;
   margin-bottom: 50px;
-  animation: slideInLeft 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
 }
 
@@ -718,7 +695,6 @@ h1, h2, h3, h4, h5 {
 /* ========== Projects Section ========== */
 .projects {
   background-color: #ffffff;
-  animation: fadeInSection 0.8s ease-out;
 }
 
 .projects-list {
@@ -733,7 +709,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 30px;
   transition: var(--transition);
   border-left: 8px solid var(--accent);
-  animation: slideInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
 }
 
@@ -771,7 +747,6 @@ h1, h2, h3, h4, h5 {
   background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
   color: #ffffff;
   padding-top: 80px;
-  animation: fadeInSection 0.8s ease-out;
 }
 
 .footer-grid {
@@ -923,7 +898,6 @@ h1, h2, h3, h4, h5 {
   background: rgba(0, 0, 0, 0.7);
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s ease-out;
 }
 
 .popup-content {
