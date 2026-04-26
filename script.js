@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.exp-item, .project-card, .program-card, .dear-future-card').forEach(el => {
+  document.querySelectorAll('.exp-item, .project-card, .program-card, .achievement-card, .skill-category').forEach(el => {
     observer.observe(el);
   });
 
@@ -136,4 +136,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ========== Skill Bar Animation ==========
+  const skillBars = document.querySelectorAll('.skill-fill');
+  let skillsAnimated = false;
+
+  const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !skillsAnimated) {
+        skillsAnimated = true;
+        skillBars.forEach(bar => {
+          const width = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => {
+            bar.style.transition = 'width 1s ease-out';
+            bar.style.width = width;
+          }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelector('.skills-section')?.let(el => skillsObserver.observe(el));
 });
