@@ -26,7 +26,7 @@
       --radius-lg: 20px;
       --radius-xl: 50px;
       
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
       --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
       --shadow-lg: 0 8px 32px rgba(167, 139, 250, 0.15);
@@ -44,7 +44,7 @@
     }
 
     body {
-      background: linear-gradient(135deg, #f2f3f5 0%, #e8e9ed 100%);
+      background: linear-gradient(135deg, #f2f3f5 0%, #e8e9ed 50%, #dfe0e5 100%);
       color: var(--dark);
       font-family: var(--font-body);
       line-height: 1.6;
@@ -52,6 +52,30 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      cursor: none;
+    }
+
+    /* Custom Cursor */
+    body::before {
+      content: '';
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.8) 0%, rgba(167, 139, 250, 0.4) 100%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      box-shadow: 0 0 15px rgba(167, 139, 250, 0.6);
+      transition: all 0.1s ease-out;
+      top: var(--cursor-y, 0);
+      left: var(--cursor-x, 0);
+    }
+
+    body.cursor-hover::before {
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.9) 0%, rgba(250, 204, 21, 0.5) 100%);
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
     }
 
     .container {
@@ -282,6 +306,7 @@
       max-width: 100%;
       height: auto;
       object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
     }
 
     /* ========== Section Headers ========== */
@@ -323,30 +348,54 @@
       font-weight: 700;
     }
 
-    /* ========== Experience Section ========== */
+    /* ========== Experience Section (Yalla Success Style - NO CARDS) ========== */
     .experience-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .experience-header {
+      position: sticky;
+      top: 150px;
+      height: fit-content;
+    }
+
+    .experience-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .experience-desc {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 30px;
     }
 
     .filter-tabs {
       display: flex;
-      gap: 15px;
-      margin-bottom: 50px;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .tab-btn {
-      padding: 10px 25px;
-      border-radius: var(--radius-xl);
-      background: rgba(167, 139, 250, 0.1);
+      padding: 12px 20px;
+      border-radius: var(--radius-lg);
+      background: transparent;
       color: var(--dark);
-      border: 2px solid transparent;
+      border: 2px solid rgba(167, 139, 250, 0.3);
       font-weight: 700;
       cursor: pointer;
       transition: var(--transition);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      text-align: left;
     }
 
     .tab-btn:hover, .tab-btn.active {
@@ -355,114 +404,15 @@
       border-color: var(--primary);
     }
 
-    .experience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
+    .experience-items {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
-    .experience-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(167, 139, 250, 0.05) 100%);
+    .exp-item {
       padding: 35px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(167, 139, 250, 0.2);
-    }
-
-    .experience-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
-
-    .experience-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .experience-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-
-    .exp-title {
-      font-size: 1.3rem;
-      color: var(--dark);
-      margin-bottom: 8px;
-      font-weight: 800;
-    }
-
-    .exp-org {
-      font-size: 0.95rem;
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .exp-meta {
-      font-size: 0.8rem;
-      color: #999;
-      margin-bottom: 15px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .exp-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .exp-desc {
-      color: #555;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 15px;
-    }
-
-    .exp-highlights {
-      list-style: none;
-      margin-top: 15px;
-    }
-
-    .exp-highlights li {
-      color: #555;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 8px;
-      padding-left: 20px;
-      position: relative;
-    }
-
-    .exp-highlights li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    /* ========== Projects Section ========== */
-    .projects-showcase {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .project-item {
-      margin-bottom: 50px;
-      padding: 40px;
-      background: linear-gradient(135deg, rgba(167, 139, 250, 0.08) 0%, rgba(250, 204, 21, 0.04) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(167,139,250,0.08) 100%);
       border-radius: var(--radius-lg);
       border: 1px solid rgba(167, 139, 250, 0.2);
       transition: var(--transition);
@@ -470,7 +420,7 @@
       overflow: hidden;
     }
 
-    .project-item::before {
+    .exp-item::before {
       content: '';
       position: absolute;
       top: 0;
@@ -478,24 +428,102 @@
       width: 100%;
       height: 3px;
       background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
     }
 
-    .project-item:hover {
-      border-color: var(--accent);
-      box-shadow: 0 10px 40px rgba(167, 139, 250, 0.15);
-      transform: translateY(-5px);
+    .exp-item:hover {
+      transform: translateX(10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .exp-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      gap: 20px;
+    }
+
+    .exp-role {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+
+    .exp-org {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .exp-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .exp-desc {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    .exp-highlights li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .exp-highlights li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    /* ========== Projects Section (Modern No-Card Layout) ========== */
+    .projects-showcase {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .project-item {
+      margin-bottom: 80px;
+      padding: 50px 0;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.15);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
     }
 
     .project-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       gap: 20px;
     }
 
     .project-title {
-      font-size: 1.6rem;
+      font-size: 2rem;
       color: var(--dark);
       font-weight: 800;
     }
@@ -518,21 +546,23 @@
 
     .project-desc {
       color: #555;
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.8;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      max-width: 800px;
     }
 
     .project-highlights {
       list-style: none;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      max-width: 800px;
     }
 
     .project-highlights li {
-      color: #555;
+      color: #666;
       font-size: 0.95rem;
       line-height: 1.7;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       padding-left: 22px;
       position: relative;
     }
@@ -546,26 +576,30 @@
     }
 
     .project-impact {
-      background: rgba(167, 139, 250, 0.1);
-      padding: 20px 25px;
-      border-radius: var(--radius-md);
+      padding: 25px 30px;
+      background: linear-gradient(135deg, rgba(167,139,250,0.1) 0%, rgba(250,204,21,0.05) 100%);
       border-left: 4px solid var(--primary);
-      margin-top: 20px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      max-width: 800px;
     }
 
     .project-impact strong {
-      color: var(--primary);
+      color: var(--dark);
       font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 8px;
     }
 
     .project-impact p {
       color: #555;
       font-size: 0.95rem;
       line-height: 1.6;
-      margin-top: 5px;
     }
 
-    /* ========== Skills Section ========== */
+    /* ========== Skills Section (No Cards) ========== */
     .skills-container {
       max-width: 1100px;
       margin: 0 auto;
@@ -573,29 +607,21 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 50px;
     }
 
     .skill-category {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(167, 139, 250, 0.05) 100%);
-      padding: 35px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
+      padding: 0;
+      background: transparent;
+      border: none;
       transition: var(--transition);
-      border: 1px solid rgba(167, 139, 250, 0.15);
-    }
-
-    .skill-category:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-5px);
-      border-color: var(--primary);
     }
 
     .skill-category h3 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       color: var(--dark);
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       padding-bottom: 15px;
       border-bottom: 3px solid var(--accent);
       font-weight: 800;
@@ -604,7 +630,7 @@
     .skill-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 15px;
     }
 
     .skill-item {
@@ -623,10 +649,10 @@
       font-size: 0.8rem;
     }
 
-    /* ========== Connect Bar ========== */
+    /* ========== Connect Bar (Yellow Bar with Blue Text) ========== */
     .connect-bar {
       background-color: var(--accent);
-      padding: 20px 0;
+      padding: 25px 0;
       position: relative;
       z-index: 100;
     }
@@ -635,12 +661,23 @@
       width: min(1200px, 90%);
       margin-inline: auto;
       padding: 0 30px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .connect-label {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark);
+      white-space: nowrap;
     }
 
     .connect-links {
       display: flex;
-      gap: 20px;
-      justify-content: center;
+      gap: 25px;
+      justify-content: flex-start;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -652,17 +689,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background-color: rgba(30, 58, 138, 0.1);
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
 
     .connect-link:hover {
       background-color: var(--dark);
       color: var(--accent);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
     }
 
     /* ========== Footer ========== */
@@ -670,7 +708,7 @@
       background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
       color: #ffffff;
       padding: 60px 0 30px 0;
-      margin-top: auto;
+      margin-top: 60px;
       position: relative;
       z-index: 50;
     }
@@ -708,7 +746,6 @@
       line-height: 1.6;
     }
 
-    /* Contact Form - Wider & Shorter */
     .footer-form-frame {
       background-color: rgba(109, 40, 217, 0.2);
       border: 2px solid rgba(109, 40, 217, 0.4);
@@ -800,31 +837,50 @@
       justify-content: space-between;
     }
 
-    /* Refined Flying Message Animation */
-    @keyframes smoothDrift {
+    /* ========== Folding Envelope Animation ========== */
+    @keyframes foldingEnvelope {
       0% {
         opacity: 0;
-        transform: translate(0, 0) scale(1) rotate(0deg);
+        transform: translate(0, 0) rotateX(0deg) rotateY(0deg) scale(1);
       }
-      5% {
+      10% {
         opacity: 1;
+        transform: translate(100px, -50px) rotateX(20deg) rotateY(-10deg) scale(1.1);
       }
-      95% {
+      30% {
+        transform: translate(200px, -150px) rotateX(-15deg) rotateY(25deg) scale(0.95);
+      }
+      50% {
+        transform: translate(300px, -300px) rotateX(30deg) rotateY(-20deg) scale(0.85);
+      }
+      70% {
+        transform: translate(400px, -450px) rotateX(-25deg) rotateY(35deg) scale(0.7);
+      }
+      90% {
         opacity: 1;
+        transform: translate(500px, -600px) rotateX(45deg) rotateY(-40deg) scale(0.5);
       }
       100% {
         opacity: 0;
-        transform: translate(350px, -500px) scale(0.5) rotate(20deg);
+        transform: translate(600px, -800px) rotateX(60deg) rotateY(50deg) scale(0.2);
       }
     }
 
-    .flying-message {
+    .flying-envelope {
       position: fixed;
-      font-size: 2.5rem;
-      animation: smoothDrift 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      font-size: 3rem;
+      animation: foldingEnvelope 3.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
       pointer-events: none;
       z-index: 9998;
-      filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.6));
+      filter: drop-shadow(0 0 15px rgba(250, 204, 21, 0.8)) drop-shadow(0 0 30px rgba(167, 139, 250, 0.6));
+    }
+
+    .envelope-line {
+      position: fixed;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 9997;
     }
 
     .footer-success-message {
@@ -835,13 +891,13 @@
       transform: translate(-50%, -50%);
       background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
       color: #ffffff;
-      padding: 45px 55px;
+      padding: 50px 60px;
       border-radius: var(--radius-lg);
       text-align: center;
-      z-index: 9997;
+      z-index: 9999;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
       animation: slideIn 0.5s ease-out;
-      max-width: 500px;
+      max-width: 550px;
       border: 2px solid rgba(255, 255, 255, 0.2);
     }
 
@@ -857,14 +913,14 @@
     }
 
     .footer-success-message h3 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
       color: var(--accent);
     }
 
     .footer-success-message p {
       font-size: 0.95rem;
-      line-height: 1.6;
+      line-height: 1.7;
       color: rgba(255, 255, 255, 0.95);
     }
 
@@ -910,38 +966,45 @@
         text-align: center;
       }
 
+      .experience-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .experience-header {
+        position: static;
+      }
+
+      .filter-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .tab-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+
       .footer-main {
         grid-template-columns: 1fr;
         gap: 30px;
       }
 
+      .connect-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
       .connect-links {
-        gap: 15px;
+        justify-content: center;
       }
 
       .section-title {
         font-size: 2.2rem;
       }
 
-      .experience-grid {
-        grid-template-columns: 1fr;
-      }
-
       .project-header {
         flex-direction: column;
-      }
-
-      .project-item {
-        padding: 25px;
-      }
-
-      .filter-tabs {
-        gap: 10px;
-      }
-
-      .tab-btn {
-        padding: 8px 18px;
-        font-size: 0.8rem;
       }
 
       .footer-bottom {
@@ -1012,7 +1075,7 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience Section (Yalla Success Style - NO CARDS) -->
     <section id="experience" class="page-section">
       <div class="container">
         <div class="section-header">
@@ -1020,22 +1083,27 @@
         </div>
 
         <div class="experience-container">
-          <div class="filter-tabs">
-            <button class="tab-btn active" data-filter="all">All</button>
-            <button class="tab-btn" data-filter="leadership">Leadership</button>
-            <button class="tab-btn" data-filter="tech">Tech</button>
-            <button class="tab-btn" data-filter="advocacy">Advocacy</button>
-            <button class="tab-btn" data-filter="education">Education</button>
+          <div class="experience-header">
+            <h3 class="experience-title">Pathways to<br>Leadership</h3>
+            <p class="experience-desc">From global advocacy to founding initiatives, my journey is defined by intentional growth and community impact.</p>
+            <div class="filter-tabs">
+              <button class="tab-btn active" data-filter="all">All</button>
+              <button class="tab-btn" data-filter="leadership">Leadership</button>
+              <button class="tab-btn" data-filter="tech">Tech</button>
+              <button class="tab-btn" data-filter="advocacy">Advocacy</button>
+              <button class="tab-btn" data-filter="education">Education</button>
+            </div>
           </div>
 
-          <div class="experience-grid">
+          <div class="experience-items">
             <!-- UNICEF -->
-            <div class="experience-card" data-category="advocacy">
-              <div class="exp-title">U-Reporter (Youth Advocate)</div>
-              <div class="exp-org">UNICEF</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Jan 2026 - Present</div>
-                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+            <div class="exp-item" data-category="advocacy">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">UNICEF</div>
+                  <h3 class="exp-role">U-Reporter (Youth Advocate)</h3>
+                </div>
+                <span class="exp-date">Jan 2026 - Present</span>
               </div>
               <p class="exp-desc">Participating in youth-led data collection and surveys addressing education, climate, and social issues.</p>
               <ul class="exp-highlights">
@@ -1045,12 +1113,13 @@
             </div>
 
             <!-- Dear Future Luminary -->
-            <div class="experience-card" data-category="leadership">
-              <div class="exp-title">Founder & Program Director</div>
-              <div class="exp-org">Dear Future Luminary</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> May 2024 - Present</div>
-                <div class="exp-meta-item"><i class="fas fa-globe"></i> Hybrid</div>
+            <div class="exp-item" data-category="leadership">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">Dear Future Luminary</div>
+                  <h3 class="exp-role">Founder & Program Director</h3>
+                </div>
+                <span class="exp-date">May 2024 - Present</span>
               </div>
               <p class="exp-desc">Founded a youth-led initiative dedicated to guiding high school students toward scholarships and intentional personal growth.</p>
               <ul class="exp-highlights">
@@ -1061,28 +1130,29 @@
             </div>
 
             <!-- Kode With Klossy -->
-            <div class="experience-card" data-category="tech">
-              <div class="exp-title">Project Manager & Web Developer</div>
-              <div class="exp-org">Kode With Klossy</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Feb 2024 - Present</div>
-                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+            <div class="exp-item" data-category="tech">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">Kode With Klossy</div>
+                  <h3 class="exp-role">Project Manager & Web Developer</h3>
+                </div>
+                <span class="exp-date">Feb 2024 - Present</span>
               </div>
               <p class="exp-desc">Led planning and execution of web-based projects within a structured, intensive coding program.</p>
               <ul class="exp-highlights">
                 <li>Coordinated task distribution, timelines, and team communication</li>
                 <li>Managed project milestones while contributing to front-end development</li>
-                <li>Ensured project delivery aligned with user needs and program objectives</li>
               </ul>
             </div>
 
             <!-- International Organization of Youth -->
-            <div class="experience-card" data-category="advocacy">
-              <div class="exp-title">Youth Advocate</div>
-              <div class="exp-org">International Organization of Youth</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Feb 2024 - Present</div>
-                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+            <div class="exp-item" data-category="advocacy">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">International Organization of Youth</div>
+                  <h3 class="exp-role">Youth Advocate</h3>
+                </div>
+                <span class="exp-date">Feb 2024 - Present</span>
               </div>
               <p class="exp-desc">Participated in a global youth advocacy program focused on climate action, policy, and sustainability.</p>
               <ul class="exp-highlights">
@@ -1092,28 +1162,29 @@
             </div>
 
             <!-- Mohandes El Math -->
-            <div class="experience-card" data-category="tech">
-              <div class="exp-title">Head of Operations & Platform Manager</div>
-              <div class="exp-org">Mohandes El Math (EdTech Platform)</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> 2024 - Present</div>
-                <div class="exp-meta-item"><i class="fas fa-map-marker"></i> Cairo, Egypt</div>
+            <div class="exp-item" data-category="tech">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">Mohandes El Math</div>
+                  <h3 class="exp-role">Head of Operations & Platform Manager</h3>
+                </div>
+                <span class="exp-date">2024 - Present</span>
               </div>
               <p class="exp-desc">Founding member responsible for taking the platform from idea to live operation (0→1).</p>
               <ul class="exp-highlights">
                 <li>Led coordination with external development teams to launch educational platform</li>
                 <li>Fully manage Admin Panel including student onboarding and technical issue resolution</li>
-                <li>Built and managed WhatsApp customer support system end-to-end</li>
               </ul>
             </div>
 
-            <!-- Program Facilitator - Soliya -->
-            <div class="experience-card" data-category="leadership">
-              <div class="exp-title">Program Facilitator</div>
-              <div class="exp-org">Soliya</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> May 2024 - Aug 2024</div>
-                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+            <!-- Soliya -->
+            <div class="exp-item" data-category="leadership">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">Soliya</div>
+                  <h3 class="exp-role">Program Facilitator</h3>
+                </div>
+                <span class="exp-date">May 2024 - Aug 2024</span>
               </div>
               <p class="exp-desc">Facilitated intercultural dialogue sessions with participants from diverse backgrounds.</p>
               <ul class="exp-highlights">
@@ -1123,12 +1194,13 @@
             </div>
 
             <!-- TEDxEtTagammo -->
-            <div class="experience-card" data-category="leadership">
-              <div class="exp-title">Operations Lead</div>
-              <div class="exp-org">TEDxEtTagammo</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Apr 2023 - Sep 2023</div>
-                <div class="exp-meta-item"><i class="fas fa-map-marker"></i> Cairo, Egypt</div>
+            <div class="exp-item" data-category="leadership">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">TEDxEtTagammo</div>
+                  <h3 class="exp-role">Operations Lead</h3>
+                </div>
+                <span class="exp-date">Apr 2023 - Sep 2023</span>
               </div>
               <p class="exp-desc">Coordinated backstage operations and speaker logistics for 10+ speakers.</p>
               <ul class="exp-highlights">
@@ -1138,12 +1210,13 @@
             </div>
 
             <!-- Resala STEM -->
-            <div class="experience-card" data-category="education">
-              <div class="exp-title">Head of Social Media & Training Facilitator</div>
-              <div class="exp-org">Resala STEM</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Mar 2023 - Aug 2023</div>
-                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+            <div class="exp-item" data-category="education">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">Resala STEM</div>
+                  <h3 class="exp-role">Head of Social Media & Training Facilitator</h3>
+                </div>
+                <span class="exp-date">Mar 2023 - Aug 2023</span>
               </div>
               <p class="exp-desc">Led social media strategy across platforms, increasing engagement by 2× within one semester.</p>
               <ul class="exp-highlights">
@@ -1153,14 +1226,15 @@
             </div>
 
             <!-- Connect Rise -->
-            <div class="experience-card" data-category="education">
-              <div class="exp-title">Mentor</div>
-              <div class="exp-org">Connect Rise</div>
-              <div class="exp-meta">
-                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Jan 2024 - Nov 2025</div>
-                <div class="exp-meta-item"><i class="fas fa-map-marker"></i> Cairo, Egypt</div>
+            <div class="exp-item" data-category="education">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-org">Connect Rise</div>
+                  <h3 class="exp-role">Mentor</h3>
+                </div>
+                <span class="exp-date">Jan 2024 - Nov 2025</span>
               </div>
-              <p class="exp-desc">Served as a mentor delivering structured guidance sessions on summer program applications and personal profile development.</p>
+              <p class="exp-desc">Served as a mentor delivering structured guidance sessions on summer program applications.</p>
               <ul class="exp-highlights">
                 <li>Led live sessions on Google Meet with 50+ attendees per session</li>
                 <li>Sessions recorded and published on YouTube, reaching 500+ viewers</li>
@@ -1171,7 +1245,7 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section (Modern No-Card Layout) -->
     <section id="projects" class="page-section">
       <div class="container">
         <div class="section-header">
@@ -1266,11 +1340,11 @@
       </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section (No Cards) -->
     <section id="skills" class="page-section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Skills</h2>
+          <h2 class="section-title">Skills & Expertise</h2>
         </div>
 
         <div class="skills-container">
@@ -1279,9 +1353,9 @@
               <h3>Technical Skills</h3>
               <div class="skill-list">
                 <div class="skill-item">Web Development (HTML, CSS, JavaScript)</div>
-                <div class="skill-item">Project Management</div>
-                <div class="skill-item">Platform Operations</div>
-                <div class="skill-item">Data Analysis</div>
+                <div class="skill-item">Project Management & Agile</div>
+                <div class="skill-item">Platform Operations & Admin</div>
+                <div class="skill-item">Data Analysis & Research</div>
                 <div class="skill-item">Python Programming</div>
               </div>
             </div>
@@ -1289,10 +1363,10 @@
             <div class="skill-category">
               <h3>Leadership & Communication</h3>
               <div class="skill-list">
-                <div class="skill-item">Team Management</div>
-                <div class="skill-item">Public Speaking</div>
-                <div class="skill-item">Mentorship & Training</div>
-                <div class="skill-item">Strategic Planning</div>
+                <div class="skill-item">Team Management & Supervision</div>
+                <div class="skill-item">Public Speaking & Presentation</div>
+                <div class="skill-item">Mentorship & Training Facilitation</div>
+                <div class="skill-item">Strategic Planning & Execution</div>
                 <div class="skill-item">Cross-functional Collaboration</div>
               </div>
             </div>
@@ -1300,11 +1374,11 @@
             <div class="skill-category">
               <h3>Creative & Strategic</h3>
               <div class="skill-list">
-                <div class="skill-item">Social Media Strategy</div>
-                <div class="skill-item">Content Creation</div>
+                <div class="skill-item">Social Media Strategy & Content</div>
+                <div class="skill-item">Content Creation & Storytelling</div>
                 <div class="skill-item">Event Planning & Coordination</div>
                 <div class="skill-item">User Experience Design</div>
-                <div class="skill-item">Research & Analysis</div>
+                <div class="skill-item">Research & Impact Analysis</div>
               </div>
             </div>
           </div>
@@ -1313,14 +1387,17 @@
     </section>
   </main>
 
-  <!-- Connect Bar -->
+  <!-- Connect Bar (Yellow with Blue Text) -->
   <div class="connect-bar">
     <div class="connect-container">
+      <div class="connect-label">Connect:</div>
       <div class="connect-links">
-        <a href="https://linkedin.com" class="connect-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://instagram.com" class="connect-link" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com" class="connect-link" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://github.com" class="connect-link" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.youtube.com/@malak_luminary" class="connect-link" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/malak.emad.116431" class="connect-link" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/malak_luminary" class="connect-link" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:malak.elsalmawi@gmail.com" class="connect-link" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://twitter.com/loka_luminary" class="connect-link" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/loka-luminary/" class="connect-link" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
@@ -1364,13 +1441,31 @@
 
   <!-- Success Popup -->
   <div id="success-popup" class="footer-success-message">
-    <h3>Message Sent! 🎉</h3>
-    <p>Thank you for reaching out. I'll get back to you soon.</p>
+    <h3>Thank you for reaching out! 🎉</h3>
+    <p>Your message just landed safely in my inbox. I'll reply soon… lowkey excited to see what you've got for me.</p>
   </div>
 
   <script>
+    // Custom Cursor
+    document.addEventListener('mousemove', (e) => {
+      document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
+      document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+    });
+
+    document.addEventListener('mouseenter', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('connect-link')) {
+        document.body.classList.add('cursor-hover');
+      }
+    });
+
+    document.addEventListener('mouseleave', (e) => {
+      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('connect-link')) {
+        document.body.classList.remove('cursor-hover');
+      }
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
-      // ========== Sticky Navigation ==========
+      // Sticky Navigation
       const navbar = document.getElementById('navbar');
       
       if (!document.body.classList.contains('home-page')) {
@@ -1387,7 +1482,7 @@
         }
       });
 
-      // ========== Mobile Menu Toggle ==========
+      // Mobile Menu Toggle
       const menuToggle = document.querySelector('.menu-toggle');
       const navLinks = document.querySelector('.nav-links');
 
@@ -1397,9 +1492,9 @@
         });
       }
 
-      // ========== Experience Tab Filtering ==========
+      // Experience Tab Filtering
       const tabBtns = document.querySelectorAll('.tab-btn');
-      const experienceItems = document.querySelectorAll('.experience-card');
+      const experienceItems = document.querySelectorAll('.exp-item');
 
       tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1418,7 +1513,7 @@
         });
       });
 
-      // ========== Contact Form Submission & Flying Message ==========
+      // Contact Form with Folding Envelope Animation
       const contactForm = document.getElementById('contact-form');
       const successPopup = document.getElementById('success-popup');
 
@@ -1426,31 +1521,40 @@
         contactForm.addEventListener('submit', (e) => {
           e.preventDefault();
           
-          // Create flying message
-          const msg = document.createElement('div');
-          msg.className = 'flying-message';
-          msg.innerHTML = '✉️';
-          msg.style.left = e.clientX + 'px';
-          msg.style.top = e.clientY + 'px';
-          document.body.appendChild(msg);
+          // Create folding envelope
+          const envelope = document.createElement('div');
+          envelope.className = 'flying-envelope';
+          envelope.innerHTML = '✉️';
+          envelope.style.left = e.clientX + 'px';
+          envelope.style.top = e.clientY + 'px';
+          document.body.appendChild(envelope);
+
+          // Create yellow line effect
+          const line = document.createElement('div');
+          line.className = 'envelope-line';
+          line.style.left = e.clientX + 'px';
+          line.style.top = e.clientY + 'px';
+          line.style.width = Math.random() * 200 + 100 + 'px';
+          document.body.appendChild(line);
 
           // Show success popup after delay
           setTimeout(() => {
             successPopup.style.display = 'block';
-            msg.remove();
-          }, 800);
+            envelope.remove();
+            line.remove();
+          }, 1200);
 
           // Reset form
           contactForm.reset();
 
-          // Hide popup after 3 seconds
+          // Hide popup after 4 seconds
           setTimeout(() => {
             successPopup.style.display = 'none';
-          }, 4000);
+          }, 5000);
         });
       }
 
-      // ========== Active Link on Scroll ==========
+      // Active Link on Scroll
       const sections = document.querySelectorAll('section');
       const navLinksList = document.querySelectorAll('.nav-link');
 
