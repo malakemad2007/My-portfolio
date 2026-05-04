@@ -184,7 +184,7 @@
 
     /* ========== Page Sections ========== */
     .page-section {
-      padding: 120px 0 80px 0;
+      padding: 100px 0 60px 0;
       position: relative;
       animation: fadeInUp 0.8s ease-out;
     }
@@ -207,7 +207,7 @@
       align-items: center;
       padding-top: 100px;
       padding-bottom: 60px;
-      margin-bottom: 40px;
+      margin-bottom: 0;
     }
 
     .hero-gradient-bg {
@@ -235,21 +235,22 @@
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      line-height: 1.1;
+      font-size: clamp(2.8rem, 9vw, 5rem);
+      line-height: 1.15;
       color: var(--dark);
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      font-weight: 800;
     }
 
     .hero-subtitle {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: #555;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       font-weight: 600;
     }
 
     .hero-description {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #666;
       margin-bottom: 40px;
       max-width: 550px;
@@ -310,17 +311,18 @@
     /* ========== Section Headers ========== */
     .section-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .section-title {
-      font-size: 3rem;
-      margin-bottom: 15px;
+      font-size: 2.8rem;
+      margin-bottom: 12px;
       color: var(--dark);
+      font-weight: 800;
     }
 
     .section-subtitle {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #666;
       max-width: 600px;
       margin: 0 auto;
@@ -330,13 +332,13 @@
     .about-intro {
       text-align: center;
       max-width: 900px;
-      margin: 0 auto 60px;
+      margin: 0 auto;
     }
 
     .intro-text {
       font-size: 1rem;
       color: #555;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       line-height: 1.8;
     }
 
@@ -345,143 +347,236 @@
       font-weight: 700;
     }
 
-    /* ========== Impact Section ========== */
-    .impact-items {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-bottom: 60px;
+    /* ========== Experience Section (Yalla Success Style) ========== */
+    .experience-container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .impact-item {
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .experience-card {
       background: #ffffff;
-      padding: 40px 30px;
+      padding: 30px;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
-      border-left: 5px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+      border-left: 4px solid var(--accent);
     }
 
-    .impact-item:hover {
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    .experience-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .experience-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-lg);
     }
 
-    .impact-item h3 {
-      font-size: 1.3rem;
+    .exp-title {
+      font-size: 1.2rem;
       color: var(--dark);
-      margin-bottom: 12px;
-    }
-
-    .impact-item p {
-      color: #555;
-      line-height: 1.8;
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
-
-    .impact-item ul {
-      list-style: none;
-      margin-left: 0;
-    }
-
-    .impact-item li {
-      color: #555;
-      line-height: 1.8;
-      font-size: 0.95rem;
       margin-bottom: 8px;
-      padding-left: 20px;
+      font-weight: 700;
+    }
+
+    .exp-org {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .exp-meta {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 15px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .exp-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .exp-desc {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .exp-highlights {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .exp-highlights li {
+      color: #555;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 6px;
+      padding-left: 18px;
       position: relative;
     }
 
-    .impact-item li::before {
-      content: '→';
+    .exp-highlights li::before {
+      content: '▸';
       position: absolute;
       left: 0;
       color: var(--primary);
       font-weight: bold;
     }
 
-    /* ========== Projects Section ========== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
+    /* ========== Projects Section (Modern Layout) ========== */
+    .projects-showcase {
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .project-card {
-      background: #ffffff;
-      padding: 40px 30px;
+    .project-item {
+      margin-bottom: 50px;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.05) 0%, rgba(250, 204, 21, 0.03) 100%);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(167, 139, 250, 0.15);
       transition: var(--transition);
-      border-left: 5px solid var(--accent);
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-lg);
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
     }
 
-    .project-card h3 {
-      font-size: 1.3rem;
+    .project-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 10px 40px rgba(167, 139, 250, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
       color: var(--dark);
-      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .project-date {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project-org {
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .project-desc {
-      color: #666;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.8;
       margin-bottom: 15px;
-      line-height: 1.7;
-      font-style: italic;
-      font-size: 0.95rem;
     }
 
-    .project-card p {
-      color: #555;
-      margin-bottom: 12px;
-      line-height: 1.8;
-      font-size: 0.95rem;
-    }
-
-    .project-card ul {
+    .project-highlights {
       list-style: none;
-      margin-left: 0;
+      margin-bottom: 15px;
     }
 
-    .project-card li {
+    .project-highlights li {
       color: #555;
-      line-height: 1.8;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
       margin-bottom: 8px;
       padding-left: 20px;
       position: relative;
     }
 
-    .project-card li::before {
+    .project-highlights li::before {
       content: '→';
       position: absolute;
       left: 0;
-      color: var(--primary);
+      color: var(--accent);
       font-weight: bold;
+    }
+
+    .project-impact {
+      background: rgba(167, 139, 250, 0.1);
+      padding: 15px 20px;
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--primary);
+      margin-top: 15px;
+    }
+
+    .project-impact strong {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .project-impact p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     /* ========== Achievements Section ========== */
     .achievements-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
 
     .achievement-item {
       background: #ffffff;
-      padding: 30px;
+      padding: 25px;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
-      border-top: 4px solid var(--accent);
+      border-top: 3px solid var(--accent);
       text-align: center;
     }
 
@@ -498,54 +593,65 @@
     }
 
     /* ========== Skills Section ========== */
+    .skills-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     .skill-category {
       background: #ffffff;
-      padding: 40px 30px;
+      padding: 30px;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .skill-category:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
     }
 
     .skill-category h3 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: var(--dark);
-      margin-bottom: 25px;
-      padding-bottom: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
       border-bottom: 2px solid var(--accent);
+      font-weight: 700;
     }
 
     .skill-list {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
     }
 
     .skill-item {
       color: #555;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      padding-left: 20px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding-left: 18px;
       position: relative;
     }
 
     .skill-item::before {
-      content: '✓';
+      content: '◆';
       position: absolute;
       left: 0;
       color: var(--primary);
-      font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 0.7rem;
     }
 
     /* ========== What's Next Section ========== */
     .whats-next {
       background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
-      padding: 60px;
+      padding: 50px;
       border-radius: var(--radius-lg);
       color: #ffffff;
       text-align: center;
@@ -554,7 +660,7 @@
     }
 
     .whats-next p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.8;
       margin-bottom: 15px;
     }
@@ -878,6 +984,18 @@
       .section-title {
         font-size: 2.2rem;
       }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-header {
+        flex-direction: column;
+      }
+
+      .project-item {
+        padding: 25px;
+      }
     }
   </style>
 </head>
@@ -890,7 +1008,7 @@
       <ul class="nav-links">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#impact" class="nav-link">Impact</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#achievements" class="nav-link">Achievements</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
@@ -909,7 +1027,7 @@
           <p class="hero-subtitle">Founder of Dear Future Luminary</p>
           <p class="hero-description">STEM • Leadership • Digital Creation</p>
           <div class="hero-cta">
-            <a href="#impact" class="btn btn-primary">Explore My Work</a>
+            <a href="#experience" class="btn btn-primary">Explore My Work</a>
             <a href="#about" class="btn btn-secondary">Learn My Story</a>
           </div>
         </div>
@@ -936,50 +1054,130 @@
       </div>
     </section>
 
-    <!-- Impact Section -->
-    <section id="impact" class="page-section">
+    <!-- Experience Section -->
+    <section id="experience" class="page-section">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Impact</h2>
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Pathways to Leadership</p>
         </div>
 
-        <div class="impact-items">
-          <div class="impact-item">
-            <h3>Founder — Dear Future Luminary</h3>
-            <p>A platform helping students find direction, opportunities, and growth</p>
-            <ul>
-              <li>Built a space that simplifies access to global STEM programs and scholarships</li>
-              <li>Designed content that guides students through real decisions, not just information</li>
-              <li>Created a growing community centered around ambition, clarity, and action</li>
-            </ul>
-          </div>
+        <div class="experience-container">
+          <div class="experience-grid">
+            <div class="experience-card">
+              <div class="exp-title">U-Reporter (Youth Advocate)</div>
+              <div class="exp-org">UNICEF</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Jan 2026 - Present</div>
+                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+              </div>
+              <p class="exp-desc">Participating in youth-led data collection and surveys addressing education, climate, and social issues.</p>
+              <ul class="exp-highlights">
+                <li>Contributing youth perspectives to UNICEF-supported advocacy and policy insights</li>
+                <li>Engaging with a global network of young people to amplify community-driven solutions</li>
+              </ul>
+            </div>
 
-          <div class="impact-item">
-            <h3>Head of Social Media — MAS MUN & Resala STEM</h3>
-            <p>Leading digital presence and engagement</p>
-            <ul>
-              <li>Managed and grew platforms with strategic, audience-focused content</li>
-              <li>Built systems for consistent, high-quality posting and communication</li>
-              <li>Trained teams and created structures that outlast individual efforts</li>
-            </ul>
-          </div>
+            <div class="experience-card">
+              <div class="exp-title">Founder & Program Director</div>
+              <div class="exp-org">Dear Future Luminary</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> May 2024 - Present</div>
+                <div class="exp-meta-item"><i class="fas fa-globe"></i> Hybrid</div>
+              </div>
+              <p class="exp-desc">Founded a youth-led initiative dedicated to guiding high school students toward scholarships and intentional personal growth.</p>
+              <ul class="exp-highlights">
+                <li>Designed vision, structure, and long-term roadmap of the initiative</li>
+                <li>Developing a professional website to centralize summer programs and resources</li>
+                <li>Led training sessions and mentorship-style discussions on leadership</li>
+              </ul>
+            </div>
 
-          <div class="impact-item">
-            <h3>Event Organizer — TEDxEtTagammo</h3>
-            <p>Curating ideas and experiences worth sharing</p>
-            <ul>
-              <li>Contributed to organizing large-scale events with strong audience impact</li>
-              <li>Worked across teams to ensure smooth execution and clear messaging</li>
-            </ul>
-          </div>
+            <div class="experience-card">
+              <div class="exp-title">Project Manager & Web Developer</div>
+              <div class="exp-org">Kode With Klossy</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Feb 2024 - Present</div>
+                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+              </div>
+              <p class="exp-desc">Led planning and execution of web-based projects within a structured, intensive coding program.</p>
+              <ul class="exp-highlights">
+                <li>Coordinated task distribution, timelines, and team communication</li>
+                <li>Managed project milestones while contributing to front-end development</li>
+                <li>Ensured project delivery aligned with user needs and program objectives</li>
+              </ul>
+            </div>
 
-          <div class="impact-item">
-            <h3>Facilitator — Entrepreneurship & Global Programs</h3>
-            <p>Guiding students through collaborative learning spaces</p>
-            <ul>
-              <li>Led sessions focused on creativity, problem-solving, and communication</li>
-              <li>Helped participants turn ideas into structured, actionable concepts</li>
-            </ul>
+            <div class="experience-card">
+              <div class="exp-title">Youth Advocate</div>
+              <div class="exp-org">International Organization of Youth</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Feb 2024 - Present</div>
+                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+              </div>
+              <p class="exp-desc">Participated in a global youth advocacy program focused on climate action, policy, and sustainability.</p>
+              <ul class="exp-highlights">
+                <li>Designed and contributed to awareness campaigns reaching 1,000+ online viewers</li>
+                <li>Collaborated with international youth leaders strengthening global perspective</li>
+              </ul>
+            </div>
+
+            <div class="experience-card">
+              <div class="exp-title">Head of Operations & Platform Manager</div>
+              <div class="exp-org">Mohandes El Math (EdTech Platform)</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> 2024 - Present</div>
+                <div class="exp-meta-item"><i class="fas fa-map-marker"></i> Cairo, Egypt</div>
+              </div>
+              <p class="exp-desc">Founding member responsible for taking the platform from idea to live operation (0→1).</p>
+              <ul class="exp-highlights">
+                <li>Led coordination with external development teams to launch educational platform</li>
+                <li>Fully manage Admin Panel including student onboarding and technical issue resolution</li>
+                <li>Built and managed WhatsApp customer support system end-to-end</li>
+              </ul>
+            </div>
+
+            <div class="experience-card">
+              <div class="exp-title">Program Facilitator</div>
+              <div class="exp-org">Soliya</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> May 2024 - Aug 2024</div>
+                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+              </div>
+              <p class="exp-desc">Facilitated intercultural dialogue sessions with participants from diverse backgrounds.</p>
+              <ul class="exp-highlights">
+                <li>Led discussions on global issues ensuring respectful debate and inclusive participation</li>
+                <li>Trained peers in communication, diplomacy, and active listening</li>
+              </ul>
+            </div>
+
+            <div class="experience-card">
+              <div class="exp-title">Operations Lead</div>
+              <div class="exp-org">TEDxEtTagammo</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Apr 2023 - Sep 2023</div>
+                <div class="exp-meta-item"><i class="fas fa-map-marker"></i> Cairo, Egypt</div>
+              </div>
+              <p class="exp-desc">Coordinated backstage operations and speaker logistics for 10+ speakers.</p>
+              <ul class="exp-highlights">
+                <li>Trained and supervised 5 volunteers on operational procedures</li>
+                <li>Collaborated with cross-functional teams to execute high-impact event</li>
+              </ul>
+            </div>
+
+            <div class="experience-card">
+              <div class="exp-title">Head of Social Media & Training Facilitator</div>
+              <div class="exp-org">Resala STEM</div>
+              <div class="exp-meta">
+                <div class="exp-meta-item"><i class="fas fa-calendar"></i> Mar 2023 - Aug 2023</div>
+                <div class="exp-meta-item"><i class="fas fa-globe"></i> Remote</div>
+              </div>
+              <p class="exp-desc">Led social media strategy across platforms, increasing engagement by 2× within one semester.</p>
+              <ul class="exp-highlights">
+                <li>Designed and delivered interactive training sessions for 100+ students</li>
+                <li>Developed campaigns promoting STEM competitions and student-led initiatives</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -992,25 +1190,85 @@
           <h2 class="section-title">Projects</h2>
         </div>
 
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>Dear Future Luminary</h3>
-            <p class="project-desc">A platform built to help students move with clarity</p>
-            <ul>
-              <li>Started from a simple problem: students don't lack ambition, they lack direction</li>
-              <li>Built a system that connects people to opportunities, resources, and guidance</li>
-              <li>Focused on making growth feel structured, not overwhelming</li>
+        <div class="projects-showcase">
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Dear Future Luminary</div>
+                <div class="project-org"><i class="fas fa-briefcase"></i> Associated with Dear Future Luminary</div>
+              </div>
+              <div class="project-date">May 2024 – Present</div>
+            </div>
+            <p class="project-desc">Founded a youth-led initiative focused on democratizing access to global opportunities for high school students, especially from underrepresented backgrounds.</p>
+            <ul class="project-highlights">
+              <li>Designed a structured platform highlighting STEM clubs, international summer programs, and scholarships</li>
+              <li>Led research and curation of fully funded and merit-based opportunities, simplifying complex application processes</li>
+              <li>Positioned the initiative as both an informational hub and a mentorship-driven community</li>
             </ul>
+            <div class="project-impact">
+              <strong>Impact:</strong>
+              <p>Helped students navigate global opportunities with clarity, confidence, and strategy — turning confusion into actionable roadmaps.</p>
+            </div>
           </div>
 
-          <div class="project-card">
-            <h3>Optimizing Crop Growth System</h3>
-            <p class="project-desc">A sustainability-focused engineering project</p>
-            <ul>
-              <li>Designed a system that uses temperature data to improve irrigation efficiency</li>
-              <li>Focused on reducing resource waste while maintaining productivity</li>
-              <li>Combined environmental awareness with practical problem-solving</li>
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Summer Program Mentorship Series</div>
+                <div class="project-org"><i class="fas fa-briefcase"></i> Associated with Connect Rise</div>
+              </div>
+              <div class="project-date">Feb 2024 – Nov 2025</div>
+            </div>
+            <p class="project-desc">Designed and delivered a structured mentorship series focused on guiding high school students through summer program applications and personal profile development.</p>
+            <ul class="project-highlights">
+              <li>Hosted live educational sessions on Google Meet, engaging 50+ students per session</li>
+              <li>Recorded sessions published on YouTube, reaching 500+ viewers and extending educational impact</li>
+              <li>Translated complex application processes into clear, actionable frameworks</li>
             </ul>
+            <div class="project-impact">
+              <strong>Impact:</strong>
+              <p>Improved students' ability to navigate global opportunities by providing structured, practical guidance on profile building and application strategy.</p>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Culture Odyssey Website Project</div>
+                <div class="project-org"><i class="fas fa-briefcase"></i> Associated with Kode With Klossy</div>
+              </div>
+              <div class="project-date">Mar 2024 – Apr 2024</div>
+            </div>
+            <p class="project-desc">Collaborated with a global team of young developers and designers to build "Culture Odyssey", a web-based project created during an intensive coding program.</p>
+            <ul class="project-highlights">
+              <li>Designed and developed key parts of the website focusing on user experience and storytelling</li>
+              <li>Worked in a team-based agile environment, contributing to brainstorming and front-end development</li>
+              <li>Strengthened skills in web development, teamwork, and creative problem-solving</li>
+            </ul>
+            <div class="project-impact">
+              <strong>Impact:</strong>
+              <p>Helped bring a collaborative educational project to life that encourages cultural curiosity and global connection through interactive design.</p>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-header">
+              <div>
+                <div class="project-title">Optimizing Crop Growth: Temperature-Based Control System</div>
+                <div class="project-org"><i class="fas fa-briefcase"></i> Associated with AFS Intercultural Programs</div>
+              </div>
+              <div class="project-date">2023 – 2024</div>
+            </div>
+            <p class="project-desc">Designed and implemented a sensor-based system to monitor air temperature and soil humidity in agricultural environments.</p>
+            <ul class="project-highlights">
+              <li>Automated the irrigation process based on real-time environmental data to reduce water waste</li>
+              <li>Integrated sustainability principles into system design, addressing climate change challenges</li>
+              <li>Applied engineering logic, data analysis, and problem-solving to develop a functional prototype</li>
+            </ul>
+            <div class="project-impact">
+              <strong>Impact:</strong>
+              <p>Proposed a scalable solution contributing to water conservation and sustainable agriculture, particularly relevant for climate-vulnerable regions.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1053,28 +1311,56 @@
           <h2 class="section-title">Skills</h2>
         </div>
 
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Technical</h3>
-            <div class="skill-list">
-              <div class="skill-item">Front-end development (HTML, CSS, JavaScript)</div>
-              <div class="skill-item">Basic problem-solving in programming and systems design</div>
+        <div class="skills-container">
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Technical & Development</h3>
+              <div class="skill-list">
+                <div class="skill-item">Front-end Web Development (HTML, CSS, JavaScript)</div>
+                <div class="skill-item">Website Structuring & UI/UX Thinking</div>
+                <div class="skill-item">Responsive Design Principles</div>
+                <div class="skill-item">Digital Product Building (student-focused platforms)</div>
+              </div>
             </div>
-          </div>
 
-          <div class="skill-category">
-            <h3>Creative</h3>
-            <div class="skill-list">
-              <div class="skill-item">Content strategy, storytelling, visual design</div>
-              <div class="skill-item">Building ideas into structured, engaging experiences</div>
+            <div class="skill-category">
+              <h3>Leadership & Program Design</h3>
+              <div class="skill-list">
+                <div class="skill-item">Mentorship Program Design & Delivery</div>
+                <div class="skill-item">Workshop & Session Facilitation (Live & Recorded)</div>
+                <div class="skill-item">Educational Content Structuring</div>
+                <div class="skill-item">Community Building & Youth Engagement</div>
+              </div>
             </div>
-          </div>
 
-          <div class="skill-category">
-            <h3>Leadership</h3>
-            <div class="skill-list">
-              <div class="skill-item">Team management, facilitation, event organization</div>
-              <div class="skill-item">Creating systems that people can grow in</div>
+            <div class="skill-category">
+              <h3>Communication & Media</h3>
+              <div class="skill-list">
+                <div class="skill-item">Public Speaking & Live Online Facilitation</div>
+                <div class="skill-item">Educational Storytelling & Topic Simplification</div>
+                <div class="skill-item">Social Media Strategy for Educational Platforms</div>
+                <div class="skill-item">Content Creation for Youth Development Initiatives</div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Research & Strategy</h3>
+              <div class="skill-list">
+                <div class="skill-item">Opportunity Curation (Scholarships, Programs, Competitions)</div>
+                <div class="skill-item">Student Profile Analysis & Development Strategy</div>
+                <div class="skill-item">Educational Research & Resource Mapping</div>
+                <div class="skill-item">Problem-Solving in Academic & Real-World Contexts</div>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <h3>Collaboration & Tools</h3>
+              <div class="skill-list">
+                <div class="skill-item">Team-Based Project Collaboration (Agile-style environments)</div>
+                <div class="skill-item">Cross-cultural Communication (international youth programs)</div>
+                <div class="skill-item">Google Workspace (Docs, Sheets, Slides, Meet)</div>
+                <div class="skill-item">Content Hosting & Digital Distribution</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1129,7 +1415,7 @@
           <div class="footer-quick-links">
             <a href="#home" class="footer-link"><i class="fas fa-home"></i> Home</a>
             <a href="#about" class="footer-link"><i class="fas fa-user"></i> About</a>
-            <a href="#impact" class="footer-link"><i class="fas fa-star"></i> Impact</a>
+            <a href="#experience" class="footer-link"><i class="fas fa-star"></i> Experience</a>
             <a href="#projects" class="footer-link"><i class="fas fa-briefcase"></i> Projects</a>
             <a href="#skills" class="footer-link"><i class="fas fa-code"></i> Skills</a>
           </div>
@@ -1174,7 +1460,6 @@
       root.style.setProperty('--cursor-y', e.clientY - 10 + 'px');
     });
 
-    // Change cursor on hover over interactive elements
     document.addEventListener('mouseover', (e) => {
       if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('tab-btn')) {
         document.body.classList.add('cursor-hover');
@@ -1209,14 +1494,13 @@
         });
       }
 
-      // Close menu on link click
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
         });
       });
 
-      // ========== Footer Contact Form Submission with Enhanced Flying Message ==========
+      // ========== Footer Contact Form Submission ==========
       const footerContactForm = document.getElementById('footer-contact-form');
       const successMessage = document.getElementById('footer-success-message');
 
@@ -1224,7 +1508,6 @@
         footerContactForm.addEventListener('submit', (e) => {
           e.preventDefault();
 
-          // Create multiple flying message icons for enhanced effect
           const submitBtn = footerContactForm.querySelector('button[type="submit"]');
           const rect = submitBtn.getBoundingClientRect();
 
@@ -1246,7 +1529,6 @@
             }, i * 100);
           }
 
-          // Show success message after a brief delay
           setTimeout(() => {
             successMessage.style.display = 'block';
             setTimeout(() => {
@@ -1258,7 +1540,7 @@
         });
       }
 
-      // ========== Smooth Scroll for Navigation Links ==========
+      // ========== Smooth Scroll ==========
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           const href = this.getAttribute('href');
