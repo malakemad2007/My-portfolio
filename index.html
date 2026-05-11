@@ -26,7 +26,6 @@
       --radius-md: 12px;
       --radius-lg: 20px;
       --radius-xl: 50px;
-      --radius-huge: 100px;
       
       --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     }
@@ -51,26 +50,26 @@
       cursor: none;
     }
 
-    /* Custom Cursor */
+    /* Custom Cursor (Subtle Glowing Light Yellow) */
     .custom-cursor {
       position: fixed;
-      width: 15px;
-      height: 15px;
+      width: 10px;
+      height: 10px;
       background: var(--primary);
       border-radius: 50%;
       pointer-events: none;
       z-index: 10000;
-      transition: transform 0.2s, background 0.3s;
+      transition: background 0.3s, box-shadow 0.3s, opacity 0.3s;
       transform: translate(-50%, -50%);
       top: var(--cursor-y, 0);
       left: var(--cursor-x, 0);
-      mix-blend-mode: difference;
     }
 
     body.cursor-hover .custom-cursor {
       background: var(--accent);
-      transform: translate(-50%, -50%) scale(3);
-      mix-blend-mode: normal;
+      box-shadow: 0 0 20px 10px rgba(250, 204, 21, 0.4);
+      width: 15px;
+      height: 15px;
     }
 
     .container {
@@ -83,14 +82,14 @@
       font-weight: 800;
     }
 
-    /* ========== Navigation Bar (Professional Icons) ========== */
+    /* ========== Navigation Bar (Old Style Restored) ========== */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 1000;
-      padding: 30px 0;
+      padding: 25px 0;
       transition: var(--transition);
     }
 
@@ -110,17 +109,17 @@
     }
 
     .navbar.scrolled .navbar-container {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
       padding: 12px 30px;
       border-radius: var(--radius-xl);
-      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
       max-width: 90%;
     }
 
     .navbar-brand a {
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: var(--dark);
     }
@@ -128,19 +127,18 @@
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: 25px;
     }
 
     .nav-link {
       text-decoration: none;
       color: var(--dark);
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
       gap: 8px;
       transition: var(--transition);
-      opacity: 0.8;
     }
 
     .nav-link i {
@@ -149,11 +147,10 @@
     }
 
     .nav-link:hover, .nav-link.active {
-      opacity: 1;
       color: var(--primary);
     }
 
-    /* ========== Hero Section ========== */
+    /* ========== Hero Section (Original Size & Layout) ========== */
     .hero-section {
       min-height: 100vh;
       display: flex;
@@ -161,7 +158,7 @@
       position: relative;
       margin-top: 20px;
       overflow: hidden;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
       border-radius: 80px 80px 0 0;
       color: #fff;
     }
@@ -180,32 +177,33 @@
 
     .hero-title {
       font-size: clamp(3rem, 8vw, 5.5rem);
-      line-height: 1;
-      margin-bottom: 25px;
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
     .hero-subtitle {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: var(--accent);
     }
 
     .hero-description {
       font-size: 1.1rem;
       margin-bottom: 40px;
-      max-width: 600px;
+      max-width: 550px;
       opacity: 0.9;
     }
 
     .btn {
-      padding: 16px 40px;
+      padding: 16px 35px;
       border-radius: var(--radius-xl);
       text-decoration: none;
       font-weight: 700;
       transition: var(--transition);
       display: inline-block;
       border: none;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -213,20 +211,31 @@
       color: var(--dark);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(250, 204, 21, 0.4);
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      margin-left: 15px;
     }
 
     .hero-image img {
-      max-width: 100%;
+      max-width: 450px; /* Original normal size */
+      height: auto;
       border-radius: var(--radius-lg);
       filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
     }
 
-    /* ========== Page Sections (Varied Backgrounds) ========== */
+    /* ========== Section Styles (Card-Free Rebranding) ========== */
     .section {
       padding: 120px 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section-alt {
@@ -235,52 +244,62 @@
 
     .section-header {
       margin-bottom: 80px;
-      text-align: left;
     }
 
     .section-title {
       font-size: 3.5rem;
       color: var(--dark);
       position: relative;
+      display: inline-block;
     }
 
-    .section-title::before {
+    .section-title::after {
       content: '';
       position: absolute;
-      left: 0;
       bottom: -10px;
-      width: 100px;
+      left: 0;
+      width: 80px;
       height: 6px;
       background: var(--accent);
     }
 
-    /* ========== Experience Section (Creative & Animated) ========== */
-    .experience-grid {
+    /* ========== About Section ========== */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .about-text strong {
+      color: var(--primary);
+    }
+
+    /* ========== Experience Section (Professional Card-Free) ========== */
+    .experience-list {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 60px;
     }
 
-    .experience-card {
-      padding: 50px;
-      border-left: 8px solid var(--primary);
-      background: rgba(167, 139, 250, 0.03);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
+    .experience-item {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(30, 58, 138, 0.1);
     }
 
-    .experience-card:hover {
-      background: rgba(167, 139, 250, 0.08);
-      transform: translateX(20px);
-      border-left-color: var(--accent);
-    }
-
-    .exp-meta {
+    .exp-sidebar {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .exp-date {
@@ -302,108 +321,79 @@
       color: var(--dark);
     }
 
-    .exp-text {
+    .exp-desc {
       font-size: 1.1rem;
-      color: #444;
+      color: #555;
       margin-bottom: 25px;
-      max-width: 900px;
     }
 
-    .exp-tags {
+    .exp-points {
+      list-style: none;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 12px;
     }
 
-    .exp-tag {
-      padding: 6px 18px;
-      background: #fff;
-      border: 1px solid rgba(30, 58, 138, 0.1);
-      border-radius: var(--radius-xl);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-
-    /* ========== Skills Section (Big Blue Box with Highlights) ========== */
-    .skills-showcase {
-      background: var(--dark);
-      padding: 100px 80px;
-      border-radius: 60px;
-      color: #fff;
+    .exp-points li {
       position: relative;
-      overflow: hidden;
+      padding-left: 30px;
+      font-size: 1rem;
+      color: #666;
     }
 
-    .skills-showcase h3 {
-      font-size: 2.5rem;
-      margin-bottom: 60px;
+    .exp-points li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
       color: var(--accent);
-    }
-
-    .skills-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .skill-pill {
-      font-size: 1.8rem;
-      font-weight: 700;
-      padding: 10px 30px;
-      border-radius: var(--radius-xl);
-      background: rgba(255, 255, 255, 0.05);
-      transition: var(--transition);
-      cursor: default;
-    }
-
-    .skill-pill:hover {
-      background: var(--accent);
-      color: var(--dark);
-      transform: scale(1.1) rotate(2deg);
-    }
-
-    .skill-pill.highlight {
-      background: rgba(167, 139, 250, 0.2);
-      border: 2px solid var(--primary);
+      font-weight: 900;
     }
 
     /* ========== Projects Section ========== */
     .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+    }
+
+    .project-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 80px;
+      align-items: center;
     }
 
-    .project-item {
-      padding: 40px 0;
-      border-bottom: 2px solid rgba(30, 58, 138, 0.05);
+    .project-row:nth-child(even) {
+      direction: rtl;
     }
 
-    .project-item h3 {
-      font-size: 2rem;
-      margin-bottom: 15px;
+    .project-row:nth-child(even) .project-info {
+      direction: ltr;
     }
 
-    .project-org {
+    .project-info h3 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .project-meta {
       font-weight: 700;
       color: var(--primary);
-      display: block;
       margin-bottom: 15px;
+      display: block;
     }
 
     .project-desc {
       font-size: 1.1rem;
       color: #555;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
-    .project-img-placeholder {
+    .project-visual {
       width: 100%;
-      height: 300px;
+      height: 350px;
       background: #eee;
       border-radius: var(--radius-lg);
-      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -411,7 +401,43 @@
       font-weight: 600;
     }
 
-    /* ========== Connect Bar (1000dreamsfund.org Style) ========== */
+    /* ========== Skills Section (Professional Blue Box) ========== */
+    .skills-box {
+      background: var(--dark);
+      padding: 80px;
+      border-radius: 40px;
+      color: #fff;
+    }
+
+    .skills-box h3 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--accent);
+    }
+
+    .skills-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-pill {
+      padding: 12px 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .skill-pill:hover {
+      background: var(--accent);
+      color: var(--dark);
+      transform: translateY(-5px);
+    }
+
+    /* ========== Connect Bar (1000dreamsfund style) ========== */
     .connect-bar {
       background: var(--accent);
       padding: 20px 0;
@@ -431,7 +457,7 @@
     .connect-label {
       font-family: var(--font-heading);
       font-weight: 900;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: var(--dark);
       text-transform: uppercase;
     }
@@ -445,17 +471,16 @@
       font-size: 1.8rem;
       color: var(--dark);
       transition: var(--transition);
-      text-decoration: none;
     }
 
     .social-icon:hover {
+      transform: translateY(-5px);
       color: var(--dark-purple);
-      transform: translateY(-5px) scale(1.2);
     }
 
     /* ========== Footer (Original Restored) ========== */
     .footer {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #8b6ee0 100%);
       color: #fff;
       padding: 100px 0 40px;
     }
@@ -481,7 +506,7 @@
     .footer-form-frame {
       background: rgba(255, 255, 255, 0.1);
       padding: 40px;
-      border-radius: 40px;
+      border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
@@ -527,11 +552,11 @@
 
     /* Responsive */
     @media (max-width: 992px) {
-      .hero-container, .footer-main, .projects-grid {
+      .hero-container, .about-content, .experience-item, .project-row, .footer-main {
         grid-template-columns: 1fr;
       }
-      .skills-showcase {
-        padding: 60px 30px;
+      .project-row:nth-child(even) {
+        direction: ltr;
       }
     }
   </style>
@@ -543,9 +568,9 @@
   <!-- Navigation -->
   <nav id="navbar" class="navbar">
     <div class="navbar-container">
-      <div class="navbar-brand"><a href="#home">MALAK EMAD</a></div>
+      <div class="navbar-brand"><a href="#home">Malak Emad</a></div>
       <ul class="nav-links">
-        <li><a href="#home" class="nav-link"><i class="fas fa-house"></i> Home</a></li>
+        <li><a href="#home" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
         <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
         <li><a href="#projects" class="nav-link"><i class="fas fa-lightbulb"></i> Projects</a></li>
@@ -560,9 +585,10 @@
       <div class="hero-content">
         <h1 class="hero-title">Malak Emad</h1>
         <p class="hero-subtitle">Founder of Dear Future Luminary</p>
-        <p class="hero-description">STEM Innovator • Global Change Maker • Youth Empowerment. Turning ambition into impact through intentional leadership and digital creation.</p>
+        <p class="hero-description">STEM • Leadership • Digital Creation. Building platforms that turn ambition into impact through intentional growth.</p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">Explore My Impact</a>
+          <a href="#projects" class="btn btn-primary">Explore Work</a>
+          <a href="#about" class="btn btn-secondary">Learn My Story</a>
         </div>
       </div>
       <div class="hero-image">
@@ -571,168 +597,162 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">My Story</h2>
-      </div>
-      <div style="font-size: 1.4rem; line-height: 1.8; max-width: 900px;">
-        <p style="margin-bottom: 30px;"><strong>I don't just learn—I build.</strong> I've never been interested in doing things the traditional way. I like understanding how things work, breaking them down, and rebuilding them better.</p>
-        <p>From leading student communities to creating Dear Future Luminary, everything I've done comes from the same place: I see a gap, and I try to fill it. My work sits at the intersection of STEM, leadership, and creativity.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Experience</h2>
-      </div>
-      <div class="experience-grid">
-        
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">JAN 2026 - PRESENT</span>
-            <span class="exp-org">UNICEF</span>
-          </div>
-          <h3 class="exp-role">U-Reporter (Youth Advocate)</h3>
-          <p class="exp-text">Participating in youth-led data collection and surveys addressing education, climate, and social issues. Contributing youth perspectives to UNICEF-supported advocacy and policy insights.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Youth Development</span>
-            <span class="exp-tag">Reporting & Analysis</span>
-          </div>
+  <main>
+    <!-- About Section -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
         </div>
-
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">MAY 2024 - PRESENT</span>
-            <span class="exp-org">Dear Future Luminary</span>
+        <div class="about-content">
+          <div class="about-text">
+            <strong>I don't just learn—I build.</strong><br><br>
+            I've never been interested in doing things the traditional way. I like understanding how things work, breaking them down, and rebuilding them better.
           </div>
-          <h3 class="exp-role">Founder & Program Director</h3>
-          <p class="exp-text">Founded a youth-led initiative dedicated to guiding high school students toward scholarships, global programs, and intentional personal growth. Designed the vision, structure, and long-term roadmap.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Project Management</span>
-            <span class="exp-tag">Web Development</span>
-            <span class="exp-tag">Leadership</span>
+          <div class="about-text">
+            From leading student communities to creating Dear Future Luminary, everything I've done comes from the same place: I see a gap, and I try to fill it. My work sits at the intersection of STEM, leadership, and creativity.
           </div>
-        </div>
-
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">FEB 2024 - PRESENT</span>
-            <span class="exp-org">Kode With Klossy</span>
-          </div>
-          <h3 class="exp-role">Project Manager</h3>
-          <p class="exp-text">Led the planning and execution of web-based projects within a structured, intensive coding program. Coordinated task distribution and team communication.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Strategic Development</span>
-            <span class="exp-tag">Problem Solving</span>
-          </div>
-        </div>
-
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">2024 - PRESENT</span>
-            <span class="exp-org">Mohandes El Math</span>
-          </div>
-          <h3 class="exp-role">Head of Operations & Platform Manager</h3>
-          <p class="exp-text">Founding member responsible for taking the platform from idea to live operation. Led coordination with external dev teams and managed full admin panel.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Daily Operations</span>
-            <span class="exp-tag">Executive Management</span>
-          </div>
-        </div>
-
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">FEB 2023 - PRESENT</span>
-            <span class="exp-org">The New York Academy of Sciences</span>
-          </div>
-          <h3 class="exp-role">Project Manager</h3>
-          <p class="exp-text">Managed collaborative research projects within international youth teams. Coordinated timelines, deliverables, and team communication.</p>
-        </div>
-
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">JAN 2024 - NOV 2025</span>
-            <span class="exp-org">Connect Rise</span>
-          </div>
-          <h3 class="exp-role">Mentor</h3>
-          <p class="exp-text">Served as a mentor delivering structured guidance sessions on summer program applications and personal profile development for high school students.</p>
-        </div>
-
-        <div class="experience-card">
-          <div class="exp-meta">
-            <span class="exp-date">JUN 2024 - AUG 2024</span>
-            <span class="exp-org">Girls Who Code</span>
-          </div>
-          <h3 class="exp-role">Game Developer</h3>
-          <p class="exp-text">Completed a structured coding program with a focus on Python and game development. Built a capstone project centered on environmental data visualization.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section section-alt">
-    <div class="container">
-      <div class="skills-showcase">
-        <h3>Mastered Skills</h3>
-        <div class="skills-cloud">
-          <div class="skill-pill highlight">Web Development</div>
-          <div class="skill-pill">Python</div>
-          <div class="skill-pill highlight">Project Management</div>
-          <div class="skill-pill">Strategic Planning</div>
-          <div class="skill-pill highlight">Youth Advocacy</div>
-          <div class="skill-pill">Digital Design</div>
-          <div class="skill-pill highlight">Mentorship</div>
-          <div class="skill-pill">Public Speaking</div>
-          <div class="skill-pill highlight">Data Analysis</div>
-          <div class="skill-pill">UX/UI Design</div>
-          <div class="skill-pill highlight">Intercultural Dialogue</div>
-          <div class="skill-pill">Executive Operations</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+        </div>
+        <div class="experience-list">
+          
+          <!-- UNICEF -->
+          <div class="experience-item">
+            <div class="exp-sidebar">
+              <span class="exp-date">JAN 2026 - PRESENT</span>
+              <span class="exp-org">UNICEF</span>
+            </div>
+            <div class="exp-content">
+              <h3 class="exp-role">U-Reporter (Youth Advocate)</h3>
+              <p class="exp-desc">Participating in youth-led data collection and surveys addressing education, climate, and social issues. Contributing youth perspectives to UNICEF-supported advocacy and policy insights. Engaging with a global network of young people to amplify community-driven solutions.</p>
+            </div>
+          </div>
+
+          <!-- Dear Future Luminary -->
+          <div class="experience-item">
+            <div class="exp-sidebar">
+              <span class="exp-date">MAY 2024 - PRESENT</span>
+              <span class="exp-org">Dear Future Luminary</span>
+            </div>
+            <div class="exp-content">
+              <h3 class="exp-role">Founder & Program Director</h3>
+              <p class="exp-desc">Founded a youth-led initiative dedicated to guiding high school students toward scholarships, global programs, and intentional personal growth. Designed the vision, structure, and long-term roadmap of the initiative, translating lived experience navigating competitive opportunities into accessible guidance. Currently developing a professional website from scratch to centralize summer programs, STEM clubs, MUNs, resources, and growth tools. Led training sessions and mentorship-style discussions on summer programs, sustainability, and leadership, empowering students to make informed academic decisions. Built a mission-driven personal brand centered on impact, clarity, and community service.</p>
+            </div>
+          </div>
+
+          <!-- Kode With Klossy -->
+          <div class="experience-item">
+            <div class="exp-sidebar">
+              <span class="exp-date">FEB 2024 - PRESENT</span>
+              <span class="exp-org">Kode With Klossy</span>
+            </div>
+            <div class="exp-content">
+              <h3 class="exp-role">Project Manager</h3>
+              <p class="exp-desc">Led the planning and execution of web-based projects within a structured, intensive coding program. Coordinated task distribution, timelines, and team communication for collaborative, project-based learning. Managed project milestones while contributing to front-end development using HTML, CSS, and JavaScript. Ensured project delivery aligned with user needs and program objectives.</p>
+            </div>
+          </div>
+
+          <!-- Mohandes El Math -->
+          <div class="experience-item">
+            <div class="exp-sidebar">
+              <span class="exp-date">2024 - PRESENT</span>
+              <span class="exp-org">Mohandes El Math</span>
+            </div>
+            <div class="exp-content">
+              <h3 class="exp-role">Head of Operations & Platform Manager</h3>
+              <p class="exp-desc">Founding member responsible for taking the platform from idea to live operation (0→1). Led coordination with external development teams/vendors to select, launch, and operate the educational platform. Fully manage the Admin Panel, including student onboarding, subscriptions, technical issue resolution, and daily platform operations. Built and managed the WhatsApp customer support system end-to-end. Recruited, trained, and supervised a WhatsApp Support Team, ensuring consistent communication and service quality. Optimized Customer Experience (CX) by reducing response time and streamlining communication with students and parents. Played a key role in operational scalability by offloading day-to-day operations from the instructor and enabling sustainable growth.</p>
+            </div>
+          </div>
+
+          <!-- NYAS -->
+          <div class="experience-item">
+            <div class="exp-sidebar">
+              <span class="exp-date">FEB 2023 - PRESENT</span>
+              <span class="exp-org">NY Academy of Sciences</span>
+            </div>
+            <div class="exp-content">
+              <h3 class="exp-role">Project Manager</h3>
+              <p class="exp-desc">Managed collaborative research projects within international youth teams. Coordinated timelines, deliverables, and team communication. Developed leadership and organizational skills in a research-driven environment.</p>
+            </div>
+          </div>
+
+          <!-- Connect Rise -->
+          <div class="experience-item">
+            <div class="exp-sidebar">
+              <span class="exp-date">JAN 2024 - NOV 2025</span>
+              <span class="exp-org">Connect Rise</span>
+            </div>
+            <div class="exp-content">
+              <h3 class="exp-role">Mentor</h3>
+              <p class="exp-desc">Served as a mentor delivering structured guidance sessions on summer program applications and personal profile development for high school students. Led live sessions on Google Meet with 50+ attendees per session, focusing on building competitive student profiles, identifying global opportunities, and strategically approaching scholarships and international programs. Sessions were recorded and later published on YouTube, reaching 500+ viewers, significantly expanding access to mentorship content beyond live participation. Provided clear, step-by-step frameworks to help students improve extracurricular positioning and navigate application processes with confidence and direction.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <div class="projects-grid">
-        <div class="project-item">
-          <div class="project-img-placeholder">Project Visual</div>
-          <span class="project-org">Dear Future Luminary</span>
-          <h3>Impact Platform</h3>
-          <p class="project-desc">A youth-led initiative focused on democratizing access to global opportunities for high school students.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
         </div>
-        <div class="project-item">
-          <div class="project-img-placeholder">Project Visual</div>
-          <span class="project-org">Connect Rise</span>
-          <h3>Mentorship Series</h3>
-          <p class="project-desc">Designed and delivered a structured mentorship series reaching 500+ viewers on YouTube.</p>
-        </div>
-        <div class="project-item">
-          <div class="project-img-placeholder">Project Visual</div>
-          <span class="project-org">Kode With Klossy</span>
-          <h3>Culture Odyssey</h3>
-          <p class="project-desc">Collaborated with a global team to build a web project focusing on cultural exploration.</p>
-        </div>
-        <div class="project-item">
-          <div class="project-img-placeholder">Project Visual</div>
-          <span class="project-org">AFS Intercultural</span>
-          <h3>Crop Growth System</h3>
-          <p class="project-desc">Designed a sensor-based system to monitor air temperature and soil humidity for irrigation.</p>
+        <div class="projects-grid">
+          
+          <div class="project-row">
+            <div class="project-info">
+              <span class="project-meta">Associated with Dear Future Luminary</span>
+              <h3>Impact Platform</h3>
+              <p class="project-desc">Founded a youth-led initiative focused on democratizing access to global opportunities for high school students, especially from underrepresented backgrounds. Designed a structured platform highlighting STEM clubs, international summer programs, scholarships, competitions, and skill-building resources. Developed the project vision, branding, content strategy, and roadmap independently. Led research and curation of fully funded and merit-based opportunities, simplifying complex application processes for students.</p>
+            </div>
+            <div class="project-visual">Project Visual</div>
+          </div>
+
+          <div class="project-row">
+            <div class="project-info">
+              <span class="project-meta">Associated with Connect Rise</span>
+              <h3>Mentorship Series</h3>
+              <p class="project-desc">Designed and delivered a structured mentorship series focused on guiding students through summer program applications and personal profile development. Led live sessions for 50+ attendees, reaching 500+ viewers on YouTube, expanding access to mentorship content.</p>
+            </div>
+            <div class="project-visual">Project Visual</div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="skills-box">
+          <h3>Mastered Skills</h3>
+          <div class="skills-pills">
+            <div class="skill-pill">Web Development</div>
+            <div class="skill-pill">Python</div>
+            <div class="skill-pill">Project Management</div>
+            <div class="skill-pill">Strategic Planning</div>
+            <div class="skill-pill">Youth Advocacy</div>
+            <div class="skill-pill">Digital Branding</div>
+            <div class="skill-pill">Data Analysis</div>
+            <div class="skill-pill">Mentorship</div>
+            <div class="skill-pill">Public Speaking</div>
+            <div class="skill-pill">UX/UI Design</div>
+            <div class="skill-pill">Operations Management</div>
+            <div class="skill-pill">Climate Research</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Connect Bar -->
   <div class="connect-bar">
@@ -793,6 +813,15 @@
       }
     });
 
+    // Scroll Reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
     // Navbar Scroll
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
@@ -803,7 +832,7 @@
     // Contact Form
     document.getElementById('contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Message Sent Successfully!');
+      alert('Message Sent!');
       e.target.reset();
     });
   </script>
