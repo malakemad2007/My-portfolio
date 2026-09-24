@@ -234,3 +234,5 @@ body { letter-spacing: normal; }
 
 .button-outline { background: var(--white); box-shadow: none; }
 .button-outline:hover { background: var(--purple); color: var(--blue); box-shadow: none; }
+
+.item-number, .work-number { display: none !important; }
