@@ -162,3 +162,75 @@ section { scroll-margin-top: 100px; }
   .contact-links a, .social-link { transition: color .18s var(--ease), text-shadow .18s var(--ease); }
   .contact-links a:hover, .social-link:hover { color: var(--yellow); text-shadow: 0 0 14px rgba(250, 204, 21, .75); }
 }
+
+
+/* Final Slack-inspired refinement: open, friendly, no editorial micro-ui. */
+body { letter-spacing: normal; }
+.site-header, .navbar { border-bottom: 0; }
+.site-header.scrolled, .navbar.scrolled { border: 0; box-shadow: 0 10px 24px rgba(30, 58, 138, .12); }
+.nav-link::after, .desktop-nav a::after { display: none; }
+.nav-link, .desktop-nav a { font-size: .95rem; font-weight: 650; letter-spacing: normal; }
+.header-cta { padding: 12px 18px; font-size: .9rem; letter-spacing: normal; }
+.kicker, .section-label, .heading-note, .hero-meta, .work-mark, .learning-line span, .impact-number, .skill-grid article > span { display: none !important; }
+.hero { padding-top: clamp(86px, 11vw, 160px); }
+.hero h1 { letter-spacing: -.035em; line-height: .9; }
+.hero-tagline { letter-spacing: -.025em; line-height: 1.15; }
+.hero-meta { margin-top: 24px; }
+.hero-cta { margin-top: 34px; }
+.hero-cta a { padding: 17px 24px; font-size: .95rem !important; letter-spacing: normal; }
+.section-heading { margin-bottom: 58px; }
+.section-heading h2, .section-title { letter-spacing: -.035em; line-height: 1.02; }
+.text-block { letter-spacing: normal; line-height: 1.75; }
+.exp-item, .experience-item { padding: 38px 0; border-bottom: 0; }
+.experience-list, .exp-list { border-top: 0; }
+.exp-role h3, .experience-item h3, .work-item h3, .project-card h3, .education-copy h3, .impact-grid h3, .skill-grid h3 { letter-spacing: -.025em; line-height: 1.12; }
+.exp-role p, .experience-item p { line-height: 1.75; }
+.work-grid, .project-grid { gap: 28px; background: transparent; border: 0; }
+.work-item, .project-card { min-height: 330px; padding: 38px; border-radius: 24px; }
+.work-item p, .project-card p { line-height: 1.7; }
+.work-item:hover, .project-card:hover { background: var(--white); }
+.impact-grid, .skill-grid { border-top: 0; gap: 42px; }
+.impact-grid article, .skill-grid article, .impact-grid article:not(:nth-child(3n+1)), .skill-grid article:not(:nth-child(3n+1)) { padding: 0; border: 0; }
+.impact-grid p, .skill-grid p { line-height: 1.75; }
+.leadership-intro { letter-spacing: -.025em; line-height: 1.15; }
+.leadership-meaning, .learning-line { border-top: 0; }
+.education-copy h3 { letter-spacing: -.025em; line-height: 1.05; }
+.education-copy p { line-height: 1.75; }
+.contact { border-top: 0; }
+.contact h2 { letter-spacing: -.035em; line-height: .98; }
+.contact-email { letter-spacing: normal; }
+.site-footer { border-top: 0; font-size: .78rem; letter-spacing: normal; }
+.mobile-menu { border-bottom: 0; }
+.mobile-menu a { border-bottom: 0; font-size: .95rem; letter-spacing: normal; }
+
+@media (max-width: 820px) {
+  .hero h1 { font-size: clamp(4.2rem, 21vw, 8.5rem); letter-spacing: -.025em; line-height: .92; }
+  .hero-tagline { margin-top: 38px; font-size: clamp(1.35rem, 6vw, 2rem); }
+  .work-grid, .project-grid { gap: 18px; }
+  .work-item, .project-card { min-height: 280px; padding: 26px; border-radius: 20px; }
+}
+
+/* Keep projects open and editorial, not card-based. */
+.work-grid, .project-grid { display: block; }
+.work-item, .project-card { min-height: 0; padding: 46px 0; border-radius: 0; background: transparent; }
+.work-item:hover, .project-card:hover { background: transparent; }
+
+/* Hero controls: clear labels, no arrow glyphs. */
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.button { display: inline-flex; align-items: center; justify-content: center; padding: 16px 22px; border: 0; border-radius: 999px; font-size: .95rem; font-weight: 750; letter-spacing: normal; line-height: 1.2; text-decoration: none; transition: transform .18s var(--ease), background .18s var(--ease), color .18s var(--ease); }
+.button:hover { transform: translateY(-2px); }
+.button-dark { background: var(--blue); color: var(--white); }
+.button-dark:hover { background: var(--yellow); color: var(--blue); }
+.button-outline { background: transparent; color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+.button-outline:hover { background: var(--purple); color: var(--blue); box-shadow: none; }
+.header-cta span, .hero-actions span, .contact-email span, .item-arrow, .work-mark, .hero-bottom { display: none !important; }
+.hero-description { max-width: 600px; margin: 20px 0 0; color: var(--muted); font-size: 1.05rem; line-height: 1.75; letter-spacing: normal; }
+@media (max-width: 820px) {
+  .hero h1 { font-size: clamp(4rem, 15vw, 7.5rem); }
+  .hero-description { font-size: 1rem; }
+  .hero-actions { gap: 10px; }
+  .button { padding: 15px 18px; font-size: .9rem; }
+}
+
+.button-outline { background: var(--white); box-shadow: none; }
+.button-outline:hover { background: var(--purple); color: var(--blue); box-shadow: none; }
