@@ -1,84 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ─── Custom Cursor ───
-    const dot = document.querySelector('.cursor-dot');
-    const ring = document.querySelector('.cursor-ring');
+  const prefersTouch = window.matchMedia('(pointer: coarse)').matches;
+  const body = document.body;
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let dotX = 0;
-    let dotY = 0;
-    let ringX = 0;
-    let ringY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    const animateCursor = () => {
-        // Dot follows instantly
-        dotX = mouseX;
-        dotY = mouseY;
-        dot.style.left = `${dotX}px`;
-        dot.style.top = `${dotY}px`;
-
-        // Ring follows with delay
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
-
-        requestAnimationFrame(animateCursor);
+  if (!prefersTouch && dot && ring) {
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let ringX = x;
+    let ringY = y;
+    window.addEventListener('mousemove', (event) => { x = event.clientX; y = event.clientY; });
+    const moveCursor = () => {
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+      ringX += (x - ringX) * 0.16;
+      ringY += (y - ringY) * 0.16;
+      ring.style.left = `${ringX}px`;
+      ring.style.top = `${ringY}px`;
+      requestAnimationFrame(moveCursor);
     };
-    animateCursor();
-
-    // Hover effect
-    const hoverElements = document.querySelectorAll('a, button, .exp-item, .project-feature, .skill-tag');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    moveCursor();
+    document.querySelectorAll('a, button, .experience-row, .work-item, .skills-cloud span').forEach((element) => {
+      element.addEventListener('mouseenter', () => body.classList.add('cursor-hover'));
+      element.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'));
     });
+  }
 
-    // ─── Reveal Animations ───
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ─── Navbar Scroll Effect ───
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-    // ─── Active Link Highlighting ───
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
+  const mobileButton = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  mobileButton?.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    mobileButton.setAttribute('aria-expanded', String(isOpen));
+  });
+  mobileNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    mobileButton?.setAttribute('aria-expanded', 'false');
+  }));
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current) && current !== '') {
-                link.classList.add('active');
-            }
-        });
-    });
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const links = [...document.querySelectorAll('.nav-link')];
+  const setActive = () => {
+    const current = sections.reduce((active, section) => {
+      return window.scrollY + 140 >= section.offsetTop ? section.id : active;
+    }, 'home');
+    links.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${current}`));
+  };
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
 });

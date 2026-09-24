@@ -3,301 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malak Emad | 2030 Invention Portfolio</title>
-    <meta name="description" content="Portfolio of Malak Emad - Student, Researcher, Founder, and Professional Overthinker.">
-    <link rel="icon" href="dear.future.luminary.logo.svg" type="image/png">
-    <script src="https://kit.fontawesome.com/ce04bd97e3.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@900&family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#f2f3f5">
+    <meta name="description" content="Malak Emad — engineering student, founder, developer, and luminary building systems for people and planet.">
+    <title>Malak Emad — Engineering-minded luminary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="#home" class="nav-brand">Malak Emad</a>
-        <ul class="nav-links">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <a href="#contact" class="nav-link" style="color: var(--primary); border: 1px solid var(--primary); padding: 10px 25px; border-radius: 50px;">Hire Me</a>
+    <header class="site-header" id="top">
+        <a class="wordmark" href="#home" aria-label="Malak Emad home"><span>ME</span><small>/26</small></a>
+        <nav class="nav" aria-label="Primary navigation">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#recognition" class="nav-link">Recognition</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <a class="header-signal" href="mailto:malak.elsalmawi.2027@aiu.edu.eg"><span class="signal-dot"></span>Available to build</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+    </header>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#recognition">Recognition</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
     </nav>
 
     <main>
-        <!-- HERO SECTION -->
-        <section id="home" class="hero">
+        <section class="hero section-shell" id="home">
+            <div class="hero-meta"><span>Giza, Egypt</span><span>Engineering student @ AIU</span><span class="mono">29.99°N / 31.17°E</span></div>
             <div class="hero-grid">
-                <div class="hero-content reveal">
-                    <h1 class="hero-title">Building<span>Opportunities.</span></h1>
-                    <p class="hero-sub">Student, researcher, founder, community builder, and professional overthinker of interesting ideas. Welcome to my corner of the internet.</p>
-                    <div class="hero-cta">
-                        <a href="#about" class="nav-link" style="background: var(--dark); color: var(--secondary); padding: 20px 40px; border-radius: 50px; font-size: 0.9rem;">Explore My World</a>
-                    </div>
+                <div class="hero-copy reveal">
+                    <p class="eyebrow"><span class="eyebrow-line"></span> Engineering-minded luminary</p>
+                    <h1>I build <em>systems</em><br>that move people<br><strong>forward.</strong></h1>
+                    <p class="hero-intro">I’m Malak — an engineering student, founder, developer, and community builder turning curiosity into useful things for people and planet.</p>
+                    <div class="hero-actions"><a class="text-link link-arrow" href="#work">Explore selected work <span>↗</span></a><a class="text-link" href="#contact">Start a conversation <span>↗</span></a></div>
                 </div>
-                <div class="hero-image-wrap reveal">
-                    <img src="personal-pic.png" alt="Malak Emad">
+                <div class="hero-portrait reveal reveal-delay">
+                    <div class="portrait-orbit orbit-one"></div><div class="portrait-orbit orbit-two"></div>
+                    <div class="portrait-index mono">01<br><span>PORTRAIT_SIGNAL</span></div>
+                    <img src="personal-pic-cutout.png" alt="Malak Emad smiling in a black hijab and blazer">
+                    <div class="portrait-caption mono">MALAK EMAD<br><span>BUILDING WITH INTENT</span></div>
                 </div>
+            </div>
+            <div class="hero-footer mono"><span>SCROLL TO ITERATE</span><span class="scroll-line"></span><span>EST. 2007 / VERSION 2026</span></div>
+        </section>
+
+        <section class="statement section-shell" id="about">
+            <div class="section-head reveal"><span class="section-number mono">01</span><p class="eyebrow">About the human behind the work</p></div>
+            <div class="statement-grid">
+                <h2 class="reveal">Not just collecting experiences.<br><em>Connecting them.</em></h2>
+                <div class="body-copy reveal reveal-delay"><p>I’m a multidimensional builder from Egypt with an engineering mindset and a big-sister mission: make complicated paths feel possible for the people coming after me.</p><p>My work sits where <strong>technology, education, sustainability, and community</strong> overlap. I like the messy middle — the part where an idea becomes a system, a team, or a real opportunity.</p><a class="text-link link-arrow" href="mailto:malak.elsalmawi.2027@aiu.edu.eg">Say hello <span>↗</span></a></div>
+            </div>
+            <div class="about-strip mono"><span>01 / CURIOUS</span><span>02 / PERSISTENT</span><span>03 / COMMUNITY-DRIVEN</span><span>04 / ALWAYS BUILDING</span></div>
+        </section>
+
+        <section class="experience section-shell" id="experience">
+            <div class="section-head reveal"><span class="section-number mono">02</span><p class="eyebrow">Where I’ve been useful</p></div>
+            <div class="section-title-row"><h2 class="reveal">Experience<br><em>in motion.</em></h2><p class="section-note reveal reveal-delay">Different titles. Same instinct:<br>make the room, product, or system<br>better than I found it.</p></div>
+            <div class="experience-list">
+                <article class="experience-row reveal"><span class="row-number mono">01</span><div><h3>Founder &amp; Program Director</h3><p>Dear Future Luminary</p></div><span class="row-date mono">2024 — NOW</span><span class="row-arrow">↗</span></article>
+                <article class="experience-row reveal"><span class="row-number mono">02</span><div><h3>Personal Assistant &amp; Platform Manager</h3><p>Eng. Mostafa Hossam — مهندس الماث</p></div><span class="row-date mono">2024 — NOW</span><span class="row-arrow">↗</span></article>
+                <article class="experience-row reveal"><span class="row-number mono">03</span><div><h3>Research Scholar &amp; Project Manager</h3><p>New York Academy of Sciences</p></div><span class="row-date mono">2023 — NOW</span><span class="row-arrow">↗</span></article>
+                <article class="experience-row reveal"><span class="row-number mono">04</span><div><h3>Front-End Developer</h3><p>Star Girls Africa + independent projects</p></div><span class="row-date mono">2023 — NOW</span><span class="row-arrow">↗</span></article>
+                <article class="experience-row reveal"><span class="row-number mono">05</span><div><h3>Social Media &amp; Community Lead</h3><p>MAS MUN · Resala STEM · Pluto Podcast · TEDxEtTagammo</p></div><span class="row-date mono">2022 — NOW</span><span class="row-arrow">↗</span></article>
             </div>
         </section>
 
-        <!-- 01_ABOUT -->
-        <section id="about">
-            <div class="container">
-                <span class="section-label">01 — The Origin</span>
-                <h2 class="section-title reveal">Building things. Finding opportunities. Occasionally questioning why I thought this was a good idea.</h2>
-                
-                <div class="content-grid">
-                    <div class="text-block reveal">
-                        <p>Hi, I’m Malak Emad — a student, researcher, founder, community builder, and professional overthinker of interesting ideas. I’m passionate about technology, leadership, education, and most importantly, using all three to make things a little better for the people around me.</p>
-                        <p><strong>Success hits different when you help someone else succeed too.</strong></p>
-                        <p>Welcome to my little corner of the internet. There’s a lot happening here. You’ve been warned.</p>
-                    </div>
-                    <div class="text-block reveal">
-                        <p>If I had to describe myself in a few words: <strong>Curious. Persistent. Community-driven. Slightly obsessed with building things.</strong></p>
-                        <p>I’m a pre-college student from Egypt who likes asking questions, exploring completely different fields, and turning ideas into actual projects.</p>
-                        <p>Sometimes that means building a website. Sometimes it means organizing an event. Sometimes it means researching something at an unreasonable hour because I suddenly need to know <em>why</em>.</p>
-                    </div>
-                </div>
+        <section class="work section-shell" id="work">
+            <div class="section-head reveal"><span class="section-number mono">03</span><p class="eyebrow">Selected work / field notes</p></div>
+            <div class="section-title-row"><h2 class="reveal">Ideas with<br><em>traction.</em></h2><p class="section-note reveal reveal-delay">A small sample of questions<br>I’ve turned into projects,<br>platforms, and experiments.</p></div>
+            <div class="work-list">
+                <article class="work-item work-item-primary reveal"><div class="work-topline mono"><span>PROJECT 001</span><span>ENGINEERING / CLIMATE</span></div><div class="work-content"><div><h3>Optimizing<br><em>Crop Growth</em></h3><p>A temperature-based control sensor concept for efficient irrigation and smarter crop optimization — translating environmental data into a practical decision system.</p><a class="text-link link-arrow" href="mailto:malak.elsalmawi.2027@aiu.edu.eg?subject=Optimizing Crop Growth">Discuss the system <span>↗</span></a></div><div class="system-visual" aria-label="Abstract irrigation system diagram"><span class="system-label mono">INPUT / TEMP</span><span class="system-node node-a"></span><span class="system-node node-b"></span><span class="system-node node-c"></span><span class="system-line line-a"></span><span class="system-line line-b"></span><span class="system-label label-output mono">OUTPUT / WATER</span></div></div></article>
+                <article class="work-item reveal"><div class="work-topline mono"><span>PROJECT 002</span><span>EDUCATION / COMMUNITY</span></div><div class="work-content"><div><h3>Dear Future<br><em>Luminary</em></h3><p>A platform and community helping ambitious students find scholarships, STEM clubs, programs, and the confidence to pursue them.</p><a class="text-link link-arrow" href="mailto:malak.elsalmawi.2027@aiu.edu.eg?subject=Dear Future Luminary">Explore the mission <span>↗</span></a></div><div class="luminary-mark" aria-hidden="true"><span>DFL</span><small>LIGHT THE WAY</small></div></div></article>
             </div>
         </section>
 
-        <!-- A LITTLE MORE ABOUT ME -->
-        <section>
-            <div class="container">
-                <div class="content-grid">
-                    <div class="text-block reveal">
-                        <p>And sometimes it means helping another student figure out an opportunity they didn't even know existed. I don't really enjoy sitting still when there’s a problem that could be solved.</p>
-                        <p>When something goes wrong, I tend to treat it like a puzzle rather than a dead end. It might take longer than expected. It might require several attempts. There may or may not be a small crisis somewhere in between.</p>
-                    </div>
-                    <div class="text-block reveal">
-                        <p>But I keep going. Because I’ve learned that progress rarely looks as neat as it does in retrospect.</p>
-                        <p>I also care deeply about people. I love meeting people from different backgrounds, exchanging ideas, sharing opportunities, and creating spaces where students don't feel like they have to figure everything out alone.</p>
-                        <p><strong>Leadership, to me, isn't about being the loudest person in the room. It’s about making the room better for everyone in it.</strong></p>
-                    </div>
-                </div>
-            </div>
+        <section class="recognition section-shell" id="recognition">
+            <div class="section-head reveal"><span class="section-number mono">04</span><p class="eyebrow">Signals of momentum</p></div>
+            <div class="recognition-grid"><h2 class="reveal">Recognized for<br><em>showing up.</em></h2><div class="recognition-list reveal reveal-delay"><p><span>01</span> AFS Global STEM Academies <b>Scholar · Certificate of Excellence</b></p><p><span>02</span> Climate Science Olympiad <b>Gold Medalist</b></p><p><span>03</span> The Junior Academy, NYAS <b>Research Scholar</b></p><p><span>04</span> Stanford Code in Place <b>Program participant</b></p><p><span>05</span> Girls Who Code · Kode With Klossy <b>Scholar</b></p></div></div>
+            <div class="recognition-marquee mono" aria-hidden="true"><span>RESEARCH</span><span>LEADERSHIP</span><span>STEM</span><span>IMPACT</span><span>RESEARCH</span><span>LEADERSHIP</span></div>
         </section>
 
-        <!-- 02_WHY AI -->
-        <section id="why-ai" class="section-dark">
-            <div class="container">
-                <span class="section-label">02 — The Future</span>
-                <h2 class="section-title reveal">So... why Artificial Intelligence?</h2>
-                
-                <div class="content-grid">
-                    <div class="text-block reveal">
-                        <p>Because somehow, AI manages to combine a suspiciously large number of things I love: <strong>Problem-solving. Creativity. Technology. Innovation. Impact.</strong></p>
-                        <p>AI isn't some distant “technology of the future” anymore. It’s already changing how we approach healthcare, education, agriculture, sustainability, business, and everyday life.</p>
-                    </div>
-                    <div class="text-block reveal">
-                        <p>And honestly, the part that excites me most isn't simply building something that can do something clever. It’s asking: <strong>“Okay, but what can we actually do with this?”</strong></p>
-                        <p>Can technology make education more accessible? Can intelligent systems help solve environmental challenges? Can we build tools that help communities make better decisions?</p>
-                        <p>I don't want to only understand the technology. <strong>I want to build with it.</strong></p>
-                    </div>
-                </div>
-            </div>
+        <section class="skills section-shell" id="skills">
+            <div class="section-head reveal"><span class="section-number mono">05</span><p class="eyebrow">My current toolkit</p></div>
+            <div class="skills-grid"><h2 class="reveal">Logic on one side.<br><em>Humanity on the other.</em></h2><div class="skills-cloud reveal reveal-delay"><span>Front-end development</span><span>Systems thinking</span><span>Research</span><span>Leadership</span><span>Facilitation</span><span>Social media strategy</span><span>Graphic design</span><span>Content creation</span><span>Community building</span><span>Public speaking</span><span>Mentorship</span><span>Opportunity mapping</span></div></div>
         </section>
 
-        <!-- 03_WHY ALAMEIN -->
-        <section id="why-alamein">
-            <div class="container">
-                <span class="section-label">03 — The Launchpad</span>
-                <h2 class="section-title reveal">I wasn't looking for just a university.</h2>
-                
-                <div class="content-grid">
-                    <div class="text-block reveal">
-                        <p>I was looking for a place where things happen. A place where I could learn beyond the syllabus, work with people who think differently, conduct research, join communities, build projects, and occasionally discover that I know significantly less than I thought I did.</p>
-                        <p>Alamein International University stood out to me because of its combination of academic learning, practical experience, innovation, and global exposure.</p>
-                    </div>
-                    <div class="text-block reveal">
-                        <p>What attracts me most is the kind of environment where students are encouraged to actually <em>do something</em> with what they learn. Because I don't see university as: <strong>Lectures → Exams → Repeat.</strong></p>
-                        <p>I see it as a launchpad. A place to explore research, leadership, entrepreneurship, community work, and ideas that might eventually turn into something much bigger.</p>
-                        <p><strong>It's a community I genuinely want to be part of.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- STILL BUILDING INTERSTITIAL -->
-        <section class="section-typo">
-            <div class="container">
-                <h2 class="huge-quote reveal">Still Building. And honestly? That's exactly where I want to be.</h2>
-                <div class="text-block reveal" style="margin-top: 40px;">
-                    <p>I don't have everything figured out. I don't think I'm supposed to. What I do have is a lot of curiosity, a growing list of things I want to learn, and a slightly ridiculous tendency to turn ideas into projects.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHAT DRIVES ME -->
-        <section>
-            <div class="container">
-                <span class="section-label">The Engine</span>
-                <h2 class="section-title reveal">What Drives Me</h2>
-                <div class="content-grid">
-                    <div class="text-block reveal">
-                        <p>I like making things that are useful. A platform. A project. A guide. A community. Sometimes even a very ambitious idea scribbled somewhere that absolutely should have been written down properly.</p>
-                    </div>
-                    <div class="text-block reveal">
-                        <p>I don't think everything I build needs to change the world. I just want it to matter to someone. <strong>Because meaningful doesn't always mean massive.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- QUICK FACTS -->
-        <section class="section-dark">
-            <div class="container">
-                <span class="section-label">Snapshot</span>
-                <h2 class="section-title reveal">Quick Facts</h2>
-                <div class="content-grid">
-                    <div class="text-block reveal">
-                        <p><strong>Based in:</strong> Egypt</p>
-                        <p><strong>Currently interested in:</strong> AI, technology, education, research & figuring out what comes next</p>
-                        <p><strong>Founder of:</strong> Dear Future Luminary</p>
-                    </div>
-                    <div class="text-block reveal">
-                        <p><strong>Also:</strong> Researcher · Project Manager · Youth Advocate · Mentor · Community Builder</p>
-                        <p><strong>Future direction:</strong> AI Engineering</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 04_EXPERIENCE -->
-        <section id="experience">
-            <div class="container">
-                <span class="section-label">04 — The Journey</span>
-                <h2 class="section-title reveal">Building Communities, Creating Opportunities, Making Things Happen</h2>
-                <p class="text-block reveal" style="max-width: 800px; margin-bottom: 80px;">Over the years, I've collected a slightly chaotic collection of roles: Researcher, Mentor, Project manager, Advocate, Founder, Organizer. But underneath all of them is the same idea: <strong>Knowledge becomes much more powerful when you share it.</strong></p>
-                
-                <div class="exp-list">
-                    <div class="exp-item reveal">
-                        <div class="exp-date">Jan 2026 – Present</div>
-                        <div class="exp-role">
-                            <h3>UNICEF — U-Reporter & Youth Advocate</h3>
-                            <p>Contributing youth perspectives to conversations around education, climate action, and social development. Through surveys and discussions, I help bring young people's experiences into conversations that shape the future.</p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">May 2024 – Present</div>
-                        <div class="exp-role">
-                            <h3>Dear Future Luminary — Founder & Program Director</h3>
-                            <p>This one started with a very simple problem: <strong>Why are so many opportunities ridiculously hard to find?</strong> I decided to build something I wish I had earlier. DFL is a student-led initiative helping young people discover opportunities and build stronger profiles.</p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">Feb 2024 – Present</div>
-                        <div class="exp-role">
-                            <h3>Kode With Klossy — Project Manager</h3>
-                            <p>Developing technical and leadership skills while managing collaborative web-development projects. Building something good isn't just about writing good code; it's about communication and teamwork.</p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">Feb 2024 – Present</div>
-                        <div class="exp-role">
-                            <h3>International Organization of Youth — Youth Advocate</h3>
-                            <p>Contributing to initiatives around sustainability, climate action, and youth empowerment. Strengthening my belief that young people shouldn't just be talked <em>about</em>; we should be part of the conversation.</p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">2024 – Present</div>
-                        <div class="exp-role">
-                            <h3>Mohandes El Math — Head of Operations</h3>
-                            <p>Turned an educational platform from an idea into an operational system. Platform management, student onboarding, and workflow optimization. <strong>Technology can build the system. People make it work.</strong></p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">Feb 2023 – Present</div>
-                        <div class="exp-role">
-                            <h3>New York Academy of Sciences — Project Manager</h3>
-                            <p>Managing international research teams, coordinating different perspectives, and keeping complicated projects moving across cultures and time zones.</p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">Jan 2023 – Present</div>
-                        <div class="exp-role">
-                            <h3>The Junior Academy — Researcher</h3>
-                            <p>Collaborating with students from more than 100 countries on sustainability and climate-related challenges through evidence-based problem solving.</p>
-                        </div>
-                    </div>
-                    <div class="exp-item reveal">
-                        <div class="exp-date">Jan 2024 – Nov 2025</div>
-                        <div class="exp-role">
-                            <h3>Connect Rise — Mentor</h3>
-                            <p>Mentored students through summer program applications and profile building. Watching students go from “I don't think I can do this” to “Wait... I actually got in” is why I care so much about access.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 05_PROJECTS -->
-        <section id="projects">
-            <div class="container">
-                <span class="section-label">05 — The Inventions</span>
-                <h2 class="section-title reveal">Turning “What If?” Into “Okay, I Built It.”</h2>
-                
-                <div class="project-feature reveal">
-                    <div class="project-visual"></div>
-                    <div class="project-text">
-                        <span class="section-label">Flagship</span>
-                        <h3>Dear Future Luminary — Impact Platform</h3>
-                        <p>The one closest to my heart. DFL grew out of a problem I knew personally: finding and understanding opportunities. I built a platform to make that process less overwhelming—scholarships, STEM communities, and resources. <strong>Helping students believe they can reach it.</strong></p>
-                    </div>
-                </div>
-
-                <div class="project-feature reveal">
-                    <div class="project-visual"></div>
-                    <div class="project-text">
-                        <span class="section-label">Education</span>
-                        <h3>Mentorship Series</h3>
-                        <p>Structured mentorship initiative covering application strategies and personal branding. Reached dozens of live participants and hundreds more online. Hearing students say “I finally know where to start” means everything.</p>
-                    </div>
-                </div>
-
-                <div class="project-feature reveal">
-                    <div class="project-visual"></div>
-                    <div class="project-text">
-                        <span class="section-label">Web Dev</span>
-                        <h3>Culture Odyssey</h3>
-                        <p>Explored cultural storytelling through web design and interactive experiences. Strengthened front-end skills while teaching me how much better ideas become when different people bring different perspectives.</p>
-                    </div>
-                </div>
-
-                <div class="project-feature reveal">
-                    <div class="project-visual"></div>
-                    <div class="project-text">
-                        <span class="section-label">Sustainability</span>
-                        <h3>Crop Growth Control System</h3>
-                        <p>Automated irrigation system monitoring temperature and soil humidity. A small project with a big idea: <strong>Technology doesn't have to be flashy to be useful.</strong> Solving practical problems is the coolest thing you can build.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="footer">
-            <div class="container">
-                <span class="section-label">Connect</span>
-                <h2 class="footer-title reveal">I'd love to hear from you.</h2>
-                <p class="text-block reveal" style="max-width: 600px; margin: 0 auto 60px;">Have a question? Want to talk about a project? Found an opportunity I should know about? Or simply want to say hi?</p>
-                
-                <ul class="social-links reveal">
-                    <li><a href="#" class="social-link">LinkedIn</a></li>
-                    <li><a href="#" class="social-link">GitHub</a></li>
-                    <li><a href="#" class="social-link">Twitter</a></li>
-                    <li><a href="#" class="social-link">Instagram</a></li>
-                </ul>
-                
-                <p style="margin-top: 100px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Malak Emad. All rights reserved. | Still Building.</p>
-            </div>
+        <section class="contact section-shell" id="contact">
+            <div class="contact-grid"><div><p class="eyebrow reveal"><span class="eyebrow-line"></span> Your move</p><h2 class="reveal">Let’s make<br><em>something matter.</em></h2></div><div class="contact-details reveal reveal-delay"><p>I’m always open to thoughtful collaborations, scholarship conversations, creative projects, and ideas that deserve a better first version.</p><a class="email-link" href="mailto:malak.elsalmawi.2027@aiu.edu.eg">malak.elsalmawi.2027@aiu.edu.eg <span>↗</span></a><p class="phone mono">01090879843</p><div class="social-row"><a href="https://www.linkedin.com/in/loka-luminary/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.youtube.com/@malak_luminary" target="_blank" rel="noreferrer">YouTube ↗</a></div></div></div>
         </section>
     </main>
 
+    <footer class="site-footer"><a class="wordmark" href="#top"><span>ME</span><small>/26</small></a><span class="mono">Developed by Malak Elsalmawi @ 2026 — all rights reserved</span><a class="back-top mono" href="#top">Back to top ↑</a></footer>
     <script src="script.js"></script>
 </body>
 </html>
