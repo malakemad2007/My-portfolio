@@ -1,106 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f2f3f5">
-    <meta name="description" content="Malak Emad — engineering student, founder, developer, and luminary building systems for people and planet.">
-    <title>Malak Emad — Engineering-minded luminary</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#a488f4" />
+  <title>Malak Elsalmawi — Engineering ideas into impact.</title>
+  <meta name="description" content="Mechatronics Engineering student with experience in project management, youth initiatives, and building opportunities for young people." />
+  <link rel="icon" type="image/svg+xml" href="dear.future.luminary.logo.svg.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
-    <div class="noise" aria-hidden="true"></div>
-
-    <header class="site-header" id="top">
-        <a class="wordmark" href="#home" aria-label="Malak Emad home"><span>ME</span><small>/26</small></a>
-        <nav class="nav" aria-label="Primary navigation">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#work" class="nav-link">Work</a>
-            <a href="#recognition" class="nav-link">Recognition</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-        <a class="header-signal" href="mailto:malak.elsalmawi.2027@aiu.edu.eg"><span class="signal-dot"></span>Available to build</a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
-    </header>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#recognition">Recognition</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <header class="site-header" id="navbar">
+    <a href="#home" class="brand-mark" aria-label="Malak Elsalmawi home"><img src="dear.future.luminary.logo.svg.svg" alt="" /><span>Malak Elsalmawi</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#leadership">Impact</a><a href="#skills">Skills</a><a href="#contact">Connect</a>
     </nav>
+    <a class="header-cta" href="#contact">Let's connect <span>↗</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Work</a><a href="#leadership">Impact</a><a href="#skills">Skills</a><a href="#contact">Connect</a></nav>
+  </header>
 
-    <main>
-        <section class="hero section-shell" id="home">
-            <div class="hero-meta"><span>Giza, Egypt</span><span>Engineering student @ AIU</span><span class="mono">29.99°N / 31.17°E</span></div>
-            <div class="hero-grid">
-                <div class="hero-copy reveal">
-                    <p class="eyebrow"><span class="eyebrow-line"></span> Engineering-minded luminary</p>
-                    <h1>I build <em>systems</em><br>that move people<br><strong>forward.</strong></h1>
-                    <p class="hero-intro">I’m Malak — an engineering student, founder, developer, and community builder turning curiosity into useful things for people and planet.</p>
-                    <div class="hero-actions"><a class="text-link link-arrow" href="#work">Explore selected work <span>↗</span></a><a class="text-link" href="#contact">Start a conversation <span>↗</span></a></div>
-                </div>
-                <div class="hero-portrait reveal reveal-delay">
-                    <div class="portrait-orbit orbit-one"></div><div class="portrait-orbit orbit-two"></div>
-                    <div class="portrait-index mono">01<br><span>PORTRAIT_SIGNAL</span></div>
-                    <img src="personal-pic-cutout.png" alt="Malak Emad smiling in a black hijab and blazer">
-                    <div class="portrait-caption mono">MALAK EMAD<br><span>BUILDING WITH INTENT</span></div>
-                </div>
-            </div>
-            <div class="hero-footer mono"><span>SCROLL TO ITERATE</span><span class="scroll-line"></span><span>EST. 2007 / VERSION 2026</span></div>
-        </section>
+  <main>
+    <section id="home" class="hero section-light">
+      <div class="hero-orb"></div><div class="hero-grid page-width">
+        <div class="hero-copy reveal"><p class="kicker">01 / Engineering-minded luminary</p><h1>Malak<br /><span>Elsalmawi</span></h1><p class="hero-tagline">Engineering ideas into impact.</p><p class="hero-description">Mechatronics Engineering student with experience in project management, youth initiatives, and building opportunities for young people.</p><div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span>↗</span></a><a class="button button-outline" href="#contact">Let's connect <span>↗</span></a></div></div>
+        <div class="hero-art reveal reveal-delay"><div class="hero-art-ring ring-one"></div><div class="hero-art-ring ring-two"></div><img src="personal-pic-cutout.png" alt="Malak Elsalmawi" /><div class="hero-art-label mono">ME / 2026<br />BUILDING THE NEXT VERSION</div></div>
+      </div><div class="hero-bottom page-width mono"><span>Giza, Egypt</span><span class="hero-line"></span><span>Scroll to explore ↓</span></div>
+    </section>
 
-        <section class="statement section-shell" id="about">
-            <div class="section-head reveal"><span class="section-number mono">01</span><p class="eyebrow">About the human behind the work</p></div>
-            <div class="statement-grid">
-                <h2 class="reveal">Not just collecting experiences.<br><em>Connecting them.</em></h2>
-                <div class="body-copy reveal reveal-delay"><p>I’m a multidimensional builder from Egypt with an engineering mindset and a big-sister mission: make complicated paths feel possible for the people coming after me.</p><p>My work sits where <strong>technology, education, sustainability, and community</strong> overlap. I like the messy middle — the part where an idea becomes a system, a team, or a real opportunity.</p><a class="text-link link-arrow" href="mailto:malak.elsalmawi.2027@aiu.edu.eg">Say hello <span>↗</span></a></div>
-            </div>
-            <div class="about-strip mono"><span>01 / CURIOUS</span><span>02 / PERSISTENT</span><span>03 / COMMUNITY-DRIVEN</span><span>04 / ALWAYS BUILDING</span></div>
-        </section>
+    <section id="intro" class="intro section-white section-space">
+      <div class="page-width intro-grid"><div class="section-index mono">02 / Short introduction</div><div class="intro-copy reveal"><p>I’m Malak, a Mechatronics Engineering student interested in how ideas become systems, projects, and real-world solutions.</p><p>Alongside my engineering journey, I’ve spent the past few years building youth-focused initiatives, leading projects, and creating access to opportunities for students who are still figuring out where they belong.</p><p>Today, I’m bringing both sides of that experience together: learning to build technical solutions while continuing to build opportunities for people.</p></div></div>
+    </section>
 
-        <section class="experience section-shell" id="experience">
-            <div class="section-head reveal"><span class="section-number mono">02</span><p class="eyebrow">Where I’ve been useful</p></div>
-            <div class="section-title-row"><h2 class="reveal">Experience<br><em>in motion.</em></h2><p class="section-note reveal reveal-delay">Different titles. Same instinct:<br>make the room, product, or system<br>better than I found it.</p></div>
-            <div class="experience-list">
-                <article class="experience-row reveal"><span class="row-number mono">01</span><div><h3>Founder &amp; Program Director</h3><p>Dear Future Luminary</p></div><span class="row-date mono">2024 — NOW</span><span class="row-arrow">↗</span></article>
-                <article class="experience-row reveal"><span class="row-number mono">02</span><div><h3>Personal Assistant &amp; Platform Manager</h3><p>Eng. Mostafa Hossam — مهندس الماث</p></div><span class="row-date mono">2024 — NOW</span><span class="row-arrow">↗</span></article>
-                <article class="experience-row reveal"><span class="row-number mono">03</span><div><h3>Research Scholar &amp; Project Manager</h3><p>New York Academy of Sciences</p></div><span class="row-date mono">2023 — NOW</span><span class="row-arrow">↗</span></article>
-                <article class="experience-row reveal"><span class="row-number mono">04</span><div><h3>Front-End Developer</h3><p>Star Girls Africa + independent projects</p></div><span class="row-date mono">2023 — NOW</span><span class="row-arrow">↗</span></article>
-                <article class="experience-row reveal"><span class="row-number mono">05</span><div><h3>Social Media &amp; Community Lead</h3><p>MAS MUN · Resala STEM · Pluto Podcast · TEDxEtTagammo</p></div><span class="row-date mono">2022 — NOW</span><span class="row-arrow">↗</span></article>
-            </div>
-        </section>
+    <section id="about" class="about section-blue section-space"><div class="page-width about-grid"><div><p class="kicker yellow">03 / About me</p><h2>I’m Malak,<br /><span>still building.</span></h2></div><div class="about-copy reveal"><p>I’m Malak, a Mechatronics Engineering student at Alamein International University with a background in leadership, project management, and youth initiatives.</p><p>Before engineering, I spent years building projects, leading teams, and creating opportunities for young people through initiatives like Dear Future Luminary.</p><p>Now, I’m bringing that same mindset into engineering: learn, build, take ownership, and keep moving.</p></div></div><div class="blue-cross"></div></section>
 
-        <section class="work section-shell" id="work">
-            <div class="section-head reveal"><span class="section-number mono">03</span><p class="eyebrow">Selected work / field notes</p></div>
-            <div class="section-title-row"><h2 class="reveal">Ideas with<br><em>traction.</em></h2><p class="section-note reveal reveal-delay">A small sample of questions<br>I’ve turned into projects,<br>platforms, and experiments.</p></div>
-            <div class="work-list">
-                <article class="work-item work-item-primary reveal"><div class="work-topline mono"><span>PROJECT 001</span><span>ENGINEERING / CLIMATE</span></div><div class="work-content"><div><h3>Optimizing<br><em>Crop Growth</em></h3><p>A temperature-based control sensor concept for efficient irrigation and smarter crop optimization — translating environmental data into a practical decision system.</p><a class="text-link link-arrow" href="mailto:malak.elsalmawi.2027@aiu.edu.eg?subject=Optimizing Crop Growth">Discuss the system <span>↗</span></a></div><div class="system-visual" aria-label="Abstract irrigation system diagram"><span class="system-label mono">INPUT / TEMP</span><span class="system-node node-a"></span><span class="system-node node-b"></span><span class="system-node node-c"></span><span class="system-line line-a"></span><span class="system-line line-b"></span><span class="system-label label-output mono">OUTPUT / WATER</span></div></div></article>
-                <article class="work-item reveal"><div class="work-topline mono"><span>PROJECT 002</span><span>EDUCATION / COMMUNITY</span></div><div class="work-content"><div><h3>Dear Future<br><em>Luminary</em></h3><p>A platform and community helping ambitious students find scholarships, STEM clubs, programs, and the confidence to pursue them.</p><a class="text-link link-arrow" href="mailto:malak.elsalmawi.2027@aiu.edu.eg?subject=Dear Future Luminary">Explore the mission <span>↗</span></a></div><div class="luminary-mark" aria-hidden="true"><span>DFL</span><small>LIGHT THE WAY</small></div></div></article>
-            </div>
-        </section>
+    <section id="experience" class="experience section-white section-space"><div class="page-width"><div class="section-heading"><div><p class="kicker">04 / Experience</p><h2>Things I’ve<br /><em>made happen.</em></h2></div><p class="heading-note">Different rooms.<br />Same instinct:<br />make it useful.</p></div><div class="experience-list">
+      <article class="experience-item reveal"><span class="item-number mono">01</span><div><h3>UNICEF — U-Reporter &amp; Youth Advocate</h3><strong>Jan 2026 – Present</strong><p>Bringing youth perspectives into conversations around education, climate, and social development through surveys and discussions.</p><b>Youth voice · Research · Social impact</b><i>Because “youth perspective” should probably include actual youth.</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">02</span><div><h3>Dear Future Luminary — Founder &amp; Program Director</h3><strong>May 2024 – Present</strong><p>Built a student-led initiative helping young people find opportunities and build stronger profiles.</p><b>500+ opportunities curated · 100+ students guided · 5+ countries reached</b><i>Started with one question: why is finding a good opportunity so unnecessarily hard?</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">03</span><div><h3>Kode With Klossy — Project Manager</h3><strong>Feb 2024 – Present</strong><p>Managing collaborative web-development projects from idea to execution, balancing technical work, deadlines, and actual human beings.</p><b>Project management · Web development · Team coordination</b><i>Turns out, the hardest part isn't always the code.</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">04</span><div><h3>International Organization of Youth — Youth Advocate</h3><strong>Feb 2024 – Present</strong><p>Contributing to youth-focused initiatives around sustainability, climate action, and empowerment.</p><b>Youth advocacy · Sustainability · Climate action</b><i>Young people shouldn't just be talked about. We should be in the room.</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">05</span><div><h3>Mohandes El Math — Head of Operations</h3><strong>2024 – Present</strong><p>Keeping the moving parts of a growing educational platform moving: platform operations, student onboarding, support, and workflow management.</p><b>Operations · Platform management · Student support</b><i>Someone has to make sure everything actually works.</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">06</span><div><h3>New York Academy of Sciences — Project Manager</h3><strong>Feb 2023 – Present</strong><p>Managing international research teams, coordinating ideas, deadlines, and people across different backgrounds.</p><b>International teams · Research · Project management</b><i>Different time zones. Different perspectives. One deadline.</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">07</span><div><h3>The Junior Academy — Researcher</h3><strong>Jan 2023 – Present</strong><p>Collaborating with students from <strong>100+ countries</strong> on sustainability and climate-related challenges through research and evidence-based problem solving.</p><b>Research · Global collaboration · Sustainability</b><i>Big problems rarely come with small group chats.</i></div><span class="item-arrow">↗</span></article>
+      <article class="experience-item reveal"><span class="item-number mono">08</span><div><h3>Connect Rise — Mentor</h3><strong>Jan 2024 – Nov 2025</strong><p>Guided students through summer program applications, profile building, and finding opportunities that actually fit them.</p><b>50+ attendees · 500+ YouTube views</b><i>The best part: watching “I can't do this” become “Wait, I got in.”</i></div><span class="item-arrow">↗</span></article>
+    </div></div></section>
 
-        <section class="recognition section-shell" id="recognition">
-            <div class="section-head reveal"><span class="section-number mono">04</span><p class="eyebrow">Signals of momentum</p></div>
-            <div class="recognition-grid"><h2 class="reveal">Recognized for<br><em>showing up.</em></h2><div class="recognition-list reveal reveal-delay"><p><span>01</span> AFS Global STEM Academies <b>Scholar · Certificate of Excellence</b></p><p><span>02</span> Climate Science Olympiad <b>Gold Medalist</b></p><p><span>03</span> The Junior Academy, NYAS <b>Research Scholar</b></p><p><span>04</span> Stanford Code in Place <b>Program participant</b></p><p><span>05</span> Girls Who Code · Kode With Klossy <b>Scholar</b></p></div></div>
-            <div class="recognition-marquee mono" aria-hidden="true"><span>RESEARCH</span><span>LEADERSHIP</span><span>STEM</span><span>IMPACT</span><span>RESEARCH</span><span>LEADERSHIP</span></div>
-        </section>
+    <section id="work" class="work section-purple section-space"><div class="page-width"><div class="section-heading light-heading"><div><p class="kicker yellow">05 / Selected work</p><h2>Building ideas<br /><span>into something real.</span></h2></div><p class="heading-note">Projects, platforms,<br />and the next version<br />of what’s possible.</p></div><div class="work-list">
+      <article class="work-item reveal"><div class="work-number mono">PROJECT 01</div><div><h3>Dear Future Luminary</h3><strong>Founder &amp; Program Director · 2024 – Present</strong><p>A student-led initiative built to make opportunities easier to discover and profiles easier to build.</p><b>500+ opportunities curated · 100+ students guided · 5+ countries reached</b><p>From scholarships and summer programs to STEM opportunities and profile building, the goal is simple: help students find what's out there and actually do something with it.</p><h4>What I built:</h4><p>Opportunity curation · Student guidance · Community building · Program design · Digital platform</p><i>I started it because I got tired of watching good opportunities stay hidden.</i></div><div class="work-mark">DFL<span>LIGHT THE WAY</span></div></article>
+      <article class="work-item reveal"><div class="work-number mono">PROJECT 02</div><div><h3>Web Development Projects</h3><strong>Kode With Klossy · 2024 – Present</strong><p>Collaborative web projects focused on turning ideas into functional digital experiences.</p><b>Project management · HTML/CSS · JavaScript · Team collaboration</b><i>Still learning. Still building. Occasionally breaking things and fixing them.</i></div><div class="work-mark work-mark-yellow">&lt;/&gt;<span>MAKE IT WORK</span></div></article>
+      <article class="work-item reveal"><div class="work-number mono">PROJECT 03</div><div><h3>Research &amp; Sustainability Projects</h3><strong>NYAS Junior Academy · 2023 – Present</strong><p>International research projects exploring sustainability, climate challenges, and evidence-based solutions with students from around the world.</p><b>Research · Sustainability · Problem solving · Global collaboration</b><i>Big questions. A lot of tabs open.</i></div><div class="work-mark work-mark-dark">◎<span>KEEP ASKING</span></div></article>
+      <article class="work-item reveal"><div class="work-number mono">PROJECT 04</div><div><h3>What I'm Building Next</h3><strong>Mechatronics Engineering · Alamein International University</strong><p>My next chapter is more hands-on: engineering projects, automation, embedded systems, and eventually building things that move, respond, and solve actual problems.</p><b>Engineering · Robotics · Automation · Embedded systems</b><i>From building opportunities to building things.</i></div><div class="work-mark work-mark-yellow">↗<span>IN PROGRESS</span></div></article>
+    </div></div></section>
 
-        <section class="skills section-shell" id="skills">
-            <div class="section-head reveal"><span class="section-number mono">05</span><p class="eyebrow">My current toolkit</p></div>
-            <div class="skills-grid"><h2 class="reveal">Logic on one side.<br><em>Humanity on the other.</em></h2><div class="skills-cloud reveal reveal-delay"><span>Front-end development</span><span>Systems thinking</span><span>Research</span><span>Leadership</span><span>Facilitation</span><span>Social media strategy</span><span>Graphic design</span><span>Content creation</span><span>Community building</span><span>Public speaking</span><span>Mentorship</span><span>Opportunity mapping</span></div></div>
-        </section>
+    <section id="leadership" class="leadership section-white section-space"><div class="page-width"><div class="section-heading"><div><p class="kicker">06 / Leadership &amp; Impact</p><h2>Building things<br /><em>with people.</em></h2></div><p class="heading-note">Not simply part<br />of the room.</p></div><p class="leadership-intro">I’ve always been more interested in <strong>building things with people</strong> than simply being part of the room.</p><div class="impact-grid"><article><span class="impact-number">01</span><h3>Leadership</h3><b>Team coordination · Project management · Community building</b><p>Led and coordinated teams across youth initiatives, research projects, educational platforms, and international programs.</p></article><article><span class="impact-number">02</span><h3>Community Impact</h3><b>100+ students guided · 500+ opportunities curated · 5+ countries reached</b><p>Created spaces and resources that make opportunities more accessible to students who might not know where to start.</p></article><article><span class="impact-number">03</span><h3>International Collaboration</h3><p>Worked with students, mentors, and teams from different countries and backgrounds through organizations including <strong>AFS, NYAS, The Junior Academy, UNICEF, and Kode With Klossy</strong>.</p><p>Different backgrounds. Different ideas.<br /><strong>Same goal: make something useful.</strong></p></article></div><div class="leadership-meaning"><span>What Leadership Means to Me</span><p>I don’t think leadership is about being the loudest person in the room.</p><p>It’s about <strong>taking ownership, making things happen, and making it easier for other people to do their best work too.</strong></p></div></div></section>
 
-        <section class="contact section-shell" id="contact">
-            <div class="contact-grid"><div><p class="eyebrow reveal"><span class="eyebrow-line"></span> Your move</p><h2 class="reveal">Let’s make<br><em>something matter.</em></h2></div><div class="contact-details reveal reveal-delay"><p>I’m always open to thoughtful collaborations, scholarship conversations, creative projects, and ideas that deserve a better first version.</p><a class="email-link" href="mailto:malak.elsalmawi.2027@aiu.edu.eg">malak.elsalmawi.2027@aiu.edu.eg <span>↗</span></a><p class="phone mono">01090879843</p><div class="social-row"><a href="https://www.linkedin.com/in/loka-luminary/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.youtube.com/@malak_luminary" target="_blank" rel="noreferrer">YouTube ↗</a></div></div></div>
-        </section>
-    </main>
+    <section id="education" class="education section-yellow section-space"><div class="page-width education-grid"><div><p class="kicker">07 / Education</p><h2>Learning how<br /><span>things work.</span></h2></div><div class="education-copy"><h3>Alamein International University</h3><strong>B.Eng. in Mechatronics Engineering · 2026 – Present</strong><p>Studying at the intersection of mechanical systems, electronics, control, and programming.</p><b>Current focus: Engineering fundamentals · Mathematics · Physics · Technical drawing</b><i>Currently learning how things work. Next step: making them work.</i></div></div></section>
 
-    <footer class="site-footer"><a class="wordmark" href="#top"><span>ME</span><small>/26</small></a><span class="mono">Developed by Malak Elsalmawi @ 2026 — all rights reserved</span><a class="back-top mono" href="#top">Back to top ↑</a></footer>
-    <script src="script.js"></script>
+    <section id="skills" class="skills section-white section-space"><div class="page-width"><div class="section-heading"><div><p class="kicker">08 / Skills</p><h2>Current<br /><em>toolkit.</em></h2></div><p class="heading-note">My skill set is<br />still under construction.</p></div><div class="skill-grid"><article><span>01</span><h3>Engineering &amp; Technical</h3><p>Engineering fundamentals · Technical drawing · Problem solving · Web development · Basic programming · Research</p></article><article><span>02</span><h3>Leadership &amp; Operations</h3><p>Project management · Team coordination · Operations · Event management · Student support</p></article><article><span>03</span><h3>Communication</h3><p>Public speaking · Mentoring · Community building · Cross-cultural collaboration</p></article><article><span>04</span><h3>Research &amp; Impact</h3><p>Research · Sustainability · Youth advocacy · Opportunity curation · Evidence-based problem solving</p></article><article><span>05</span><h3>Tools</h3><p>Microsoft Office · Google Workspace · Canva · Notion · GitHub</p></article></div><div class="learning-line"><span>Currently Learning</span><strong>Mechatronics · Programming · Automation · Embedded systems · Robotics</strong><p>My skill set is still under construction.<br /><b>That’s kind of the point.</b></p></div></div></section>
+
+    <section id="contact" class="contact section-blue section-space"><div class="page-width contact-grid"><div><p class="kicker yellow">09 / Connect</p><h2>Let’s make<br /><span>something useful.</span></h2></div><div class="contact-copy"><p>malak.elsalmawi.2027@aiu.edu.eg</p><a href="mailto:malak.elsalmawi.2027@aiu.edu.eg" class="contact-email">Let's connect <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/loka-luminary/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.youtube.com/@malak_luminary" target="_blank" rel="noreferrer">YouTube ↗</a><span>01090879843</span></div></div></div></section>
+  </main>
+  <footer class="site-footer"><a href="#home" class="brand-mark"><img src="dear.future.luminary.logo.svg.svg" alt="" /><span>Malak Elsalmawi</span></a><span>Developed by Malak Elsalmawi @ 2026 all rights reserved</span><a href="#home">Back to top ↑</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
